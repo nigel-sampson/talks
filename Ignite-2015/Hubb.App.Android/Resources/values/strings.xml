@@ -2,5 +2,5 @@
 <resources>
     <string name="Hello">Hello World, Click Me!</string>
     <string name="Navigation">Click to Navigate</string>
-    <string name="ApplicationName">Hubb.App.Android</string>
+    <string name="ApplicationName">Hubb</string>
 </resources>

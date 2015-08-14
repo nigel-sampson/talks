@@ -11,12 +11,13 @@ using Android.Views;
 using Android.Widget;
 using Android.Support.V4.App;
 using Hubb.App.Android.Activities;
+using Hubb.Core.ViewModels;
 
 namespace Hubb.App.Android
 {
     [Activity(Label = "SecondActivity", ParentActivity = typeof(LoginActivity))]
     [MetaData("android.support.PARENT_ACTIVITY", Value = ".MainActivity")]
-    public class SecondActivity : BaseActivity
+    public class SecondActivity : BaseActivity<RepositorySearchViewModel>
     {
         protected override int LayoutResource
         {

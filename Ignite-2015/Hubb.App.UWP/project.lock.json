@@ -11650,7 +11650,7 @@
   },
   "libraries": {
     "Caliburn.Micro/3.0.0-beta1": {
-      "sha512": "Dm2uSBgr/TyP1kZcl6e39x92Zs3cR0hlcq5WDV1l6e3HJ2uShNE9zq/p7muBsM6nQyAQV6werOXVsLMYNUTCgg==",
+      "sha512": "L3Und/cIKkl2ldatTcN/HnB+wl+K1pV4Qisx03e1Upsg3HV5M7wvncZDLwmNizbMjInKlPEuSHHIbb+wWyG4LA==",
       "type": "Package",
       "files": [
         "_rels/.rels",
@@ -11706,7 +11706,7 @@
         "lib/uap10.0/Microsoft.Xaml.Interactions.dll",
         "lib/uap10.0/Microsoft.Xaml.Interactivity.dll",
         "lib/uap10.0/Caliburn.Micro.Platform.UWP/Properties/Caliburn.Micro.Platform.UWP.rd.xml",
-        "package/services/metadata/core-properties/028997bcdf794b11b83e580e1d7b8f64.psmdcp",
+        "package/services/metadata/core-properties/42a9f168deff4e1ca0dcbecdbcea8c33.psmdcp",
         "[Content_Types].xml"
       ]
     },

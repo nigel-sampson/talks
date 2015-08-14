@@ -31,8 +31,7 @@ namespace Hubb.App.Android
 
         protected override void Configure()
         {
-            //ViewModelLocator.AddNamespaceMapping("Hubb.Native.App.UWP.Views", "Hubb.Core.ViewModels");
-            //ViewLocator.AddNamespaceMapping("Hubb.Core.ViewModels", "Hubb.Native.App.UWP.Views");
+            ViewModelLocator.AddNamespaceMapping("Hubb.App.Android.Activities", "Hello.Xamarin.Core.ViewModels");
 
             container = new SimpleContainer();
 
