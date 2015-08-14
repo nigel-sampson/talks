@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="Hubb.Native.App.UWP.Views.LoginView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cm="using:Caliburn.Micro"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Thickness x:Key="SeparatorThickness">0,0,0,24</Thickness>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Margin="24,0">
+            <TextBlock Text="Hubb" Style="{ThemeResource TitleTextBlockStyle}" Margin="{ThemeResource SeparatorThickness}"/>
+            <TextBox Header="Username" Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="{ThemeResource SeparatorThickness}" />
+            <PasswordBox Header="Password" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="{ThemeResource SeparatorThickness}" />
+            <Button cm:Message.Attach="Login" Content="Login to GitHub" HorizontalAlignment="Stretch"  Margin="{ThemeResource SeparatorThickness}" />
+            <TextBlock Text="{Binding Message}" Foreground="#FFF34235" Style="{StaticResource BodyTextBlockStyle}"/>
+        </StackPanel>
+    </Grid>
+</Page>
