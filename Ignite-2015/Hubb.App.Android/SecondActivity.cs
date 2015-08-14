@@ -10,10 +10,11 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Support.V4.App;
+using Hubb.App.Android.Activities;
 
 namespace Hubb.App.Android
 {
-    [Activity(Label = "SecondActivity", ParentActivity = typeof(MainActivity))]
+    [Activity(Label = "SecondActivity", ParentActivity = typeof(LoginActivity))]
     [MetaData("android.support.PARENT_ACTIVITY", Value = ".MainActivity")]
     public class SecondActivity : BaseActivity
     {
