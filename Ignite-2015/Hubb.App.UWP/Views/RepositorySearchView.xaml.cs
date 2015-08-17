@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Hubb.Native.App.UWP.Views
+namespace Hubb.App.UWP.Views
 {
     public sealed partial class RepositorySearchView
     {

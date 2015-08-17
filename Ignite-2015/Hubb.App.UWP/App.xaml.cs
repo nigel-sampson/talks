@@ -6,13 +6,13 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 using Caliburn.Micro;
+using Hubb.App.UWP.Services;
+using Hubb.App.UWP.Views;
 using Hubb.Core.Services;
 using Hubb.Core.ViewModels;
-using Hubb.Native.App.UWP.Services;
-using Hubb.Native.App.UWP.Views;
 using Octokit;
 
-namespace Hubb.Native.App.UWP
+namespace Hubb.App.UWP
 {
     public sealed partial class App
     {
@@ -25,8 +25,8 @@ namespace Hubb.Native.App.UWP
 
         protected override void Configure()
         {
-            ViewModelLocator.AddNamespaceMapping("Hubb.Native.App.UWP.Views", "Hubb.Core.ViewModels");
-            ViewLocator.AddNamespaceMapping("Hubb.Core.ViewModels", "Hubb.Native.App.UWP.Views");
+            ViewModelLocator.AddNamespaceMapping("Hubb.App.UWP.Views", "Hubb.Core.ViewModels");
+            ViewLocator.AddNamespaceMapping("Hubb.Core.ViewModels", "Hubb.App.UWP.Views");
 
             container = new WinRTContainer();
             container.RegisterWinRTServices();
@@ -49,6 +49,8 @@ namespace Hubb.Native.App.UWP
 
                 Debug.Write(e.Error.Message);
             };
+
+            ConventionManager.AddElementConvention<AutoSuggestBox>(AutoSuggestBox.TextProperty, "Text", "QuerySubmitted");
         }
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)

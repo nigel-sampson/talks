@@ -6,17 +6,10 @@
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
-    <LinearLayout
+    <ListView
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/main_content"
-        android:layout_below="@id/toolbar">
-        <TextView
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/textView1"
-            android:gravity="center" />
-    </LinearLayout>
+        android:id="@+id/RepositoryList"
+        android:layout_below="@id/toolbar" />
 </RelativeLayout>

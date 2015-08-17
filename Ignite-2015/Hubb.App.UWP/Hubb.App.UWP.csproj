@@ -7,8 +7,8 @@
     <ProjectGuid>{CC302C20-2355-42C2-AFC4-FE52D41191DC}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Hubb.Native.App.UWP</RootNamespace>
-    <AssemblyName>Hubb.Native.App.UWP</AssemblyName>
+    <RootNamespace>Hubb.App.UWP</RootNamespace>
+    <AssemblyName>Hubb.App.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>

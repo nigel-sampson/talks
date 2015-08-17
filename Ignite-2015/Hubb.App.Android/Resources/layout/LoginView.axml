@@ -26,7 +26,7 @@
             android:id="@+id/password"
             android:hint="Password" />
         <Button
-            android:text="Sign In"
+            android:text="Login to GitHub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/signIn"
@@ -36,6 +36,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/feedback"
-            android:textColor="#E74C3C" />
+            android:textColor="#F34235" />
     </LinearLayout>
 </RelativeLayout>

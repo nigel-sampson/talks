@@ -1,9 +1,8 @@
-﻿using System;
-using Caliburn.Micro;
+﻿using Caliburn.Micro;
 using Hubb.Core.Services;
 using Hubb.Core.ViewModels;
 
-namespace Hubb.Native.App.UWP.Services
+namespace Hubb.App.UWP.Services
 {
     public class AppNavigationService : IAppNavigationService
     {

@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Hubb.Native.App.UWP.Views.RepositorySearchView"
+    x:Class="Hubb.App.UWP.Views.RepositorySearchView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cm="using:Caliburn.Micro"
@@ -13,12 +13,12 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <SearchBox cm:Message.Attach="Search($this)" PlaceholderText="Search for a repository" Margin="24"/>
+        <AutoSuggestBox cm:Message.Attach="Search($this)" Margin="24" PlaceholderText="Search for a repository" />
 
-        <ListView Grid.Row="1" Padding="24,0,24,24" ItemsSource="{Binding Results}">
+        <ListView Grid.Row="1" Padding="12,0,12,24" ItemsSource="{Binding Results}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
+                    <StackPanel Margin="0,0,0,6">
                         <TextBlock Text="{Binding Name}" Style="{ThemeResource BodyTextBlockStyle}"/>
                         <TextBlock Text="{Binding Owner.Login}" Style="{ThemeResource CaptionTextBlockStyle}"/>
                     </StackPanel>

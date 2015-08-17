@@ -92,11 +92,12 @@
   <ItemGroup>
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\RepositorySearchActivity.cs" />
+    <Compile Include="Adapters\BoundAdapter.cs" />
+    <Compile Include="Adapters\RepositoryAdapter.cs" />
     <Compile Include="Application.cs" />
     <Compile Include="Activities\BaseActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SecondActivity.cs" />
     <Compile Include="Services\AppNavigationService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -104,14 +105,9 @@
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\second.axml">
-      <SubType>AndroidResource</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\toolbar.axml" />
-    <AndroidResource Include="Resources\layout\Login.axml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\main.axml" />
+    <AndroidResource Include="Resources\layout\Toolbar.axml" />
+    <AndroidResource Include="Resources\layout\LoginView.axml" />
+    <AndroidResource Include="Resources\layout\RepositorySearchView.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\strings.xml" />
@@ -134,6 +130,7 @@
     <AndroidResource Include="Resources\drawable-hdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-mdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
+    <AndroidResource Include="Resources\menu\Main.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hubb.Core\Hubb.Core.csproj">

@@ -8,11 +8,6 @@ namespace Hubb.App.Android.Activities
 {
     public abstract class BaseActivity<TViewModel> : AppCompatActivity
     {
-        protected BaseActivity()
-        {
-           
-        }
-
         public Toolbar Toolbar
         {
             get;
@@ -34,7 +29,7 @@ namespace Hubb.App.Android.Activities
                 SupportActionBar.SetHomeButtonEnabled(true);
             }
 
-            ViewModel = (TViewModel)ViewModelLocator.LocateForView(this);
+            ViewModel = (TViewModel) ViewModelLocator.LocateForView(this);
 
             var viewAware = ViewModel as IViewAware;
 

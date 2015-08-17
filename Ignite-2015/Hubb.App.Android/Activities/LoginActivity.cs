@@ -10,7 +10,7 @@ namespace Hubb.App.Android.Activities
     [Activity(Label = "@string/ApplicationName", MainLauncher = true, Icon = "@drawable/icon")]
     public class LoginActivity : BaseActivity<LoginViewModel>
     {
-        protected override int LayoutResource => Resource.Layout.Login;
+        protected override int LayoutResource => Resource.Layout.LoginView;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -26,20 +26,20 @@ namespace Hubb.App.Android.Activities
 
             var feedback = FindViewById<TextView>(Resource.Id.feedback);
 
-            //button.Click += async (s, e) => await ViewModel.Login();
+            button.Click += async (s, e) => await ViewModel.Login();
 
-            //EventHandler<TextChangedEventArgs> toggleSignIn = (s, e) =>
-            //{
-            //    ViewModel.Username = userName.Text;
-            //    ViewModel.Password = password.Text;
+            EventHandler<TextChangedEventArgs> toggleSignIn = (s, e) =>
+            {
+                ViewModel.Username = userName.Text;
+                ViewModel.Password = password.Text;
 
-            //    button.Enabled = ViewModel.CanLogin;
-            //};
+                button.Enabled = ViewModel.CanLogin;
+            };
 
-            //userName.TextChanged += toggleSignIn;
-            //password.TextChanged += toggleSignIn;
+            userName.TextChanged += toggleSignIn;
+            password.TextChanged += toggleSignIn;
 
-            //ViewModel.OnChanged(v => v.Message, () => feedback.Text = ViewModel.Message);
+            ViewModel.OnChanged(v => v.Message, () => feedback.Text = ViewModel.Message);
         }
     }
 }
