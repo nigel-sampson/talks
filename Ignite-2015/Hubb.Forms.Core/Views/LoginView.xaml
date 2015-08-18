@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hubb.Forms.Core.Views.LoginView"
+             xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
+             Title="Hubb">
+    <StackLayout Padding="24,12,24,0">
+        <Entry Placeholder="Username" Text="{Binding Username, Mode=TwoWay}" />
+        <Entry Placeholder="Password" IsPassword="True" Text="{Binding Password, Mode=TwoWay}" />
+        <Frame Padding="0,12">
+            <Button cm:Message.Attach="Login" Text="Login to GitHub" />
+        </Frame>
+        <Label Text="{Binding Message}" TextColor="#FFF34235" />
+    </StackLayout>
+</ContentPage>

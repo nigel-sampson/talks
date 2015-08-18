@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hubb.Forms.Core.Views.RepositorySearchView"
+             xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
+             Title="Repository Search">
+	<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <SearchBar cm:Message.Attach="Search($this)" Grid.Row="0" Placeholder="Search for a repository" />
+        <ListView Grid.Row="1" ItemsSource="{Binding Results}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" Detail="{Binding Owner.Login}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+	</Grid>
+</ContentPage>

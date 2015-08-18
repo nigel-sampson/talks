@@ -1,22 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-
 using Android.App;
-using Android.Content;
-using Android.OS;
 using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Caliburn.Micro;
-using Hubb.App.Android.Services;
 using Hubb.Core.Services;
 using Hubb.Core.ViewModels;
+using Hubb.Forms.Core.Services;
+using Hubb.Forms.Core.Views;
 using Octokit;
 
-namespace Hubb.App.Android
+namespace Hubb.Forms.App.Android
 {
     [Application(Label = "@string/ApplicationName", Icon = "@drawable/Icon")]
     public class Application : CaliburnApplication
@@ -38,35 +32,15 @@ namespace Hubb.App.Android
 
         protected override void Configure()
         {
-            ViewModelLocator.AddNamespaceMapping("Hubb.App.Android.Activities", "Hubb.Core.ViewModels");
-
             container = new SimpleContainer();
-
-            container
-                .Instance<IGitHubClient>(new GitHubClient(new ProductHeaderValue("hubb-android", "1.0.0")))
-                .Instance<IAppNavigationService>(new AppNavigationService(this));
-
-            container
-                .Singleton<IAuthenticationService, AuthenticationService>()
-                .Singleton<IRepositoryService, RepositoryService>();
-
-            container
-                .PerRequest<LoginViewModel>()
-                .PerRequest<RepositorySearchViewModel>();
-
-            //Coroutine.Completed += (s, e) =>
-            //{
-            //    if (e.Error == null)
-            //        return;
-
-            //    Debug.Write(e.Error.Message);
-            //};
+            container.Instance(container);
         }
 
         protected override IEnumerable<Assembly> SelectAssemblies()
         {
             yield return typeof(Application).GetTypeInfo().Assembly;
             yield return typeof(LoginViewModel).GetTypeInfo().Assembly;
+            yield return typeof(LoginView).GetTypeInfo().Assembly;
         }
 
         protected override object GetInstance(Type service, string key)
