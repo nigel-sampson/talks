@@ -53,14 +53,6 @@ namespace Hubb.App.Android
             container
                 .PerRequest<LoginViewModel>()
                 .PerRequest<RepositorySearchViewModel>();
-
-            //Coroutine.Completed += (s, e) =>
-            //{
-            //    if (e.Error == null)
-            //        return;
-
-            //    Debug.Write(e.Error.Message);
-            //};
         }
 
         protected override IEnumerable<Assembly> SelectAssemblies()

@@ -1,15 +1,17 @@
-﻿using Caliburn.Micro;
-using Hubb.Forms.Core;
+﻿using System;
+using Caliburn.Micro;
 
 namespace Hubb.Forms.App.Windows.Views
 {
-    public sealed partial class MainView
+    public partial class MainView
     {
         public MainView()
         {
             InitializeComponent();
-            
-            base.LoadApplication(new Application(IoC.Get<SimpleContainer>()));
+
+            Xamarin.Forms.Forms.Init();
+
+            LoadApplication(new Core.Application(IoC.Get<PhoneContainer>()));
         }
     }
 }
