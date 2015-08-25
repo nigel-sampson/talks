@@ -18,10 +18,11 @@
                 <DataTemplate>
                     <StackPanel cm:Bind.Model="{Binding}" Orientation="Horizontal">
                         <TextBlock x:Name="DisplayName" />
-                        <Button Content="X">
+                        <Button Content="&#xE106;">
                             <Button.Flyout>
                                 <MenuFlyout Placement="Bottom">
                                     <MenuFlyoutItem cm:Message.Attach="Close" Text="Close"/>
+                                    <MenuFlyoutItem cm:Message.Attach="CloseAllButThis" Text="Close All But This"/>
                                 </MenuFlyout>
                             </Button.Flyout>
                         </Button>
@@ -36,7 +37,7 @@
         </Pivot>
         
         <StackPanel Grid.Column="1">
-            <Button x:Name="OpenNewDocument" Content="+"/>
+            <Button x:Name="OpenNewDocument" Content="&#xE109;"/>
             <TextBlock Text="{Binding ActiveItem.DisplayName}"/>
         </StackPanel>
     </Grid>

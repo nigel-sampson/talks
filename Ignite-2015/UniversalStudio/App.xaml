@@ -5,4 +5,12 @@
     xmlns:cm="using:Caliburn.Micro"
     RequestedTheme="Light">
 
+    <cm:CaliburnApplication.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+            <Setter Property="FontFamily" Value="{ThemeResource SymbolThemeFontFamily}" />
+            <Setter Property="FontSize" Value="{ThemeResource GridViewHeaderItemThemeFontSize}"/>
+        </Style>
+    </cm:CaliburnApplication.Resources>
+
 </cm:CaliburnApplication>

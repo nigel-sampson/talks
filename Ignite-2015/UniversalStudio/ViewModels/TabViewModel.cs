@@ -15,7 +15,12 @@ namespace UniversalStudio.ViewModels
 
         public void Close()
         {
-            eventAggregator.PublishOnUIThread(new CloseTabMessage(this));
+            eventAggregator.PublishOnUIThread(new CloseTabMessage(this, false));
+        }
+
+        public void CloseAllButThis()
+        {
+            eventAggregator.PublishOnUIThread(new CloseTabMessage(this, true));
         }
     }
 }

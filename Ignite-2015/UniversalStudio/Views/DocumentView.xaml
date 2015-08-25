@@ -10,6 +10,6 @@
     d:DesignWidth="400">
 
     <Grid>
-       <TextBox x:Name="Body" Width="300"/>
+       <TextBlock Text="{Binding Body}" TextWrapping="WrapWholeWords"/>
     </Grid>
 </UserControl>

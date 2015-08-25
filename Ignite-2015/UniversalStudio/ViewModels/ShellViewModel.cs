@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Caliburn.Micro;
 using UniversalStudio.Messages;
 
@@ -27,7 +28,20 @@ namespace UniversalStudio.ViewModels
 
         public void Handle(CloseTabMessage message)
         {
-            DeactivateItem(message.Tab, true);
+            if (message.EverythingElse)
+            {
+                var tabsToClose = Items.Except(message.Tab).ToList();
+
+                foreach (var tab in tabsToClose)
+                {
+                    DeactivateItem(tab, true);
+                }
+            }
+            else
+            {
+                DeactivateItem(message.Tab, true);
+            }
+            
         }
 
         public void OpenNewDocument()
