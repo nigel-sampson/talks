@@ -46,6 +46,7 @@
     <Compile Include="Services\IAuthenticationService.cs" />
     <Compile Include="Services\IRepositoryService.cs" />
     <Compile Include="Services\RepositoryService.cs" />
+    <Compile Include="ViewModels\FodyLoginViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\NotifyPropertyChangedExtensions.cs" />
     <Compile Include="ViewModels\RepositorySearchViewModel.cs" />
