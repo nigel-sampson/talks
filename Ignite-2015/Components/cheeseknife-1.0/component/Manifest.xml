@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<component format="1" id="cheeseknife">
+  <name>Cheeseknife</name>
+  <publisher>Marcel Braghetto</publisher>
+  <publisher-url>https://github.com/marcelbraghetto/cheeseknife</publisher-url>
+  <version>1.0</version>
+  <summary>Cheeseknife - Xamarin.Android view injection library</summary>
+  <samples>
+    <sample id="Cheeseknife">
+      <name>Android Sample.</name>
+      <summary>Example of how to use Cheeseknife in your Android apps</summary>
+    </sample>
+  </samples>
+</component>
