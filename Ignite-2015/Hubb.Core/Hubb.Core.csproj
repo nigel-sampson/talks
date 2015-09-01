@@ -45,7 +45,9 @@
     <Compile Include="Services\IAppNavigationService.cs" />
     <Compile Include="Services\IAuthenticationService.cs" />
     <Compile Include="Services\IRepositoryService.cs" />
+    <Compile Include="Services\NoNetworkRepositoryService.cs" />
     <Compile Include="Services\RepositoryService.cs" />
+    <Compile Include="Services\NoNetworkAuthenticationService.cs" />
     <Compile Include="ViewModels\FodyLoginViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\NotifyPropertyChangedExtensions.cs" />

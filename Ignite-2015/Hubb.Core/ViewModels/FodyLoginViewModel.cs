@@ -26,7 +26,7 @@ namespace Hubb.Core.ViewModels
             set
             {
                 username = value;
-                NotifyOfPropertyChange(() => Username);
+                NotifyOfPropertyChange();
                 NotifyOfPropertyChange(() => CanLogin);
             }
         }
