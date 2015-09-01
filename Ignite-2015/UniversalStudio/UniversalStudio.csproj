@@ -100,6 +100,7 @@
     </Compile>
     <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="Messages\CloseTabMessage.cs" />
+    <Compile Include="Messages\ShowPropertiesMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\PropertiesViewModel.cs" />
     <Compile Include="ViewModels\DocumentViewModel.cs" />
@@ -107,6 +108,9 @@
     <Compile Include="ViewModels\TabViewModel.cs" />
     <Compile Include="Views\DocumentView.xaml.cs">
       <DependentUpon>DocumentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PropertiesView.xaml.cs">
+      <DependentUpon>PropertiesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
@@ -137,6 +141,10 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="Views\DocumentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PropertiesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

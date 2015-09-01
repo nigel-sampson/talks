@@ -6,7 +6,8 @@ using UniversalStudio.Messages;
 namespace UniversalStudio.ViewModels
 {
     public class ShellViewModel : Conductor<TabViewModel>.Collection.OneActive,
-        IHandle<CloseTabMessage>
+        IHandle<CloseTabMessage>,
+        IHandle<ShowPropertiesMessage>
     {
         private int documentCount;
         private readonly IEventAggregator eventAggregator;
@@ -42,6 +43,11 @@ namespace UniversalStudio.ViewModels
                 DeactivateItem(message.Tab, true);
             }
             
+        }
+
+        public void Handle(ShowPropertiesMessage message)
+        {
+            ActivateItem(new PropertiesViewModel(message.Tab, eventAggregator));
         }
 
         public void OpenNewDocument()

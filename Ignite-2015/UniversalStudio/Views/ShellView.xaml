@@ -9,8 +9,8 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         
         <Pivot ItemsSource="{Binding Items}" SelectedItem="{Binding ActiveItem, Mode=TwoWay}">
@@ -18,10 +18,11 @@
                 <DataTemplate>
                     <StackPanel cm:Bind.Model="{Binding}" Orientation="Horizontal">
                         <TextBlock x:Name="DisplayName" />
-                        <Button Content="&#xE106;">
+                        <Button Content="&#xE011;">
                             <Button.Flyout>
                                 <MenuFlyout Placement="Bottom">
-                                    <MenuFlyoutItem cm:Message.Attach="Close" Text="Close"/>
+                                    <MenuFlyoutItem cm:Message.Attach="ShowProperties" Text="Properties" />
+                                    <MenuFlyoutItem cm:Message.Attach="Close" Text="Close" />
                                     <MenuFlyoutItem cm:Message.Attach="CloseAllButThis" Text="Close All But This"/>
                                 </MenuFlyout>
                             </Button.Flyout>
@@ -38,7 +39,6 @@
         
         <StackPanel Grid.Column="1">
             <Button x:Name="OpenNewDocument" Content="&#xE109;"/>
-            <TextBlock Text="{Binding ActiveItem.DisplayName}"/>
         </StackPanel>
     </Grid>
 </Page>

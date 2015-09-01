@@ -13,6 +13,11 @@ namespace UniversalStudio.ViewModels
             this.eventAggregator = eventAggregator;
         }
 
+        public void ShowProperties()
+        {
+            eventAggregator.PublishOnUIThread(new ShowPropertiesMessage(this));
+        }
+
         public void Close()
         {
             eventAggregator.PublishOnUIThread(new CloseTabMessage(this, false));
