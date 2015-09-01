@@ -16,7 +16,11 @@ namespace Hubb.Core.Services
 
         public async Task<IReadOnlyList<Repository>> SearchAsync(string term)
         {
-            var result = await gitHubClient.Search.SearchRepo(new SearchRepositoriesRequest(term));
+            var result = await gitHubClient.Search.SearchRepo(new SearchRepositoriesRequest(term)
+            {
+                Page = 0,
+                PerPage = 20
+            });
 
             return result.Items;
         }
