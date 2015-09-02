@@ -14,7 +14,11 @@ namespace Hubb.Core.Services
         {
             var repos = new List<Repository>
             {
-                CreateRepository(name: "No Network", owner: CreateUser(login: "nigel-sampson"))
+                CreateRepository(name: "MVVM", owner: CreateUser(login: "lizelu")),
+                CreateRepository(name: "mvvm", owner: CreateUser(login: "JsAaron")),
+                CreateRepository(name: "MvvmCross", owner: CreateUser(login: "MvvmCross")),
+                CreateRepository(name: "MVVMReactiveCocoa", owner: CreateUser(login: "leichunfeng")),
+                CreateRepository(name: "mvvmFX", owner: CreateUser(login: "sialcasa"))
             };
 
             return Task.FromResult<IReadOnlyList<Repository>>(

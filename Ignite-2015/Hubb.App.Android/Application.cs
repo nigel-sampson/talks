@@ -47,8 +47,8 @@ namespace Hubb.App.Android
                 .Instance<IAppNavigationService>(new AppNavigationService(this));
 
             container
-                .Singleton<IAuthenticationService, AuthenticationService>()
-                .Singleton<IRepositoryService, RepositoryService>();
+                .Singleton<IAuthenticationService, NoNetworkAuthenticationService>()
+                .Singleton<IRepositoryService, NoNetworkRepositoryService>();
 
             container
                 .PerRequest<LoginViewModel>()
