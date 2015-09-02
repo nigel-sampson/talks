@@ -5,7 +5,7 @@ using Hubb.Core.Services;
 
 namespace Hubb.Core.ViewModels
 {
-    public class FodyLoginViewModel : Screen
+    public class NoFodyLoginViewModel : Screen
     {
         private readonly IAppNavigationService navigation;
         private readonly IAuthenticationService authentication;
@@ -14,7 +14,7 @@ namespace Hubb.Core.ViewModels
         private string password;
         private string message;
 
-        public FodyLoginViewModel(IAppNavigationService navigation, IAuthenticationService authentication)
+        public NoFodyLoginViewModel(IAppNavigationService navigation, IAuthenticationService authentication)
         {
             this.navigation = navigation;
             this.authentication = authentication;
