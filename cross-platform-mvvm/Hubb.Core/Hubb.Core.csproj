@@ -48,8 +48,8 @@
     <Compile Include="Services\NoNetworkRepositoryService.cs" />
     <Compile Include="Services\RepositoryService.cs" />
     <Compile Include="Services\NoNetworkAuthenticationService.cs" />
-    <Compile Include="ViewModels\FodyLoginViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\NoFodyLoginViewModel.cs" />
     <Compile Include="ViewModels\NotifyPropertyChangedExtensions.cs" />
     <Compile Include="ViewModels\RepositorySearchViewModel.cs" />
   </ItemGroup>
