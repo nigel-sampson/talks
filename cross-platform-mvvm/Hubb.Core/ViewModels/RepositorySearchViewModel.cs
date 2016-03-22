@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 using Hubb.Core.Services;
@@ -14,7 +15,7 @@ namespace Hubb.Core.ViewModels
         {
             this.repositories = repositories;
 
-            Results = new BindableCollection<Repository>();
+            Results = new BindableCollection<RepositoryListViewModel>();
         }
 
         public async Task Search(string term)
@@ -22,9 +23,9 @@ namespace Hubb.Core.ViewModels
             var results = await repositories.SearchAsync(term);
 
             Results.Clear();
-            Results.AddRange(results);
+            Results.AddRange(results.Select(r => new RepositoryListViewModel(r)));
         }
 
-        public BindableCollection<Repository> Results { get; }
+        public BindableCollection<RepositoryListViewModel> Results { get; }
     }
 }

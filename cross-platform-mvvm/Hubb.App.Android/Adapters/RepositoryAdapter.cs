@@ -3,16 +3,17 @@ using System.ComponentModel;
 using Android.Views;
 using Android.Widget;
 using Caliburn.Micro;
+using Hubb.Core.ViewModels;
 using Octokit;
 using Activity = Android.App.Activity;
 
 namespace Hubb.App.Android.Adapters
 {
-    public class RepositoryAdapter : BoundAdapter<Repository>
+    public class RepositoryAdapter : BoundAdapter<RepositoryListViewModel>
     {
         private readonly Activity activity;
 
-        public RepositoryAdapter(Activity activity, BindableCollection<Repository> items) 
+        public RepositoryAdapter(Activity activity, BindableCollection<RepositoryListViewModel> items) 
             : base(items)
         {
             this.activity = activity;
@@ -31,7 +32,7 @@ namespace Hubb.App.Android.Adapters
             return view;
         }
 
-        protected override long GetItemId(Repository item)
+        protected override long GetItemId(RepositoryListViewModel item)
         {
             return item.Id;
         }

@@ -41,6 +41,9 @@
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RepositoryListView.xaml.cs">
+      <DependentUpon>RepositoryListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RepositorySearchView.xaml.cs">
       <DependentUpon>RepositorySearchView.xaml</DependentUpon>
     </Compile>
@@ -106,6 +109,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\RepositoryListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

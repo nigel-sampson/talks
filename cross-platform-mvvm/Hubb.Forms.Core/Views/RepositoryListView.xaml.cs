@@ -2,9 +2,9 @@
 
 namespace Hubb.Forms.Core.Views
 {
-    public partial class RepositorySearchView
+    public partial class RepositoryListView
     {
-        public RepositorySearchView()
+        public RepositoryListView()
         {
             InitializeComponent();
         }
