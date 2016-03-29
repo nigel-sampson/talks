@@ -40,8 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ExpenseItem.cs" />
+    <Compile Include="Services\ExpenseService.cs" />
     <Compile Include="Services\IAuthenticationService.cs" />
     <Compile Include="Services\IApplicationNavigationService.cs" />
+    <Compile Include="Services\IExpenseService.cs" />
     <Compile Include="ViewModels\CurrentExpensesViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
   </ItemGroup>
