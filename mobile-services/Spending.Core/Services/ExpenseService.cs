@@ -16,11 +16,24 @@ namespace Spending.Core.Services
 
         public async Task<IReadOnlyCollection<ExpenseItem>> GetTodaysExpensesAsync()
         {
-            var limit = DateTimeOffset.Now.AddHours(-24);
+            var midnight = new DateTimeOffset(DateTime.Today, DateTimeOffset.Now.Offset);
 
-            var expenses = await table.Where(e => e.Occurred >= limit).ToListAsync();
+            var expenses = await table.Where(e => e.Occurred >= midnight).ToListAsync();
 
             return expenses.ToArray();
+        }
+
+        public async Task<ExpenseItem> CreateAsync(decimal amount)
+        {
+            var expenseItem = new ExpenseItem
+            {
+                Amount = amount,
+                Occurred = DateTimeOffset.UtcNow
+            };
+
+            await table.InsertAsync(expenseItem);
+
+            return expenseItem;
         }
     }
 }

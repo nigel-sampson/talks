@@ -18,5 +18,10 @@ namespace Spending.App.Windows.Services
         {
             navigation.For<CurrentExpensesViewModel>().Navigate();
         }
+
+        public void ToAddExpense()
+        {
+            navigation.For<AddExpenseViewModel>().Navigate();
+        }
     }
 }

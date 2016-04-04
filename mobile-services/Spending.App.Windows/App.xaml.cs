@@ -29,13 +29,18 @@ namespace Spending.App.Windows
             container = new WinRTContainer();
             container.RegisterWinRTServices();
 
-            container.Instance<IMobileServiceClient>(new MobileServiceClient("https://spending.azurewebsites.net"));
+            container
+                .Instance<IMobileServiceClient>(new MobileServiceClient("https://spending.azurewebsites.net"));
 
             container
-                .Singleton<IAuthenticationService, AuthenticationService>();
+                .Singleton<IAuthenticationService, AuthenticationService>()
+                .Singleton<IApplicationNavigationService, ApplicationNavigationService>()
+                .Singleton<IExpenseService, ExpenseService>();
 
             container
-                .PerRequest<LoginViewModel>();
+                .PerRequest<LoginViewModel>()
+                .PerRequest<CurrentExpensesViewModel>()
+                .PerRequest<AddExpenseViewModel>();
         }
 
         protected override void PrepareViewFirst(Frame rootFrame)

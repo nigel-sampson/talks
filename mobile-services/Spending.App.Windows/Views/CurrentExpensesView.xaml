@@ -7,6 +7,14 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <Border Background="{ThemeResource SystemControlHighlightAccentBrush}" Padding="20" Margin="0,0,0,20">
+            <TextBlock Text="Expenses" Style="{StaticResource SubtitleTextBlockStyle}" Foreground="{ThemeResource AppBarBackgroundThemeBrush}" FontWeight="Black" FontSize="30"/>
+        </Border>
+        
     </Grid>
 </Page>

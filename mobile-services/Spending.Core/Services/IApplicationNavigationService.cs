@@ -5,5 +5,6 @@ namespace Spending.Core.Services
     public interface IApplicationNavigationService
     {
         void ToCurrentExpenses();
+        void ToAddExpense();
     }
 }
