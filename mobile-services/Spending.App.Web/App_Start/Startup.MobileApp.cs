@@ -2,9 +2,9 @@
 using System.Configuration;
 using System.Data.Entity;
 using System.Web.Http;
-using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Authentication;
 using Microsoft.Azure.Mobile.Server.Config;
+using Newtonsoft.Json;
 using Owin;
 
 namespace Spending.App.Web
@@ -14,6 +14,10 @@ namespace Spending.App.Web
         public static void ConfigureMobileApp(IAppBuilder app)
         {
             var config = new HttpConfiguration();
+
+            config.Formatters.JsonFormatter.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.RoundtripKind;
+            config.Formatters.JsonFormatter.SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
+            config.Formatters.JsonFormatter.SerializerSettings.DateParseHandling = DateParseHandling.DateTimeOffset;
 
             new MobileAppConfiguration()
                 .UseDefaultConfiguration()
