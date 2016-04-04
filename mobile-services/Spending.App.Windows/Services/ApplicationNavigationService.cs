@@ -23,5 +23,10 @@ namespace Spending.App.Windows.Services
         {
             navigation.For<AddExpenseViewModel>().Navigate();
         }
+
+        public void Back()
+        {
+            navigation.GoBack();
+        }
     }
 }

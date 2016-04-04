@@ -1,14 +1,26 @@
 ﻿using System;
 using System.Globalization;
 using Caliburn.Micro;
+using PropertyChanged;
+using Spending.Core.Services;
 
 namespace Spending.Core.ViewModels
 {
     public class AddExpenseViewModel : Screen
     {
+        private readonly IExpenseService expenses;
+        private readonly IApplicationNavigationService applicationNavigation;
+
+        public AddExpenseViewModel(IExpenseService expenses, IApplicationNavigationService applicationNavigation)
+        {
+            this.expenses = expenses;
+            this.applicationNavigation = applicationNavigation;
+        }
+
         public string Text { get; set; }
 
-        public bool CanAdd
+        [DependsOn(nameof(Text))]
+        public bool CanSave
         {
             get
             {
@@ -18,9 +30,16 @@ namespace Spending.Core.ViewModels
             }
         }
 
-        public void Add()
+        public async void Save()
         {
-            
+            decimal amount;
+
+            if (!Decimal.TryParse(Text, NumberStyles.Any, CultureInfo.CurrentUICulture, out amount))
+                return;
+
+            await expenses.CreateAsync(amount);
+
+            applicationNavigation.Back();
         }
     }
 }

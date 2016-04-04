@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Caliburn.Micro;
 using Spending.Core.Services;
 
@@ -14,14 +15,15 @@ namespace Spending.Core.ViewModels
             this.expenses = expenses;
             this.applicationNavigation = applicationNavigation;
 
-            ExpenseItems = new BindableCollection<ExpenseItem>();
+            ExpenseItems = new BindableCollection<ExpenseItemViewModel>();
         }
 
-        protected async override void OnInitialize()
+        protected override async void OnActivate()
         {
             var expenseItems = await expenses.GetTodaysExpensesAsync();
 
-            ExpenseItems.AddRange(expenseItems);
+            ExpenseItems.Clear();
+            ExpenseItems.AddRange(expenseItems.Select(e => new ExpenseItemViewModel(e)));
         }
 
         public void Add()
@@ -29,6 +31,6 @@ namespace Spending.Core.ViewModels
             applicationNavigation.ToAddExpense();
         }
 
-        public BindableCollection<ExpenseItem> ExpenseItems { get; }
+        public BindableCollection<ExpenseItemViewModel> ExpenseItems { get; }
     }
 }

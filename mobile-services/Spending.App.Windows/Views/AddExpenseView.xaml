@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="Spending.App.Windows.Views.AddExpenseView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cm="using:Caliburn.Micro"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton cm:Message.Attach="Save" Label="Save" Icon="Save" />
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Background="{ThemeResource SystemControlHighlightAccentBrush}" Padding="20" Margin="0,0,0,20">
+                <TextBlock Text="Add Expense" Style="{StaticResource SubtitleTextBlockStyle}" Foreground="{ThemeResource AppBarBackgroundThemeBrush}" FontWeight="Black" FontSize="30"/>
+            </Border>
+
+            <Border Grid.Row="1" Padding="20,0">
+                <StackPanel>
+                    <TextBox Header="Amount" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+            </Border>
+            
+        </Grid>
+    </Grid>
+</Page>
+

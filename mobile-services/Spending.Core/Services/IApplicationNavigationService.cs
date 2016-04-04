@@ -6,5 +6,6 @@ namespace Spending.Core.Services
     {
         void ToCurrentExpenses();
         void ToAddExpense();
+        void Back();
     }
 }
