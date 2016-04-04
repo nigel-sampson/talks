@@ -69,7 +69,7 @@ echo Handling .NET Web Application deployment.
 
 :: 1. Restore NuGet packages
 IF /I "mobile-services\MobileServices.sln" NEQ "" (
-  call :ExecuteCmd nuget restore "%DEPLOYMENT_SOURCE%\mobile-services\Spending.App.Web\Spending.App.Web.csproj"
+  call :ExecuteCmd nuget restore "%DEPLOYMENT_SOURCE%\mobile-services\Spending.App.Web\Spending.App.Web.csproj" -packagesdirectory "%DEPLOYMENT_SOURCE%\mobile-services\packages"
   IF !ERRORLEVEL! NEQ 0 goto error
 )
 
