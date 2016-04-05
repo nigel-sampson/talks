@@ -7,5 +7,8 @@ namespace Spending.Core.Services
     {
         Task<IReadOnlyCollection<ExpenseItem>> GetTodaysExpensesAsync();
         Task<ExpenseItem> CreateAsync(decimal amount);
+
+        Task PushAsync();
+        Task PullAsync();
     }
 }

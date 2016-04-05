@@ -6,9 +6,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:cm="using:Caliburn.Micro"
     mc:Ignorable="d">
-    
+
     <Page.BottomAppBar>
         <CommandBar>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton cm:Message.Attach="Push" Icon="Upload" Label="Push"/>
+                <AppBarButton cm:Message.Attach="Pull" Icon="Download" Label="Pull"/>
+            </CommandBar.SecondaryCommands>
             <CommandBar.PrimaryCommands>
                 <AppBarButton cm:Message.Attach="Add" Label="Add" Icon="Add" />
             </CommandBar.PrimaryCommands>
@@ -35,7 +39,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
+
     </Grid>
 </Page>
 

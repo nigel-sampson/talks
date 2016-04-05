@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
+using Microsoft.WindowsAzure.MobileServices.Sync;
 
 namespace Spending.Core.Services
 {
     public class ExpenseService : IExpenseService
     {
-        private readonly IMobileServiceTable<ExpenseItem> table;
+        private readonly IMobileServiceClient mobileService;
+        private readonly IMobileServiceSyncTable<ExpenseItem> table;
 
         public ExpenseService(IMobileServiceClient mobileService)
         {
-            table = mobileService.GetTable<ExpenseItem>();
+            this.mobileService = mobileService;
+            table = mobileService.GetSyncTable<ExpenseItem>();
         }
 
         public async Task<IReadOnlyCollection<ExpenseItem>> GetTodaysExpensesAsync()
@@ -34,6 +37,16 @@ namespace Spending.Core.Services
             await table.InsertAsync(expenseItem);
 
             return expenseItem;
+        }
+
+        public Task PushAsync()
+        {
+            return mobileService.SyncContext.PushAsync();
+        }
+
+        public Task PullAsync()
+        {
+            return table.PullAsync("expenses", table.CreateQuery());
         }
     }
 }
