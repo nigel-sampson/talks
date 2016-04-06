@@ -99,6 +99,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ApplicationNavigationService.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\NotificationsService.cs" />
     <Compile Include="Views\AddExpenseView.xaml.cs">
       <DependentUpon>AddExpenseView.xaml</DependentUpon>
     </Compile>

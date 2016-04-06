@@ -46,6 +46,7 @@
     <Compile Include="Services\IAuthenticationService.cs" />
     <Compile Include="Services\IApplicationNavigationService.cs" />
     <Compile Include="Services\IExpenseService.cs" />
+    <Compile Include="Services\INotificationsService.cs" />
     <Compile Include="ViewModels\AddExpenseViewModel.cs" />
     <Compile Include="ViewModels\CurrentExpensesViewModel.cs" />
     <Compile Include="ViewModels\ExpenseItemViewModel.cs" />

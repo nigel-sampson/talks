@@ -3,39 +3,38 @@ using System.Linq;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 using Microsoft.WindowsAzure.MobileServices;
-using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Spending.Core.Services;
 
 namespace Spending.Core.ViewModels
 {
     public class CurrentExpensesViewModel : Screen
     {
-        private readonly IMobileServiceClient mobileService;
         private readonly IExpenseService expenses;
         private readonly IApplicationNavigationService applicationNavigation;
+        private readonly INotificationsService notifications;
 
         public CurrentExpensesViewModel(
-            IMobileServiceClient mobileService,
             IExpenseService expenses, 
-            IApplicationNavigationService applicationNavigation)
+            IApplicationNavigationService applicationNavigation,
+            INotificationsService notifications)
         {
-            this.mobileService = mobileService;
             this.expenses = expenses;
             this.applicationNavigation = applicationNavigation;
+            this.notifications = notifications;
 
             ExpenseItems = new BindableCollection<ExpenseItemViewModel>();
         }
 
+        protected override async void OnInitialize()
+        {
+            base.OnInitialize();
+
+            await notifications.InitaliseAsync();
+        }
+
         protected override async void OnActivate()
         {
-            if (!mobileService.SyncContext.IsInitialized)
-            {
-                var store = new MobileServiceSQLiteStore("localstore.db");
-
-                store.DefineTable<ExpenseItem>();
-
-                await mobileService.SyncContext.InitializeAsync(store);
-            }
+            await expenses.InitaliseAsync();
 
             await LoadExpensesAsync();
         }

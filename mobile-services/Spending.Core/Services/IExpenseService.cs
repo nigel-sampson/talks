@@ -10,5 +10,6 @@ namespace Spending.Core.Services
 
         Task PushAsync();
         Task PullAsync();
+        Task InitaliseAsync();
     }
 }

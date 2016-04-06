@@ -35,7 +35,8 @@ namespace Spending.App.Windows
             container
                 .Singleton<IAuthenticationService, AuthenticationService>()
                 .Singleton<IApplicationNavigationService, ApplicationNavigationService>()
-                .Singleton<IExpenseService, ExpenseService>();
+                .Singleton<IExpenseService, ExpenseService>()
+                .Singleton<INotificationsService, NotificationsService>();
 
             container
                 .PerRequest<LoginViewModel>()

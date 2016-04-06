@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
+using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 
 namespace Spending.Core.Services
@@ -15,6 +16,18 @@ namespace Spending.Core.Services
         {
             this.mobileService = mobileService;
             table = mobileService.GetSyncTable<ExpenseItem>();
+        }
+
+        public async Task InitaliseAsync()
+        {
+            if (mobileService.SyncContext.IsInitialized)
+                return;
+            
+            var store = new MobileServiceSQLiteStore("localstore.db");
+
+            store.DefineTable<ExpenseItem>();
+
+            await mobileService.SyncContext.InitializeAsync(store);
         }
 
         public async Task<IReadOnlyCollection<ExpenseItem>> GetTodaysExpensesAsync()
