@@ -8,7 +8,7 @@ namespace Spending.App.Android.Services
     {
         public Task InitaliseAsync()
         {
-            throw new NotImplementedException();
+            return Task.FromResult(true);
         }
     }
 }

@@ -5,7 +5,7 @@
     android:layout_height="fill_parent">
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        layout="@layout/ToolBarView" />
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"

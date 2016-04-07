@@ -6,7 +6,7 @@ using Spending.Core.ViewModels;
 
 namespace Spending.App.Android.Activities
 {
-    [Activity(Label = "Spending", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Spending", MainLauncher = false, Icon = "@drawable/icon")]
     public class LoginActivity : BaseActivity<LoginViewModel>
     {
         protected override int LayoutResource => Resource.Layout.LoginView;
