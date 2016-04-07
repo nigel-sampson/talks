@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spending.App.Windows", "Spe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spending.App.Web", "Spending.App.Web\Spending.App.Web.csproj", "{290D8A97-2F17-4620-B089-B215E5AB8DF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spending.App.Android", "Spending.App.Android\Spending.App.Android.csproj", "{E033292C-1101-44F4-867D-083EF8DB215F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,30 @@ Global
 		{290D8A97-2F17-4620-B089-B215E5AB8DF9}.Release|x64.Build.0 = Release|Any CPU
 		{290D8A97-2F17-4620-B089-B215E5AB8DF9}.Release|x86.ActiveCfg = Release|Any CPU
 		{290D8A97-2F17-4620-B089-B215E5AB8DF9}.Release|x86.Build.0 = Release|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Debug|ARM.Build.0 = Debug|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Debug|ARM.Deploy.0 = Debug|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Debug|x64.Build.0 = Debug|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Debug|x64.Deploy.0 = Debug|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Debug|x86.Build.0 = Debug|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Debug|x86.Deploy.0 = Debug|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Release|ARM.ActiveCfg = Release|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Release|ARM.Build.0 = Release|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Release|ARM.Deploy.0 = Release|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Release|x64.ActiveCfg = Release|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Release|x64.Build.0 = Release|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Release|x64.Deploy.0 = Release|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Release|x86.ActiveCfg = Release|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Release|x86.Build.0 = Release|Any CPU
+		{E033292C-1101-44F4-867D-083EF8DB215F}.Release|x86.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
