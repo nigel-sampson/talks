@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
     <include
@@ -11,16 +11,23 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/main_content"
-        android:layout_below="@id/toolbar">
+        android:layout_below="@id/toolbar"
+        android:layout_margin="20dp">
+        <TextView
+            android:text="Sign in with"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp" />
         <Button
-            android:id="@+id/my_button"
+            android:id="@+id/MicosoftAccountButton"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Hello" />
+            android:text="Microsoft Account"
+            android:layout_marginBottom="10dp" />
         <Button
-            android:id="@+id/nav_button"
+            android:id="@+id/ActiveDirectoryButton"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Navigation" />
+            android:text="Active Directory" />
     </LinearLayout>
 </RelativeLayout>

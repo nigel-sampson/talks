@@ -32,10 +32,13 @@ namespace Spending.App.Android
 
         protected override void Configure()
         {
+            ViewModelLocator.AddNamespaceMapping("Spending.App.Android.Activities", "Spending.Core.ViewModels");
+
             container = new SimpleContainer();
 
             container
-                .Instance<IMobileServiceClient>(new MobileServiceClient("https://spending.azurewebsites.net"));
+                .Instance<IMobileServiceClient>(new MobileServiceClient("https://spending.azurewebsites.net"))
+                .Instance(this);
 
             container
                 .Singleton<IAuthenticationService, AuthenticationService>()

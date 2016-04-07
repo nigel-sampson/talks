@@ -57,6 +57,9 @@
       <HintPath>..\packages\Caliburn.Micro.3.0.0\lib\MonoAndroid10\Caliburn.Micro.Platform.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Cheeseknife">
+      <HintPath>..\Components\cheeseknife-1.0\lib\android\Cheeseknife.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.WindowsAzure.Mobile, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Mobile.Client.2.0.1\lib\monoandroid\Microsoft.WindowsAzure.Mobile.dll</HintPath>
       <Private>True</Private>
@@ -115,9 +118,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
-    <Compile Include="BaseActivity.cs" />
+    <Compile Include="Activities\BaseActivity.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
-    <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecondActivity.cs" />
@@ -130,9 +132,6 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\toolbar.axml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\main.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\strings.xml" />
@@ -162,12 +161,21 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <AndroidResource Include="Resources\layout\LoginView.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Spending.Core\Spending.Core.csproj">
       <Project>{6a81f152-a526-474a-9699-aff0f8b85d79}</Project>
       <Name>Spending.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="cheeseknife">
+      <Visible>False</Visible>
+      <Version>1.0</Version>
+    </XamarinComponentReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.2.1\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

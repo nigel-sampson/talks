@@ -1496,6 +1496,12 @@ namespace Spending.App.Android
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f0b0053
+			public const int ActiveDirectoryButton = 2131427411;
+			
+			// aapt resource value: 0x7f0b0052
+			public const int MicosoftAccountButton = 2131427410;
+			
 			// aapt resource value: 0x7f0b0054
 			public const int action0 = 2131427412;
 			
@@ -1642,12 +1648,6 @@ namespace Spending.App.Android
 			
 			// aapt resource value: 0x7f0b0014
 			public const int multiply = 2131427348;
-			
-			// aapt resource value: 0x7f0b0052
-			public const int my_button = 2131427410;
-			
-			// aapt resource value: 0x7f0b0053
-			public const int nav_button = 2131427411;
 			
 			// aapt resource value: 0x7f0b001f
 			public const int never = 2131427359;
@@ -1910,7 +1910,7 @@ namespace Spending.App.Android
 			public const int abc_select_dialog_material = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int main = 2130903065;
+			public const int LoginView = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
 			public const int notification_media_action = 2130903066;
@@ -1967,14 +1967,8 @@ namespace Spending.App.Android
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f050016
-			public const int ApplicationName = 2131034134;
-			
 			// aapt resource value: 0x7f050014
-			public const int Hello = 2131034132;
-			
-			// aapt resource value: 0x7f050015
-			public const int Navigation = 2131034133;
+			public const int ApplicationName = 2131034132;
 			
 			// aapt resource value: 0x7f050000
 			public const int abc_action_bar_home_description = 2131034112;
