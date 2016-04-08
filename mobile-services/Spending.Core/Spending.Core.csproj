@@ -51,6 +51,7 @@
     <Compile Include="ViewModels\CurrentExpensesViewModel.cs" />
     <Compile Include="ViewModels\ExpenseItemViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\NotifyPropertyChangedExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Caliburn.Micro, Version=2.0.2.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">

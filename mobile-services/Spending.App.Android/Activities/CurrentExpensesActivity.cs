@@ -9,7 +9,7 @@ using Spending.Core.ViewModels;
 
 namespace Spending.App.Android.Activities
 {
-    [Activity(Label = "Expenses", MainLauncher = true)]
+    [Activity(Label = "Expenses")]
     public class CurrentExpensesActivity : BaseActivity<CurrentExpensesViewModel>
     {
         [InjectView(Resource.Id.ExpenseList)]

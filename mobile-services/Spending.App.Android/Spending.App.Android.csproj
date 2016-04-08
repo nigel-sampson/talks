@@ -117,7 +117,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activities\AddExpenseActvity.cs" />
+    <Compile Include="Activities\AddExpenseActivity.cs" />
     <Compile Include="Activities\CurrentExpensesActivity.cs" />
     <Compile Include="Adapters\BindableCollectionAdapter.cs" />
     <Compile Include="Adapters\ExpenseAdapter.cs" />
@@ -166,6 +166,9 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\CurrentExpensesView.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\AddExpenseView.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>

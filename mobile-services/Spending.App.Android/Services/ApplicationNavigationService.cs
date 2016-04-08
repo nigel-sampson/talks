@@ -25,7 +25,7 @@ namespace Spending.App.Android.Services
 
         public void ToAddExpense()
         {
-            currentActivity.StartActivity(typeof(AddExpenseActvity));
+            currentActivity.StartActivity(typeof(AddExpenseActivity));
         }
 
         public void Back()

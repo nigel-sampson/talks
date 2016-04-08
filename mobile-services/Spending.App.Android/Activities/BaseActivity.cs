@@ -1,7 +1,9 @@
 using System;
 using Android.OS;
+using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
+using Android.Views;
 using Caliburn.Micro;
 using Com.Lilarcor.Cheeseknife;
 
@@ -33,8 +35,20 @@ namespace Spending.App.Android.Activities
 
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetHomeButtonEnabled(true);
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
 
             ScreenExtensions.TryActivate(ViewModel);
+        }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+
+            ScreenExtensions.TryDeactivate(ViewModel, false);
         }
 
         protected abstract int LayoutResource
@@ -48,5 +62,19 @@ namespace Spending.App.Android.Activities
         }
 
         protected TViewModel ViewModel { get; private set; }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.home:
+
+                    NavUtils.NavigateUpFromSameTask(this);
+
+                    break;
+            }
+
+            return base.OnOptionsItemSelected(item);
+        }
     }
 }
