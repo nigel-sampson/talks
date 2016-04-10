@@ -63,12 +63,15 @@ namespace Spending.App.Web.Controllers
             var hub = NotificationHubClient.CreateClientFromConnectionString(hubConnection, hubName);
 
             var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">We've got a big spender here!</text></binding></visual></toast>";
+            var androidPayload = @"{""data"":{""message"":""We've got a big spender here!""}}";
 
             try
             {
-                var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
+                var windowsResult = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
+                var androidResult = await hub.SendGcmNativeNotificationAsync(androidPayload);
 
-                Configuration.Services.GetTraceWriter().Info(result.State.ToString());
+                Configuration.Services.GetTraceWriter().Info(windowsResult.State.ToString());
+                Configuration.Services.GetTraceWriter().Info(androidResult.State.ToString());
             }
             catch (Exception ex)
             {
