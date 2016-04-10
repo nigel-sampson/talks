@@ -1,17 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.Gms.Gcm;
 using Android.Gms.Gcm.Iid;
-using Android.OS;
-using Android.Runtime;
 using Android.Util;
-using Android.Views;
-using Android.Widget;
 using Caliburn.Micro;
 using Microsoft.WindowsAzure.MobileServices;
 

@@ -31,8 +31,8 @@ namespace Spending.App.Android.Services
             var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
             var notificationBuilder = new Notification.Builder(this)
-                //.SetSmallIcon(Resource.Drawable.ic_)
-                .SetContentTitle("GCM Message")
+                .SetSmallIcon(Resource.Drawable.Icon)
+                .SetContentTitle("Spending")
                 .SetContentText(message)
                 .SetAutoCancel(true)
                 .SetContentIntent(pendingIntent);
