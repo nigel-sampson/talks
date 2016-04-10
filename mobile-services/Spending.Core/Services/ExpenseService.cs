@@ -32,9 +32,12 @@ namespace Spending.Core.Services
 
         public async Task<IReadOnlyCollection<ExpenseItem>> GetTodaysExpensesAsync()
         {
-            var midnight = new DateTimeOffset(DateTime.Today, DateTimeOffset.Now.Offset);
+            var limit = DateTimeOffset.UtcNow.AddHours(-24);
 
-            var expenses = await table.Where(e => e.Occurred >= midnight).ToListAsync();
+            var expenses = await table
+                .Where(e => e.Occurred >= limit)
+                .OrderByDescending(e => e.Occurred)
+                .ToListAsync();
 
             return expenses.ToArray();
         }
