@@ -10,11 +10,10 @@ using Spending.App.Android.Services;
 using Spending.Core.Services;
 using Spending.Core.ViewModels;
 
-[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-[assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
+[assembly: Permission(Name = "spending.app.android.permission.C2D_MESSAGE")]
+[assembly: UsesPermission(Name = "spending.app.android.permission.C2D_MESSAGE")]
 
-[assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
+[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
 [assembly: UsesPermission(Name = "android.permission.INTERNET")]
 [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
 

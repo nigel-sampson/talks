@@ -144,6 +144,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ApplicationNavigationService.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\NotificationInstanceIdListenerService.cs" />
+    <Compile Include="Services\NotificationIntentService.cs" />
+    <Compile Include="Services\NotificationListenerService.cs" />
     <Compile Include="Services\NotificationsService.cs" />
   </ItemGroup>
   <ItemGroup>
