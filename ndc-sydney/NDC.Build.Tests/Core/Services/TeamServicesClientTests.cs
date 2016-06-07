@@ -3,11 +3,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using NDC.Build.Core.Model;
 using NDC.Build.Core.Services;
-using NDC.Build.Tests.Core.Services;
 using Xunit;
 
-namespace NDC.Build.Tests.Core
+namespace NDC.Build.Tests.Core.Services
 {
+    [Trait("Category", "Integration")]
     public class TeamServicesClientTests
     {
         [Fact]

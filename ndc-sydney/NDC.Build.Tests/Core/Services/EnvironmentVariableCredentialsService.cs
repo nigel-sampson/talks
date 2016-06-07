@@ -19,5 +19,10 @@ namespace NDC.Build.Tests.Core.Services
 
             return Task.FromResult(new Credentials(account, token));
         }
+
+        public Task StoreAsync(Credentials credentials)
+        {
+            throw new NotSupportedException();
+        }
     }
 }

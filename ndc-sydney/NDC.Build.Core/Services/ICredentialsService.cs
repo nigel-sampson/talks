@@ -6,5 +6,6 @@ namespace NDC.Build.Core.Services
     public interface ICredentialsService
     {
         Task<Credentials> GetCredentialsAsync();
+        Task StoreAsync(Credentials credentials);
     }
 }
