@@ -50,9 +50,12 @@
     <Compile Include="Services\IApplicationNavigationService.cs" />
     <Compile Include="Services\IAuthenticationService.cs" />
     <Compile Include="Services\ICredentialsService.cs" />
+    <Compile Include="Services\ITeamServicesClient.cs" />
     <Compile Include="Services\TeamServicesClient.cs" />
     <Compile Include="StringExtensions.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\ProjectsViewModel.cs" />
+    <Compile Include="ViewModels\ProjectViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Caliburn.Micro, Version=3.0.1.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
