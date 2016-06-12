@@ -53,6 +53,8 @@
     <Compile Include="Services\ITeamServicesClient.cs" />
     <Compile Include="Services\TeamServicesClient.cs" />
     <Compile Include="StringExtensions.cs" />
+    <Compile Include="ViewModels\BuildsViewModel.cs" />
+    <Compile Include="ViewModels\BuildViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ProjectsViewModel.cs" />
     <Compile Include="ViewModels\ProjectViewModel.cs" />

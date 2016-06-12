@@ -6,6 +6,7 @@ namespace NDC.Build.Core.Services
 {
     public interface ITeamServicesClient
     {
+        Task<Project> GetProjectAsync(string id);
         Task<IReadOnlyCollection<Project>> GetProjectsAsync();
         Task<IReadOnlyCollection<BuildDetail>> GetBuildsAsync(Project project);
         Task<IReadOnlyCollection<Definition>> GetDefinitionsAsync(Project project);

@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace NDC.Build.Core.Services
 {
-    public class TeamServicesClient : ITeamServicesClient
+    public class TeamServicesClient
     {
         private readonly ICredentialsService credentialsService;
 
@@ -23,6 +23,11 @@ namespace NDC.Build.Core.Services
         public Task<IReadOnlyCollection<Project>> GetProjectsAsync()
         {
             return GetListResponseAsync<Project>(new Uri("/DefaultCollection/_apis/projects", UriKind.Relative));
+        }
+
+        public Task<Project> GetProjectAsync(string id)
+        {
+            return GetResponseAsync<Project>(new Uri($"/DefaultCollection/_apis/projects/{id}?api-version=1.0", UriKind.Relative));
         }
 
         public Task<IReadOnlyCollection<BuildDetail>> GetBuildsAsync(Project project)
@@ -86,6 +91,30 @@ namespace NDC.Build.Core.Services
                     var list = JsonConvert.DeserializeObject<ListResponse<T>>(json);
 
                     return new ReadOnlyCollection<T>(list.Value.ToList());
+                }
+            }
+        }
+
+        private async Task<T> GetResponseAsync<T>(Uri relativeUri)
+        {
+            var credentials = await credentialsService.GetCredentialsAsync();
+
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", $"username:{credentials.Token}".ToBase64());
+
+                var baseUri = new Uri($"https://{credentials.Account}.visualstudio.com", UriKind.Absolute);
+
+                var request = new HttpRequestMessage(HttpMethod.Get, new Uri(baseUri, relativeUri));
+
+                using (var response = await client.SendAsync(request))
+                {
+                    response.EnsureSuccessStatusCode();
+
+                    var json = await response.Content.ReadAsStringAsync();
+
+                    return JsonConvert.DeserializeObject<T>(json);
                 }
             }
         }
