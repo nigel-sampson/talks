@@ -1,6 +1,7 @@
 ﻿using System;
 using Caliburn.Micro;
 using NDC.Build.Core.Services;
+using PropertyChanged;
 using static System.String;
 
 namespace NDC.Build.Core.ViewModels
@@ -35,6 +36,7 @@ namespace NDC.Build.Core.ViewModels
 
         public string Message { get; private set; }
 
+        [DependsOn(nameof(Account), nameof(Token))]
         public bool CanLogin => !IsNullOrEmpty(Account) && !IsNullOrEmpty(Token);
 
         public async void Login()
