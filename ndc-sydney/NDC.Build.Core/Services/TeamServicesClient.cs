@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 namespace NDC.Build.Core.Services
 {
-    public class TeamServicesClient
+    public class TeamServicesClient : ITeamServicesClient
     {
         private readonly ICredentialsService credentialsService;
 

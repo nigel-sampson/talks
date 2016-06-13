@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace NDC.Build.Core.Services
 
                 using (var response = await client.SendAsync(request))
                 {
-                    return response.IsSuccessStatusCode;
+                    return response.StatusCode == HttpStatusCode.OK;
                 }
             }
         }
