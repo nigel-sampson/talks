@@ -9,7 +9,8 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid>
-
-    </Grid>
+    <StackPanel Margin="10">
+        <TextBlock Text="{Binding Project.Name}" Style="{StaticResource TitleTextBlockStyle}"/>
+        <TextBlock Text="{Binding Project.Description}" Style="{StaticResource SubtitleTextBlockStyle}" Opacity="0.5"/>
+    </StackPanel>
 </UserControl>

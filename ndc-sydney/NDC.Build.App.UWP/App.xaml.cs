@@ -26,6 +26,8 @@ namespace NDC.Build.App.UWP
             ViewModelLocator.AddNamespaceMapping("NDC.Build.App.UWP.Views", "NDC.Build.Core.ViewModels");
             ViewLocator.AddNamespaceMapping("NDC.Build.Core.ViewModels", "NDC.Build.App.UWP.Views");
 
+            MessageBinder.SpecialValues.Add("$clickedItem", c => ((ItemClickEventArgs)c.EventArgs).ClickedItem);
+
             container = new WinRTContainer();
 
             container.RegisterWinRTServices();

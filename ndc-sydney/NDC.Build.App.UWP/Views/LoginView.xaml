@@ -18,7 +18,7 @@
         
         <StackPanel x:Name="LoginPanel" Margin="20" Grid.Row="1">
             <TextBox x:Name="Account" Header="Account" />
-            <TextBox x:Name="Token" Header="Token" Margin="0,20,0,0" />
+            <PasswordBox x:Name="Token" Header="Token" Margin="0,20,0,0" />
             <Button x:Name="Login" Content="Login" HorizontalAlignment="Stretch" Margin="0,20,0,0" />
             <TextBlock x:Name="Message" Foreground="#FFF44336" Style="{StaticResource BodyTextBlockStyle}" Margin="0,20,0,0" />
         </StackPanel>
