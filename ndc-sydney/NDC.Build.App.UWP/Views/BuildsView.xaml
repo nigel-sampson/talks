@@ -17,11 +17,13 @@
             <TextBlock Text="Builds" Style="{StaticResource SubtitleTextBlockStyle}" Foreground="{ThemeResource AppBarBackgroundThemeBrush}" FontWeight="Black" FontSize="30"/>
         </Border>
 
+        <ListView x:Name="Builds" Grid.Row="1" SelectionMode="None" />
     </Grid>
     
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.PrimaryCommands>
+                <AppBarButton x:Name="QueueBuild" Label="Queue" Icon="Add" />
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
