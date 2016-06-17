@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="NDC.Build.App.UWP.Views.ProjectsView"
+    x:Class="NDC.Build.App.UWP.Views.BuildsView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cm="using:Caliburn.Micro"
@@ -14,9 +14,15 @@
         </Grid.RowDefinitions>
 
         <Border Background="{ThemeResource SystemControlHighlightAccentBrush}" Padding="20">
-            <TextBlock Text="Projects" Style="{StaticResource SubtitleTextBlockStyle}" Foreground="{ThemeResource AppBarBackgroundThemeBrush}" FontWeight="Black" FontSize="30"/>
+            <TextBlock Text="Builds" Style="{StaticResource SubtitleTextBlockStyle}" Foreground="{ThemeResource AppBarBackgroundThemeBrush}" FontWeight="Black" FontSize="30"/>
         </Border>
 
-        <ListView x:Name="Projects" Grid.Row="1" cm:Message.Attach="[Event ItemClick] = [ViewProject($clickedItem)]" IsItemClickEnabled="True" SelectionMode="None"/>
     </Grid>
+    
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>

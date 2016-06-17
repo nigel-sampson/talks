@@ -1,0 +1,18 @@
+﻿<UserControl
+    x:Class="NDC.Build.App.UWP.Views.BuildView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NDC.Build.App.UWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Border Margin="10" Padding="10,0,0,0" BorderThickness="5,0,0,0" BorderBrush="{Binding Result}" Opacity="{Binding Completed}">
+        <StackPanel>
+            <TextBlock Text="{Binding Build.Definition.Name}" Style="{StaticResource TitleTextBlockStyle}"/>
+            <TextBlock Text="{Binding StartedOn}" Style="{StaticResource SubtitleTextBlockStyle}" Opacity="0.5"/>
+        </StackPanel>
+    </Border>
+</UserControl>
