@@ -50,6 +50,7 @@
     <Compile Include="Services\IApplicationNavigationService.cs" />
     <Compile Include="Services\IAuthenticationService.cs" />
     <Compile Include="Services\ICredentialsService.cs" />
+    <Compile Include="Services\IDialogService.cs" />
     <Compile Include="Services\ITeamServicesClient.cs" />
     <Compile Include="Services\TeamServicesClient.cs" />
     <Compile Include="StringExtensions.cs" />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using Windows.ApplicationModel.Activation;
+using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 using Caliburn.Micro;
@@ -36,7 +37,8 @@ namespace NDC.Build.App.UWP
                 .Singleton<ITeamServicesClient, TeamServicesClient>()
                 .Singleton<IAuthenticationService, AuthenticationService>()
                 .Singleton<IApplicationNavigationService, ApplicationNavigationService>()
-                .Singleton<ICredentialsService, SettingsCredentialsService>();
+                .Singleton<ICredentialsService, SettingsCredentialsService>()
+                .Singleton<IDialogService, DialogService>();
 
             container
                 .PerRequest<LoginViewModel>()
@@ -46,7 +48,15 @@ namespace NDC.Build.App.UWP
 
         protected override void PrepareViewFirst(Frame rootFrame)
         {
-            container.RegisterNavigationService(rootFrame);
+            var navigation = container.RegisterNavigationService(rootFrame);
+            var navigationManager = SystemNavigationManager.GetForCurrentView();
+
+            navigation.Navigated += (s, e) =>
+            {
+                navigationManager.AppViewBackButtonVisibility = navigation.CanGoBack
+                    ? AppViewBackButtonVisibility.Visible
+                    : AppViewBackButtonVisibility.Collapsed;
+            };
         }
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)

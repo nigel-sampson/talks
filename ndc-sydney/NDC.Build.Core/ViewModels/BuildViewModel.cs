@@ -20,7 +20,9 @@ namespace NDC.Build.Core.ViewModels
 
         public BuildDetail Build { get; }
 
-        public string StartedOn => Build.StartTime.ToLocalTime().ToString("f");
+        public string StartedOn => Build.StartTime == DateTimeOffset.MinValue ?
+            Build.QueueTime.ToLocalTime().ToString("f") :
+            Build.StartTime.ToLocalTime().ToString("f");
 
         public string Result => Colours[Build.Result];
 
