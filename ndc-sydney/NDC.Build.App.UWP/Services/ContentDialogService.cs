@@ -8,11 +8,11 @@ using NDC.Build.Core.Services;
 
 namespace NDC.Build.App.UWP.Services
 {
-    public class DialogService : IDialogService
+    public class ContentDialogService : IDialogService
     {
-        public async Task<T> ShowSelectionDialogAsync<T>(string title, string jeader, IEnumerable<T> options)
+        public async Task<T> ShowSelectionDialogAsync<T>(string title, string header, IEnumerable<T> options)
         {
-            var viewModel = new SelectionDialogViewModel<T>(jeader, options);
+            var viewModel = new SelectionDialogViewModel<T>(header, options);
             var view = ViewLocator.LocateForModel(viewModel, null, null);
 
             ViewModelBinder.Bind(viewModel, view, null);

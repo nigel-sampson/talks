@@ -97,7 +97,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ApplicationNavigationService.cs" />
-    <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\ContentDialogService.cs" />
     <Compile Include="Services\SettingsCredentialsService.cs" />
     <Compile Include="ViewModels\SelectionDialogViewModel.cs" />
     <Compile Include="Views\BuildsView.xaml.cs">

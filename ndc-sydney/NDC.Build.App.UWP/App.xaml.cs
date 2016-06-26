@@ -38,7 +38,7 @@ namespace NDC.Build.App.UWP
                 .Singleton<IAuthenticationService, AuthenticationService>()
                 .Singleton<IApplicationNavigationService, ApplicationNavigationService>()
                 .Singleton<ICredentialsService, SettingsCredentialsService>()
-                .Singleton<IDialogService, DialogService>();
+                .Singleton<IDialogService, ContentDialogService>();
 
             container
                 .PerRequest<LoginViewModel>()
