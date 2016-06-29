@@ -1,7 +1,6 @@
 using System;
 using Android.App;
 using Android.OS;
-using Android.Support.V4.App;
 using Android.Views;
 using Android.Widget;
 using NDC.Build.App.Droid.Adapters;
@@ -26,15 +25,21 @@ namespace NDC.Build.App.Droid.Activities
             projectsList.Adapter = new BuildsAdapter(this, ViewModel.Builds);
         }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.Builds, menu);
+
+            return base.OnCreateOptionsMenu(menu);
+        }
+
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
             {
-                case Android.Resource.Id.Home:
-                    NavUtils.NavigateUpFromSameTask(this);
+                case Resource.Id.QueueNewBuild:
+                    ViewModel.QueueBuild();
                     break;
             }
-
             return base.OnOptionsItemSelected(item);
         }
     }

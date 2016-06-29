@@ -1480,8 +1480,14 @@ namespace NDC.Build.App.Droid
 			// aapt resource value: 0x7f02004a
 			public const int Icon = 2130837578;
 			
+			// aapt resource value: 0x7f02004d
+			public const int notification_template_icon_bg = 2130837581;
+			
 			// aapt resource value: 0x7f02004b
-			public const int notification_template_icon_bg = 2130837579;
+			public const int Plus = 2130837579;
+			
+			// aapt resource value: 0x7f02004c
+			public const int Reactangle = 2130837580;
 			
 			static Drawable()
 			{
@@ -1496,11 +1502,17 @@ namespace NDC.Build.App.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0b0051
-			public const int account = 2131427409;
+			// aapt resource value: 0x7f0b0064
+			public const int QueueNewBuild = 2131427428;
 			
-			// aapt resource value: 0x7f0b0055
-			public const int action0 = 2131427413;
+			// aapt resource value: 0x7f0b0050
+			public const int ResultShape = 2131427408;
+			
+			// aapt resource value: 0x7f0b0052
+			public const int account = 2131427410;
+			
+			// aapt resource value: 0x7f0b0056
+			public const int action0 = 2131427414;
 			
 			// aapt resource value: 0x7f0b0041
 			public const int action_bar = 2131427393;
@@ -1526,8 +1538,8 @@ namespace NDC.Build.App.Droid
 			// aapt resource value: 0x7f0b0042
 			public const int action_context_bar = 2131427394;
 			
-			// aapt resource value: 0x7f0b0059
-			public const int action_divider = 2131427417;
+			// aapt resource value: 0x7f0b005a
+			public const int action_divider = 2131427418;
 			
 			// aapt resource value: 0x7f0b0002
 			public const int action_menu_divider = 2131427330;
@@ -1556,20 +1568,20 @@ namespace NDC.Build.App.Droid
 			// aapt resource value: 0x7f0b0019
 			public const int beginning = 2131427353;
 			
-			// aapt resource value: 0x7f0b0062
-			public const int boundList = 2131427426;
+			// aapt resource value: 0x7f0b0063
+			public const int boundList = 2131427427;
 			
 			// aapt resource value: 0x7f0b002b
 			public const int buttonPanel = 2131427371;
 			
-			// aapt resource value: 0x7f0b0056
-			public const int cancel_action = 2131427414;
+			// aapt resource value: 0x7f0b0057
+			public const int cancel_action = 2131427415;
 			
 			// aapt resource value: 0x7f0b0039
 			public const int checkbox = 2131427385;
 			
-			// aapt resource value: 0x7f0b005c
-			public const int chronometer = 2131427420;
+			// aapt resource value: 0x7f0b005d
+			public const int chronometer = 2131427421;
 			
 			// aapt resource value: 0x7f0b001d
 			public const int collapseActionView = 2131427357;
@@ -1598,8 +1610,8 @@ namespace NDC.Build.App.Droid
 			// aapt resource value: 0x7f0b001a
 			public const int end = 2131427354;
 			
-			// aapt resource value: 0x7f0b0061
-			public const int end_padder = 2131427425;
+			// aapt resource value: 0x7f0b0062
+			public const int end_padder = 2131427426;
 			
 			// aapt resource value: 0x7f0b0025
 			public const int expand_activities_button = 2131427365;
@@ -1607,8 +1619,8 @@ namespace NDC.Build.App.Droid
 			// aapt resource value: 0x7f0b0038
 			public const int expanded_menu = 2131427384;
 			
-			// aapt resource value: 0x7f0b0054
-			public const int feedback = 2131427412;
+			// aapt resource value: 0x7f0b0055
+			public const int feedback = 2131427413;
 			
 			// aapt resource value: 0x7f0b0004
 			public const int home = 2131427332;
@@ -1625,14 +1637,14 @@ namespace NDC.Build.App.Droid
 			// aapt resource value: 0x7f0b0026
 			public const int image = 2131427366;
 			
-			// aapt resource value: 0x7f0b0060
-			public const int info = 2131427424;
+			// aapt resource value: 0x7f0b0061
+			public const int info = 2131427425;
 			
-			// aapt resource value: 0x7f0b005a
-			public const int line1 = 2131427418;
+			// aapt resource value: 0x7f0b005b
+			public const int line1 = 2131427419;
 			
-			// aapt resource value: 0x7f0b005e
-			public const int line3 = 2131427422;
+			// aapt resource value: 0x7f0b005f
+			public const int line3 = 2131427423;
 			
 			// aapt resource value: 0x7f0b0009
 			public const int listMode = 2131427337;
@@ -1640,11 +1652,11 @@ namespace NDC.Build.App.Droid
 			// aapt resource value: 0x7f0b0028
 			public const int list_item = 2131427368;
 			
-			// aapt resource value: 0x7f0b0053
-			public const int logIn = 2131427411;
+			// aapt resource value: 0x7f0b0054
+			public const int logIn = 2131427412;
 			
-			// aapt resource value: 0x7f0b0058
-			public const int media_actions = 2131427416;
+			// aapt resource value: 0x7f0b0059
+			public const int media_actions = 2131427417;
 			
 			// aapt resource value: 0x7f0b001b
 			public const int middle = 2131427355;
@@ -1745,8 +1757,8 @@ namespace NDC.Build.App.Droid
 			// aapt resource value: 0x7f0b0018
 			public const int src_over = 2131427352;
 			
-			// aapt resource value: 0x7f0b0057
-			public const int status_bar_latest_event_content = 2131427415;
+			// aapt resource value: 0x7f0b0058
+			public const int status_bar_latest_event_content = 2131427416;
 			
 			// aapt resource value: 0x7f0b004c
 			public const int submit_area = 2131427404;
@@ -1754,17 +1766,17 @@ namespace NDC.Build.App.Droid
 			// aapt resource value: 0x7f0b000b
 			public const int tabMode = 2131427339;
 			
-			// aapt resource value: 0x7f0b005f
-			public const int text = 2131427423;
+			// aapt resource value: 0x7f0b0060
+			public const int text = 2131427424;
 			
-			// aapt resource value: 0x7f0b005d
-			public const int text2 = 2131427421;
+			// aapt resource value: 0x7f0b005e
+			public const int text2 = 2131427422;
 			
 			// aapt resource value: 0x7f0b0034
 			public const int textSpacerNoButtons = 2131427380;
 			
-			// aapt resource value: 0x7f0b005b
-			public const int time = 2131427419;
+			// aapt resource value: 0x7f0b005c
+			public const int time = 2131427420;
 			
 			// aapt resource value: 0x7f0b002a
 			public const int title = 2131427370;
@@ -1772,11 +1784,11 @@ namespace NDC.Build.App.Droid
 			// aapt resource value: 0x7f0b002f
 			public const int title_template = 2131427375;
 			
-			// aapt resource value: 0x7f0b0052
-			public const int token = 2131427410;
+			// aapt resource value: 0x7f0b0053
+			public const int token = 2131427411;
 			
-			// aapt resource value: 0x7f0b0050
-			public const int toolbar = 2131427408;
+			// aapt resource value: 0x7f0b0051
+			public const int toolbar = 2131427409;
 			
 			// aapt resource value: 0x7f0b002e
 			public const int topPanel = 2131427374;
@@ -1913,49 +1925,52 @@ namespace NDC.Build.App.Droid
 			public const int abc_select_dialog_material = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int LoginView = 2130903065;
+			public const int BuildView = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int notification_media_action = 2130903066;
+			public const int LoginView = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int notification_media_cancel_action = 2130903067;
+			public const int notification_media_action = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int notification_template_big_media = 2130903068;
+			public const int notification_media_cancel_action = 2130903068;
 			
 			// aapt resource value: 0x7f03001d
-			public const int notification_template_big_media_narrow = 2130903069;
+			public const int notification_template_big_media = 2130903069;
 			
 			// aapt resource value: 0x7f03001e
-			public const int notification_template_lines = 2130903070;
+			public const int notification_template_big_media_narrow = 2130903070;
 			
 			// aapt resource value: 0x7f03001f
-			public const int notification_template_media = 2130903071;
+			public const int notification_template_lines = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int notification_template_part_chronometer = 2130903072;
+			public const int notification_template_media = 2130903072;
 			
 			// aapt resource value: 0x7f030021
-			public const int notification_template_part_time = 2130903073;
+			public const int notification_template_part_chronometer = 2130903073;
 			
 			// aapt resource value: 0x7f030022
-			public const int select_dialog_item_material = 2130903074;
+			public const int notification_template_part_time = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int select_dialog_multichoice_material = 2130903075;
+			public const int select_dialog_item_material = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int select_dialog_singlechoice_material = 2130903076;
+			public const int select_dialog_multichoice_material = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int SimpleListView = 2130903077;
+			public const int select_dialog_singlechoice_material = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int support_simple_spinner_dropdown_item = 2130903078;
+			public const int SimpleListView = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int Toolbar = 2130903079;
+			public const int support_simple_spinner_dropdown_item = 2130903079;
+			
+			// aapt resource value: 0x7f030028
+			public const int Toolbar = 2130903080;
 			
 			static Layout()
 			{
@@ -1963,6 +1978,22 @@ namespace NDC.Build.App.Droid
 			}
 			
 			private Layout()
+			{
+			}
+		}
+		
+		public partial class Menu
+		{
+			
+			// aapt resource value: 0x7f0d0000
+			public const int Builds = 2131558400;
+			
+			static Menu()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Menu()
 			{
 			}
 		}

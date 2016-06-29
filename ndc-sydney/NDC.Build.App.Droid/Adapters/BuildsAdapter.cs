@@ -1,5 +1,6 @@
 using System;
 using Android.App;
+using Android.Graphics;
 using Android.Views;
 using Android.Widget;
 using Caliburn.Micro;
@@ -19,12 +20,15 @@ namespace NDC.Build.App.Droid.Adapters
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            var view = convertView ?? activity.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem2, null);
+            var view = convertView ?? activity.LayoutInflater.Inflate(Resource.Layout.BuildView, null);
 
-            var buildsViewModel = this[position];
+            var build = this[position];
 
-            view.FindViewById<TextView>(Android.Resource.Id.Text1).Text = buildsViewModel.Build.Definition.Name;
-            view.FindViewById<TextView>(Android.Resource.Id.Text2).Text = buildsViewModel.StartedOn;
+            view.FindViewById<TextView>(Android.Resource.Id.Text1).Text = build.Build.Definition.Name;
+            view.FindViewById<TextView>(Android.Resource.Id.Text2).Text = build.StartedOn;
+            view.FindViewById<View>(Resource.Id.ResultShape).SetBackgroundColor(Color.ParseColor(build.Result));
+
+            view.Alpha = (float)build.Completed;
 
             return view;
         }

@@ -20,7 +20,7 @@ namespace NDC.Build.App.Droid.Services
             var taskSource = new TaskCompletionSource<T>();
             var optionsList = options.ToList();
 
-            var builder = new AlertDialog.Builder(Android.App.Application.Context)
+            var builder = new AlertDialog.Builder(CurrentActivity)
                 .SetCancelable(true)
                 .SetTitle(title)
                 .SetNegativeButton("Cancel", (s, e) => taskSource.SetResult(default(T)))

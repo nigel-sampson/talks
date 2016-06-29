@@ -58,17 +58,7 @@ namespace NDC.Build.App.Droid
 
         protected override object GetInstance(Type service, string key)
         {
-            try
-            {
-                var x = container.GetInstance(service, key);
-
-                return x;
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            
+            return container.GetInstance(service, key);
         }
 
         protected override IEnumerable<object> GetAllInstances(Type service)

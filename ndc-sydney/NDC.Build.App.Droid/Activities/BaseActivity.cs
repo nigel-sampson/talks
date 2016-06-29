@@ -1,7 +1,9 @@
 using System;
 using Android.OS;
+using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
+using Android.Views;
 using Caliburn.Micro;
 
 namespace NDC.Build.App.Droid.Activities
@@ -58,9 +60,16 @@ namespace NDC.Build.App.Droid.Activities
             get;
         }
 
-        //protected int ActionBarIcon
-        //{
-        //    set { Toolbar.SetNavigationIcon(value); }
-        //}
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    NavUtils.NavigateUpFromSameTask(this);
+                    break;
+            }
+
+            return base.OnOptionsItemSelected(item);
+        }
     }
 }

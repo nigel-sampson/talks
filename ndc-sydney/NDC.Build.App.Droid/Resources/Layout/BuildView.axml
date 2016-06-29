@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd">
+    <View
+        android:id="@+id/ResultShape"
+        android:layout_width="8dp"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:background="@color/accent"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp" />
+    <TextView
+        android:id="@android:id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="?android:attr/textAppearanceListItem"
+        android:text="Definition"
+        android:layout_alignTop="@id/ResultShape"
+        android:layout_toRightOf="@id/ResultShape" />
+    <TextView
+        android:id="@android:id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@android:id/text1"
+        android:layout_alignStart="@android:id/text1"
+        android:text="Started On" />
+</RelativeLayout>
