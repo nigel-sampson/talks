@@ -22,12 +22,15 @@ namespace NDC.Build.Forms.Core
             ViewModelLocator.AddNamespaceMapping("NDC.Build.Forms.Core.Views", "NDC.Build.Core.ViewModels");
             ViewLocator.AddNamespaceMapping("NDC.Build.Core.ViewModels", "NDC.Build.Forms.Core.Views");
 
+            MessageBinder.SpecialValues.Add("$tappedItem", GetTappedItem);
+
+            container.Instance<FormsApplication>(this);
+
             container
                .Singleton<ITeamServicesClient, TeamServicesClient>()
                .Singleton<IAuthenticationService, AuthenticationService>()
-               .Singleton<IApplicationNavigationService, ApplicationNavigationService>();
-               //.Singleton<ICredentialsService, SettingsCredentialsService>()
-               //.Singleton<IDialogService, ContentDialogService>();
+               .Singleton<IApplicationNavigationService, ApplicationNavigationService>()
+               .Singleton<IDialogService, ActionSheetDialogService>();
 
             container
                 .PerRequest<LoginViewModel>()
@@ -35,6 +38,17 @@ namespace NDC.Build.Forms.Core
                 .PerRequest<BuildsViewModel>();
 
             DisplayRootView<LoginView>();
+        }
+
+        private object GetTappedItem(ActionExecutionContext c)
+        {
+            var listView = (ListView) c.Source;
+
+            var selectedItem = listView.SelectedItem;
+
+            listView.SelectedItem = null;
+
+            return selectedItem;
         }
 
         protected override void PrepareViewFirst(NavigationPage navigationPage)

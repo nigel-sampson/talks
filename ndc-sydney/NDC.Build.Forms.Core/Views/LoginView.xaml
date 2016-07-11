@@ -5,8 +5,8 @@
              x:Class="NDC.Build.Forms.Core.Views.LoginView"
              Title="Builds Browser">
   <StackLayout Padding="24,12,24,0">
-    <Entry Placeholder="Account" Text="{Binding Username, Mode=TwoWay}" />
-    <Entry Placeholder="Token" IsPassword="True" Text="{Binding Password, Mode=TwoWay}" />
+    <Entry Placeholder="Account" Text="{Binding Account, Mode=TwoWay}" />
+    <Entry Placeholder="Token" IsPassword="True" Text="{Binding Token, Mode=TwoWay}" />
     <Frame Padding="0,12">
       <Button cm:Message.Attach="Login" Text="Login" />
     </Frame>

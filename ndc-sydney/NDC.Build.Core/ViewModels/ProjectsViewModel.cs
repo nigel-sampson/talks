@@ -27,6 +27,9 @@ namespace NDC.Build.Core.ViewModels
 
         public void ViewProject(ProjectViewModel projectViewModel)
         {
+            if (projectViewModel == null)
+                return;
+
             navigation.ToProject(projectViewModel.Project);
         }
 
