@@ -5,9 +5,9 @@
              x:Class="NDC.Build.Forms.Core.Views.BuildsView"
              Title="Builds Browser">
   <ContentPage.ToolbarItems>
-    <ToolbarItem Text="Queue Build" Clicked="OnQueueBuild" Icon="plus-white.png" />
+    <ToolbarItem Text="Queue Build" Clicked="OnQueueBuild" Icon="plus.png" />
   </ContentPage.ToolbarItems>
-  <ListView ItemsSource="{Binding Builds}" ItemSelected="OnItemSelected">
+  <ListView ItemsSource="{Binding Builds}" ItemSelected="OnItemSelected" RowHeight="70">
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>

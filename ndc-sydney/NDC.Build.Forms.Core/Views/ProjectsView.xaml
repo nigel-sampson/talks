@@ -4,7 +4,7 @@
              xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Platform.Xamarin.Forms"
              x:Class="NDC.Build.Forms.Core.Views.ProjectsView"
              Title="Builds Browser">
-  <ListView ItemsSource="{Binding Projects}" cm:Message.Attach="[Event ItemSelected] = [ViewProject($tappedItem)]">
+  <ListView ItemsSource="{Binding Projects}" cm:Message.Attach="[Event ItemSelected] = [ViewProject($tappedItem)]" RowHeight="70">
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>

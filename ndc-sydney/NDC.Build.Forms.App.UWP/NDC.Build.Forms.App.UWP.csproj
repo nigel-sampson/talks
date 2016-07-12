@@ -110,8 +110,7 @@
     <None Include="NDC.Build.Forms.App.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="plus-black.png" />
-    <Content Include="plus-white.png" />
+    <Content Include="plus.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

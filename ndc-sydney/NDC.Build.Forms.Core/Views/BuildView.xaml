@@ -1,15 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             xmlns:c="clr-namespace:NDC.Build.Forms.Core.Converter;assembly=NDC.Build.Forms.Core"
              x:Class="NDC.Build.Forms.Core.Views.BuildView">
-
-  <Grid Opacity="{Binding Completed}">
+ <ContentView.Resources>
+    <ResourceDictionary>
+      <c:StringToColorConverter x:Key="ColorConverter"  />
+    </ResourceDictionary>
+  </ContentView.Resources>
+  <Grid Opacity="{Binding Completed}" Padding="5,0,0,0">
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="Auto"/>
       <ColumnDefinition Width="*"/>
     </Grid.ColumnDefinitions>
     
-    <BoxView Grid.Column="0" WidthRequest="5" Color="{Binding Result}" Margin="5,0,0,0"/>
+    <BoxView Grid.Column="0" WidthRequest="5" Color="{Binding Result, Converter={StaticResource ColorConverter}}" />
     
     <StackLayout Spacing="5" Padding="10" Grid.Column="1">
       <Label Text="{Binding Build.Definition.Name}" FontSize="18" FontAttributes="Bold"/>
