@@ -3,6 +3,6 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
   <item android:id="@+id/QueueNewBuild"
 	      android:title="Queue"
-	      android:icon="@drawable/Plus"
+	      android:icon="@drawable/plus"
 	      app:showAsAction="ifRoom"/>
 </menu>
