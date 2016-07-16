@@ -94,6 +94,8 @@
     <Compile Include="RootNavigationController.designer.cs">
       <DependentUpon>RootNavigationController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\ActionSheetDialogService.cs" />
+    <Compile Include="Services\UserDefaultsCredentialsService.cs" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
