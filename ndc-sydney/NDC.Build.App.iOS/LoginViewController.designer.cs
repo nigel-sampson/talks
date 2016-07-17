@@ -24,6 +24,10 @@ namespace NDC.Build.App.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel Message { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField Token { get; set; }
 
         void ReleaseDesignerOutlets ()
@@ -36,6 +40,11 @@ namespace NDC.Build.App.iOS
             if (Login != null) {
                 Login.Dispose ();
                 Login = null;
+            }
+
+            if (Message != null) {
+                Message.Dispose ();
+                Message = null;
             }
 
             if (Token != null) {
