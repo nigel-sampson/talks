@@ -24,13 +24,7 @@ namespace NDC.Build.Core.ViewModels
             var stored = await credentials.GetCredentialsAsync();
 
             if (stored == Credentials.None)
-            {
-                Account = "caliburn-micro";
-                Token = "hk46cpx6i7brnyixjptrz3w77z7dke3vetexcxcqsq6h6ugthuxa";
-
                 return;
-            }
-                
 
             Account = stored.Account;
             Token = stored.Token;
