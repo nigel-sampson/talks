@@ -85,12 +85,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Bind.cs" />
+    <Compile Include="BoundTableViewSource.cs" />
+    <Compile Include="BuildsTableViewSource.cs" />
+    <Compile Include="BuildsViewController.cs" />
+    <Compile Include="BuildsViewController.designer.cs">
+      <DependentUpon>BuildsViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginViewController.cs" />
     <Compile Include="LoginViewController.designer.cs">
       <DependentUpon>LoginViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="ProjectsTableViewSource.cs" />
+    <Compile Include="ProjectsViewController.cs" />
+    <Compile Include="ProjectsViewController.designer.cs">
+      <DependentUpon>ProjectsViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="RootNavigationController.cs" />
     <Compile Include="RootNavigationController.designer.cs">
       <DependentUpon>RootNavigationController.cs</DependentUpon>
@@ -98,6 +109,8 @@
     <Compile Include="Services\ActionSheetDialogService.cs" />
     <Compile Include="Services\StoryboardNavigationService.cs" />
     <Compile Include="Services\UserDefaultsCredentialsService.cs" />
+    <Compile Include="StringExtensions.cs" />
+    <Compile Include="ViewControllers\UITableViewControllerBase.cs" />
     <Compile Include="ViewControllers\UIViewControllerBase.cs" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -7,6 +7,7 @@ namespace NDC.Build.App.iOS
     {
         public RootNavigationController (IntPtr handle) : base (handle)
         {
+            
         }
     }
 }

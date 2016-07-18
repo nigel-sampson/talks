@@ -9,22 +9,26 @@ namespace NDC.Build.App.iOS.Services
     {
         private readonly UINavigationController navigationController;
 
-        public StoryboardNavigationService(UINavigationController navigationController)
+        public StoryboardNavigationService()
         {
-            this.navigationController = navigationController;
+            var window = UIApplication.SharedApplication.KeyWindow;
+            navigationController = (UINavigationController) window.RootViewController;
         }
 
         public void ToProjects()
         {
-            //var controller = navigationController.Storyboard.InstantiateViewController("x");
+            var controller = navigationController.Storyboard.InstantiateViewController("Projects");
 
-            //navigationController.PushViewController(controller, true);
-            throw new NotImplementedException();
+            navigationController.PushViewController(controller, true);
         }
 
         public void ToProject(Project project)
         {
-            throw new NotImplementedException();
+            var controller = (BuildsViewController) navigationController.Storyboard.InstantiateViewController("Builds");
+
+            controller.SetProject(project);
+
+            navigationController.PushViewController(controller, true);
         }
     }
 }
