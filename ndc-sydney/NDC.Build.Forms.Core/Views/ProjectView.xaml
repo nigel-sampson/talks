@@ -3,7 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NDC.Build.Forms.Core.Views.ProjectView">
   <StackLayout Spacing="5" Padding="10">
-    <Label Text="{Binding Project.Name}" FontSize="18" FontAttributes="Bold"/>
+    <Label Text="{Binding Project.Name}" FontSize="18">
+      <Label.FontAttributes>
+        <OnPlatform x:TypeArguments="FontAttributes">
+          <OnPlatform.Android>Bold</OnPlatform.Android>
+        </OnPlatform>
+      </Label.FontAttributes>
+    </Label>
     <Label Text="{Binding Project.Description}"/>
   </StackLayout>
 </ContentView>
