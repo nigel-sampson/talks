@@ -52,6 +52,8 @@
     <Compile Include="Services\ICredentialsService.cs" />
     <Compile Include="Services\IDialogService.cs" />
     <Compile Include="Services\ITeamServicesClient.cs" />
+    <Compile Include="Services\NoNetwork\AuthenticationService.cs" />
+    <Compile Include="Services\NoNetwork\TeamServicesClient.cs" />
     <Compile Include="Services\TeamServicesClient.cs" />
     <Compile Include="StringExtensions.cs" />
     <Compile Include="ViewModels\BuildsViewModel.cs" />
