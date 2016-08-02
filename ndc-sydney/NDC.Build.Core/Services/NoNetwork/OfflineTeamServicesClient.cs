@@ -6,7 +6,7 @@ using NDC.Build.Core.Model;
 
 namespace NDC.Build.Core.Services.NoNetwork
 {
-	public class TeamServicesClient : ITeamServicesClient
+	public class OfflineTeamServicesClient : ITeamServicesClient
 	{
 		public Task<Project> GetProjectAsync(string id)
 		{

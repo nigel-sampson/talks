@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace NDC.Build.Core.Services.NoNetwork
 {
-	public class AuthenticationService : IAuthenticationService
+	public class OfflineAuthenticationService : IAuthenticationService
 	{
 		public Task<bool> AuthenticateCredentialsAsync(Credentials credentials)
 		{
