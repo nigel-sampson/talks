@@ -9,14 +9,31 @@ namespace Hubb.Core.Services
 {
     public class OfflineHubbClient : IHubbClient
     {
+        private const string Lipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum finibus risus in pulvinar. Quisque at dolor interdum, facilisis odio at, ullamcorper urna. Donec suscipit, odio vitae posuere vehicula, nisl massa interdum lorem, quis elementum massa felis sed massa. Phasellus non dui nibh. Praesent porttitor lorem ante, consectetur laoreet felis finibus non. In vitae fermentum nunc. Curabitur volutpat ligula at velit egestas tristique. Etiam tincidunt molestie felis pharetra varius. Morbi ullamcorper iaculis facilisis.";
+        private readonly Random random = new Random();
+
         public Task<IReadOnlyList<Repository>> SearchAsync(string term)
         {
-            throw new NotImplementedException();
+            var repos = new List<Repository>
+            {
+                CreateRepository(name: "Caliburn.Micro"),
+                CreateRepository(name: "Fresh MVVM"),
+                CreateRepository(name: "MvvmCross"),
+                CreateRepository(name: "MVVM Light"),
+                CreateRepository(name: "Prism"),
+                CreateRepository(name: "Reactive UI")
+            };
+
+            return Task.FromResult<IReadOnlyList<Repository>>(repos);
         }
 
         public Task<IReadOnlyList<Issue>> GetIssuesAsync(Repository repository)
         {
-            throw new NotImplementedException();
+            var issues = Enumerable.Range(1, 20)
+                .Select(i => CreateIssue(title: $"Issue {i}", body: GetLipsum(), comments: random.Next(100)))
+                .ToList();
+
+            return Task.FromResult<IReadOnlyList<Issue>>(issues);
         }
 
         private static Repository CreateRepository(string url = null, string htmlUrl = null, string cloneUrl = null, string gitUrl = null, string sshUrl = null, string svnUrl = null, string mirrorUrl = null, int id = 0, User owner = null, string name = null, string fullName = null, string description = null, string homepage = null, string language = null, bool @private = false, bool fork = false, int forksCount = 0, int stargazersCount = 0, string defaultBranch = null, int openIssuesCount = 0, DateTimeOffset? pushedAt = null, DateTimeOffset? createdAt = null, DateTimeOffset? updatedAt = null, RepositoryPermissions permissions = null, Repository parent = null, Repository source = null, bool hasIssues = false, bool hasWiki = false, bool hasDownloads = false)
@@ -32,6 +49,11 @@ namespace Hubb.Core.Services
         private static Issue CreateIssue(Uri url = null, Uri htmlUrl = null, Uri commentsUrl = null, Uri eventsUrl = null, int number = 0, ItemState state = ItemState.Open, string title = null, string body = null, User closedBy = null, User user = null, IReadOnlyList<Label> labels = null, User assignee = null, Milestone milestone = null, int comments = 0, PullRequest pullRequest = null, DateTimeOffset? closedAt = null, DateTimeOffset? createdAt = null, DateTimeOffset? updatedAt = null, int id = 0, bool locked = false, Repository repository = null)
         {
             return new Issue(url, htmlUrl, commentsUrl, eventsUrl, number, state, title, body, closedBy, user, labels, assignee, milestone, comments, pullRequest, closedAt, createdAt ?? DateTimeOffset.UtcNow, updatedAt, id, locked, repository);
+        }
+
+        private string GetLipsum()
+        {
+            return Lipsum.Substring(0, random.Next(Lipsum.Length));
         }
     }
 }
