@@ -9,11 +9,11 @@ namespace Hubb.Core.ViewModels
     {
         public ShellViewModel(IHubbClient hubbClient, IEventAggregator eventAggregator)
         {
-            Menu = new MenuViewModel(hubbClient, eventAggregator);
             Issues = new IssuesViewModel(hubbClient, eventAggregator);
-
-            Menu.ConductWith(this);
+            Menu = new MenuViewModel(hubbClient, eventAggregator);
+            
             Issues.ConductWith(this);
+            Menu.ConductWith(this);
         }
 
         public MenuViewModel Menu { get; }
