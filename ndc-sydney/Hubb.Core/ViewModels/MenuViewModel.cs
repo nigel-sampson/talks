@@ -1,18 +1,19 @@
 ﻿using System;
 using Caliburn.Micro;
 using Hubb.Core.Messages;
+using Hubb.Core.Services;
 using Octokit;
 
 namespace Hubb.Core.ViewModels
 {
     public class MenuViewModel : Screen
     {
-        private readonly IGitHubClient gitHubClient;
+        private readonly IHubbClient hubbClient;
         private readonly IEventAggregator eventAggregator;
 
-        public MenuViewModel(IGitHubClient gitHubClient, IEventAggregator eventAggregator)
+        public MenuViewModel(IHubbClient hubbClient, IEventAggregator eventAggregator)
         {
-            this.gitHubClient = gitHubClient;
+            this.hubbClient = hubbClient;
             this.eventAggregator = eventAggregator;
 
             Repositories = new BindableCollection<Repository>();
@@ -20,15 +21,9 @@ namespace Hubb.Core.ViewModels
 
         protected override async void OnInitialize()
         {
-            var search = new SearchRepositoriesRequest("caliburn")
-            {
-                Language = Language.CSharp,
-                PerPage = 25
-            };
+            var results = await hubbClient.SearchAsync("caliburn");
 
-            var results = await gitHubClient.Search.SearchRepo(search);
-
-            Repositories.AddRange(results.Items);
+            Repositories.AddRange(results);
 
             eventAggregator.PublishOnUIThread(new RepositorySelectedMessage(Repositories[0]));
         }

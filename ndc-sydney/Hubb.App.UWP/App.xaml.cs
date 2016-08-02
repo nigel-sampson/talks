@@ -5,6 +5,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml.Controls;
 using Caliburn.Micro;
 using Hubb.App.UWP.Views;
+using Hubb.Core.Services;
 using Hubb.Core.ViewModels;
 using Octokit;
 
@@ -31,9 +32,8 @@ namespace Hubb.App.UWP
             container.RegisterWinRTServices();
 
             container.Instance<IGitHubClient>(new GitHubClient(new ProductHeaderValue("Hubb", "0.0.1")));
-
-            container
-                .PerRequest<ShellViewModel>();
+            container.Singleton<IHubbClient, HubbClient>();
+            container.PerRequest<ShellViewModel>();
         }
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)

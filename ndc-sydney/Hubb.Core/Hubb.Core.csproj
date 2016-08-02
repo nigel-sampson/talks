@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="Messages\RepositorySelectedMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\HubbClient.cs" />
+    <Compile Include="Services\IHubbClient.cs" />
+    <Compile Include="Services\OfflineHubbClient.cs" />
     <Compile Include="ViewModels\IssuesViewModel.cs" />
     <Compile Include="ViewModels\IssueViewModel.cs" />
     <Compile Include="ViewModels\MenuViewModel.cs" />

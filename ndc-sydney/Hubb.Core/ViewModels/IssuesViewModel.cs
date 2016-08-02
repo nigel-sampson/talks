@@ -2,18 +2,19 @@
 using System.Linq;
 using Caliburn.Micro;
 using Hubb.Core.Messages;
+using Hubb.Core.Services;
 using Octokit;
 
 namespace Hubb.Core.ViewModels
 {
     public class IssuesViewModel : Conductor<IssueViewModel>.Collection.OneActive, IHandle<RepositorySelectedMessage>
     {
-        private readonly IGitHubClient gitHubClient;
+        private readonly IHubbClient hubbClient;
         private readonly IEventAggregator eventAggregator;
 
-        public IssuesViewModel(IGitHubClient gitHubClient, IEventAggregator eventAggregator)
+        public IssuesViewModel(IHubbClient hubbClient, IEventAggregator eventAggregator)
         {
-            this.gitHubClient = gitHubClient;
+            this.hubbClient = hubbClient;
             this.eventAggregator = eventAggregator;
         }
 
@@ -29,11 +30,9 @@ namespace Hubb.Core.ViewModels
 
         public async void Handle(RepositorySelectedMessage message)
         {
-            var repository = message.Repository;
-
             Items.Clear();
 
-            var issues = await gitHubClient.Issue.GetAllForRepository(repository.Owner.Login, repository.Name);
+            var issues = await hubbClient.GetIssuesAsync(message.Repository);
 
             Items.AddRange(issues.Select(i => new IssueViewModel(i)));
             

@@ -1,15 +1,16 @@
 ﻿using System;
 using Caliburn.Micro;
+using Hubb.Core.Services;
 using Octokit;
 
 namespace Hubb.Core.ViewModels
 {
     public class ShellViewModel : Screen
     {
-        public ShellViewModel(IGitHubClient gitHubClient, IEventAggregator eventAggregator)
+        public ShellViewModel(IHubbClient hubbClient, IEventAggregator eventAggregator)
         {
-            Menu = new MenuViewModel(gitHubClient, eventAggregator);
-            Issues = new IssuesViewModel(gitHubClient, eventAggregator);
+            Menu = new MenuViewModel(hubbClient, eventAggregator);
+            Issues = new IssuesViewModel(hubbClient, eventAggregator);
 
             Menu.ConductWith(this);
             Issues.ConductWith(this);
