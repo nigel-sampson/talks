@@ -9,6 +9,7 @@ using Caliburn.Micro;
 using NDC.Build.App.UWP.Services;
 using NDC.Build.App.UWP.Views;
 using NDC.Build.Core.Services;
+using NDC.Build.Core.Services.NoNetwork;
 using NDC.Build.Core.ViewModels;
 
 namespace NDC.Build.App.UWP
@@ -34,8 +35,8 @@ namespace NDC.Build.App.UWP
             container.RegisterWinRTServices();
 
             container
-                .Singleton<ITeamServicesClient, TeamServicesClient>()
-                .Singleton<IAuthenticationService, AuthenticationService>()
+                .Singleton<ITeamServicesClient, OfflineTeamServicesClient>()
+                .Singleton<IAuthenticationService, OfflineAuthenticationService>()
                 .Singleton<IApplicationNavigationService, ApplicationNavigationService>()
                 .Singleton<ICredentialsService, SettingsCredentialsService>()
                 .Singleton<IDialogService, ContentDialogService>();

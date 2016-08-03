@@ -7,6 +7,7 @@ using Android.Widget;
 using Caliburn.Micro;
 using NDC.Build.App.Droid.Services;
 using NDC.Build.Core.Services;
+using NDC.Build.Core.Services.NoNetwork;
 using NDC.Build.Core.ViewModels;
 
 namespace NDC.Build.App.Droid
@@ -38,8 +39,8 @@ namespace NDC.Build.App.Droid
             container.Instance(this);
             
             container
-                .Singleton<ITeamServicesClient, TeamServicesClient>()
-                .Singleton<IAuthenticationService, AuthenticationService>()
+                .Singleton<ITeamServicesClient, OfflineTeamServicesClient>()
+                .Singleton<IAuthenticationService, OfflineAuthenticationService>()
                 .Singleton<IApplicationNavigationService, ApplicationNavigationService>()
                 .Singleton<ICredentialsService, PreferencesCredentialsService>()
                 .Singleton<IDialogService, AlertDialogService>();

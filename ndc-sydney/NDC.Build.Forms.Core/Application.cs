@@ -2,6 +2,7 @@
 using Caliburn.Micro;
 using Caliburn.Micro.Xamarin.Forms;
 using NDC.Build.Core.Services;
+using NDC.Build.Core.Services.NoNetwork;
 using NDC.Build.Core.ViewModels;
 using NDC.Build.Forms.Core.Services;
 using NDC.Build.Forms.Core.Views;
@@ -27,8 +28,8 @@ namespace NDC.Build.Forms.Core
             container.Instance<FormsApplication>(this);
 
             container
-               .Singleton<ITeamServicesClient, TeamServicesClient>()
-               .Singleton<IAuthenticationService, AuthenticationService>()
+               .Singleton<ITeamServicesClient, OfflineTeamServicesClient>()
+               .Singleton<IAuthenticationService, OfflineAuthenticationService>()
                .Singleton<IApplicationNavigationService, ApplicationNavigationService>()
                .Singleton<IDialogService, ActionSheetDialogService>();
 
