@@ -32,7 +32,7 @@ namespace Hubb.App.UWP
             container.RegisterWinRTServices();
 
             container.Instance<IGitHubClient>(new GitHubClient(new ProductHeaderValue("Hubb", "0.0.1")));
-            container.Singleton<IHubbClient, HubbClient>();
+            container.Singleton<IHubbClient, OfflineHubbClient>();
             container.PerRequest<ShellViewModel>();
         }
 
