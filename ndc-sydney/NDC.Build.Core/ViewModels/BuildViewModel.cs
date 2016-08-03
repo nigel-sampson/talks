@@ -6,7 +6,7 @@ namespace NDC.Build.Core.ViewModels
 {
     public class BuildViewModel
     {
-        private static readonly IDictionary<string, string> Colours = new Dictionary<string, string>
+        public static readonly IDictionary<string, string> Colours = new Dictionary<string, string>
         {
             { "succeeded", "#FF4CAF50" },
             { "failed", "#FFF44336" },
