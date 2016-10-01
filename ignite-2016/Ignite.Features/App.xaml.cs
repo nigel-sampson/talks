@@ -27,7 +27,18 @@ namespace Ignite.Features
             container
                 .PerRequest<ShellViewModel>()
                 .PerRequest<MediaViewModel>()
-                .PerRequest<ControlsViewModel>();
+                .PerRequest<BackgroundTaskViewModel>()
+                .PerRequest<BindingViewModel>()
+                .PerRequest<ConnectedAnimationsViewModel>()
+                .PerRequest<ConnectedAppsViewModel>()
+                .PerRequest<ControlsViewModel>()
+                .PerRequest<DetectionViewModel>()
+                .PerRequest<EffectsViewModel>()
+                .PerRequest<HoloLensViewModel>()
+                .PerRequest<ImplicitAnimationsViewModel>()
+                .PerRequest<InkingViewModel>()
+                .PerRequest<LinksViewModel>()
+                .PerRequest<XboxViewModel>();
         }
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)

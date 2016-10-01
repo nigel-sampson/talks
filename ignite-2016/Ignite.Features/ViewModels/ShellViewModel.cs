@@ -14,8 +14,19 @@ namespace Ignite.Features.ViewModels
             this.container = container;
             Features = new BindableCollection<FeatureViewModel>
             {
+                // Feature detection
                 new FeatureViewModel("Media", "Animated gifs & Media Player", typeof(MediaViewModel)),
-                new FeatureViewModel("Controls", "Command Bar & ComboBox", typeof(ControlsViewModel))
+                new FeatureViewModel("Controls", "Command Bar, ComboBox & Tree View", typeof(ControlsViewModel))
+                // Single process task
+                // Web to app linking
+                // Binding // Tooling
+                // Inking
+                // Implicit animations
+                // Connected animations
+                // Effects
+                // Connected Apps ?
+                // Xbox
+                // HoloLens
             };
         }
 
