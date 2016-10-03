@@ -12,21 +12,22 @@ namespace Ignite.Features.ViewModels
         public ShellViewModel(WinRTContainer container)
         {
             this.container = container;
+            
             Features = new BindableCollection<FeatureViewModel>
             {
-                // Feature detection
+                new FeatureViewModel("Feature Detection", "Detecting features & contracts", typeof(DetectionViewModel)),
                 new FeatureViewModel("Media", "Animated gifs & Media Player", typeof(MediaViewModel)),
-                new FeatureViewModel("Controls", "Command Bar, ComboBox & Tree View", typeof(ControlsViewModel))
-                // Single process task
-                // Web to app linking
-                // Binding // Tooling
-                // Inking
-                // Implicit animations
-                // Connected animations
-                // Effects
-                // Connected Apps ?
-                // Xbox
-                // HoloLens
+                new FeatureViewModel("Controls", "Command Bar, ComboBox & Tree View", typeof(ControlsViewModel)),
+                new FeatureViewModel("Background Tasks", "Single process background tasks", typeof(BackgroundTaskViewModel)),
+                new FeatureViewModel("Web to app links", "Links to your website redirect to your app", typeof(LinksViewModel)),
+                new FeatureViewModel("Binding & Tooling", "Compiled bindings & tooling updates", typeof(BindingViewModel)),
+                new FeatureViewModel("Inking", "Ink Canvas & Toolbar", typeof(InkingViewModel)),
+                new FeatureViewModel("Implict Animations", "Animatng layout changes implicitly", typeof(ImplicitAnimationsViewModel)),
+                new FeatureViewModel("Connected Animations", "Batch a group of related animations", typeof(DetectionViewModel)),
+                new FeatureViewModel("Effects", "Composition effects, shading & lighting", typeof(EffectsViewModel)),
+                new FeatureViewModel("Connected Apps", "Creating partner app experiences", typeof(ConnectedAppsViewModel)),
+                new FeatureViewModel("Xbox", "Xbox specific app features", typeof(XboxViewModel)),
+                new FeatureViewModel("HoloLens", "HoloLens specific app features", typeof(HoloLensViewModel))
             };
         }
 
