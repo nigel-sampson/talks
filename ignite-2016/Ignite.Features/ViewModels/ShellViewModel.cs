@@ -17,7 +17,7 @@ namespace Ignite.Features.ViewModels
             {
                 new FeatureViewModel("Feature Detection", "Detecting features & contracts", typeof(DetectionViewModel)),
                 new FeatureViewModel("Media", "Animated gifs & Media Player", typeof(MediaViewModel)),
-                new FeatureViewModel("Controls", "Command Bar, ComboBox & Tree View", typeof(ControlsViewModel)),
+                new FeatureViewModel("Controls", "Command Bar, ComboBox", typeof(ControlsViewModel)),
                 new FeatureViewModel("Background Tasks", "Single process background tasks", typeof(BackgroundTaskViewModel)),
                 new FeatureViewModel("Web to app links", "Links to your website redirect to your app", typeof(LinksViewModel)),
                 new FeatureViewModel("Binding & Tooling", "Compiled bindings & tooling updates", typeof(BindingViewModel)),

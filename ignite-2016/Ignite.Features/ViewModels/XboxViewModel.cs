@@ -5,5 +5,7 @@ namespace Ignite.Features.ViewModels
 {
     public class XboxViewModel : Screen
     {
+        // Gamepad
+        // ElementSoundPlayer
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Input;
 
 namespace Ignite.Features.Views
 {
@@ -7,6 +9,13 @@ namespace Ignite.Features.Views
         public ControlsView()
         {
             InitializeComponent();
+        }
+
+        private void OnNumbersShortcut(UIElement sender, AccessKeyInvokedEventArgs args)
+        {
+            args.Handled = true;
+
+            Numbers.Focus(FocusState.Programmatic);
         }
     }
 }

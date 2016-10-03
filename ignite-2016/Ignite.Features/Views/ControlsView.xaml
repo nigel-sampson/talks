@@ -5,13 +5,19 @@
     xmlns:local="using:Ignite.Features.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:b="using:Ignite.Features.Behaviors"
     mc:Ignorable="d">
     
     <Page.BottomAppBar>
         <CommandBar DefaultLabelPosition="Right">
             <CommandBar.PrimaryCommands>
                 <AppBarButton x:Name="Open" AccessKey="O" Icon="OpenFile" Label="Open File" />
-                <AppBarButton x:Name="Preview" AccessKey="P" Icon="Preview" Label="Preview" />
+                <AppBarButton AccessKey="P" Icon="Preview" Label="Preview">
+                    <i:Interaction.Behaviors>
+                        <b:AccessKeyTooltipBehavior />
+                    </i:Interaction.Behaviors>
+                </AppBarButton>
                 <AppBarButton Icon="Save" Label="Save" />
                 <AppBarButton Icon="SaveLocal" Label="Save Local" />
                 <AppBarSeparator />
@@ -22,7 +28,12 @@
     </Page.BottomAppBar>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ComboBox ItemsSource="{Binding Numbers}" Width="300" />
+        <ComboBox x:Name="Numbers" ItemsSource="{Binding Numbers}" Width="300"
+                  AccessKey="N" AccessKeyInvoked="OnNumbersShortcut">
+            <i:Interaction.Behaviors>
+                <b:AccessKeyTooltipBehavior />
+            </i:Interaction.Behaviors>
+        </ComboBox>
     </Grid>
 </Page>
 
