@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml.Controls;
 using Caliburn.Micro;
@@ -47,6 +48,13 @@ namespace Ignite.Features
                 return;
 
             DisplayRootViewFor<ShellViewModel>();
+        }
+
+        protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
+        {
+            base.OnBackgroundActivated(args);
+
+            Debug.WriteLine("Background Task Activated");
         }
 
         protected override object GetInstance(Type service, string key)

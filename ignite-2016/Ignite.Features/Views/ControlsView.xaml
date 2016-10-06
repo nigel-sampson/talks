@@ -2,13 +2,13 @@
     x:Class="Ignite.Features.Views.ControlsView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Ignite.Features.Views"
+    xmlns:cm="using:Caliburn.Micro"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:i="using:Microsoft.Xaml.Interactivity"
     xmlns:b="using:Ignite.Features.Behaviors"
     mc:Ignorable="d">
-    
+
     <Page.BottomAppBar>
         <CommandBar DefaultLabelPosition="Right">
             <CommandBar.PrimaryCommands>
@@ -28,18 +28,27 @@
     </Page.BottomAppBar>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ComboBox x:Name="Numbers" ItemsSource="{Binding Numbers}" Width="300"
-                  AccessKey="N" AccessKeyInvoked="OnNumbersShortcut">
-            <i:Interaction.Behaviors>
-                <b:AccessKeyTooltipBehavior />
-            </i:Interaction.Behaviors>
-        </ComboBox>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+            <ComboBox x:Name="Numbers" ItemsSource="{Binding Numbers}" Width="300"
+                      AccessKey="N" AccessKeyInvoked="OnNumbersShortcut">
+                <i:Interaction.Behaviors>
+                    <b:AccessKeyTooltipBehavior />
+                </i:Interaction.Behaviors>
+            </ComboBox>
+            <Button cm:Message.Attach="Add(Numbers)" Content="Add" Margin="10,0,0,0" />
+        </StackPanel>
+
+        <ListView Grid.Row="1" ItemsSource="{Binding SelectedNumbers}" BorderBrush="#FFCCCCCC" BorderThickness="2">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsStackPanel ItemsUpdatingScrollMode="KeepLastItemInView" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
     </Grid>
 </Page>
-
-
-
-
-
-
-

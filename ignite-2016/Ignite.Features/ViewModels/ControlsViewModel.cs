@@ -12,6 +12,7 @@ namespace Ignite.Features.ViewModels
         {
             Numbers = new BindableCollection<string>(
                 Enumerable.Range(0, 30).Select(i => i.ToWords()));    
+            SelectedNumbers = new BindableCollection<string>();
         }
 
         public async void Open()
@@ -21,6 +22,13 @@ namespace Ignite.Features.ViewModels
             await dialog.ShowAsync();
         }
 
+        public void Add(string number)
+        {
+            SelectedNumbers.Add(number);
+        }
+
         public BindableCollection<string> Numbers { get; } 
+
+        public BindableCollection<string> SelectedNumbers { get; }
     }
 }
