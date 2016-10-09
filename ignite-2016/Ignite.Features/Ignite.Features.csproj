@@ -115,11 +115,17 @@
     <Compile Include="Views\BackgroundTaskView.xaml.cs">
       <DependentUpon>BackgroundTaskView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BindingView.xaml.cs">
+      <DependentUpon>BindingView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ControlsView.xaml.cs">
       <DependentUpon>ControlsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DetectionView.xaml.cs">
       <DependentUpon>DetectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LinksView.xaml.cs">
+      <DependentUpon>LinksView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MediaView.xaml.cs">
       <DependentUpon>MediaView.xaml</DependentUpon>
@@ -157,11 +163,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\BindingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ControlsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DetectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LinksView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
