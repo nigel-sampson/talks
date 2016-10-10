@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="Ignite.Features.Views.InkingView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ignite.Features.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <InkToolbar TargetInkCanvas="{x:Bind Canvas}" Grid.Row="0" InitialControls="None">
+            <InkToolbarBallpointPenButton/>
+            <InkToolbarPencilButton/>
+            <InkToolbarHighlighterButton/>
+            <InkToolbarEraserButton/>
+            <InkToolbarRulerButton/>
+            <InkToolbarCustomToggleButton x:Name="TouchToggle" Click="OnToggleTouch">
+                <SymbolIcon Symbol="{x:Bind TouchWriting}"/>
+            </InkToolbarCustomToggleButton>
+            <InkToolbarCustomToolButton Click="OnOpen">
+                <SymbolIcon Symbol="OpenFile"/>
+            </InkToolbarCustomToolButton>
+            <InkToolbarCustomToolButton Click="OnSave">
+                <SymbolIcon Symbol="Save"/>
+            </InkToolbarCustomToolButton>
+        </InkToolbar>
+        
+        <InkCanvas x:Name="Canvas" Grid.Row="1"  />
+        
+    </Grid>
+</Page>

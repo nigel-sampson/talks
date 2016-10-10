@@ -124,6 +124,9 @@
     <Compile Include="Views\DetectionView.xaml.cs">
       <DependentUpon>DetectionView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\InkingView.xaml.cs">
+      <DependentUpon>InkingView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LinksView.xaml.cs">
       <DependentUpon>LinksView.xaml</DependentUpon>
     </Compile>
@@ -172,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DetectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InkingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
