@@ -96,11 +96,12 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Behaviors\AccessKeyTooltipBehavior.cs" />
+    <Compile Include="Inking\CalligraphicPen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BackgroundTaskViewModel.cs" />
     <Compile Include="ViewModels\BindingViewModel.cs" />
+    <Compile Include="ViewModels\ColourViewModel.cs" />
     <Compile Include="ViewModels\ConnectedAnimationsViewModel.cs" />
-    <Compile Include="ViewModels\ConnectedAppsViewModel.cs" />
     <Compile Include="ViewModels\ControlsViewModel.cs" />
     <Compile Include="ViewModels\DetectionViewModel.cs" />
     <Compile Include="ViewModels\EffectsViewModel.cs" />
@@ -123,6 +124,9 @@
     </Compile>
     <Compile Include="Views\DetectionView.xaml.cs">
       <DependentUpon>DetectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ImplicitAnimationsView.xaml.cs">
+      <DependentUpon>ImplicitAnimationsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\InkingView.xaml.cs">
       <DependentUpon>InkingView.xaml</DependentUpon>
@@ -178,6 +182,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ImplicitAnimationsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\InkingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -200,6 +208,7 @@
       <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
