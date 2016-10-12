@@ -10,6 +10,7 @@ namespace Ignite.Features.Views
     public sealed partial class InkingView
     {
         public Symbol TouchWriting = (Symbol)0xED5F;
+        public Symbol CalligraphyPen = (Symbol)0xEDFB;
 
         public InkingView()
         {

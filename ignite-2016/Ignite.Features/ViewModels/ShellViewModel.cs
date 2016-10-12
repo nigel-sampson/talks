@@ -25,7 +25,6 @@ namespace Ignite.Features.ViewModels
                 new FeatureViewModel("Implict Animations", "Animatng layout changes implicitly", typeof(ImplicitAnimationsViewModel)),
                 new FeatureViewModel("Connected Animations", "Batch a group of related animations", typeof(DetectionViewModel)),
                 new FeatureViewModel("Effects", "Composition effects, shading & lighting", typeof(EffectsViewModel)),
-                new FeatureViewModel("Connected Apps", "Creating partner app experiences", typeof(ConnectedAppsViewModel)),
                 new FeatureViewModel("Xbox", "Xbox specific app features", typeof(XboxViewModel)),
                 new FeatureViewModel("HoloLens", "HoloLens specific app features", typeof(HoloLensViewModel))
             };
