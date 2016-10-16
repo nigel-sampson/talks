@@ -125,6 +125,9 @@
     <Compile Include="Views\DetectionView.xaml.cs">
       <DependentUpon>DetectionView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EffectsView.xaml.cs">
+      <DependentUpon>EffectsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ImplicitAnimationsView.xaml.cs">
       <DependentUpon>ImplicitAnimationsView.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,7 @@
   <ItemGroup>
     <Content Include="Assets\big_buck_bunny.mp4" />
     <Content Include="Assets\example.gif" />
+    <Content Include="Assets\wallpaper.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -179,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DetectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EffectsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
