@@ -31,6 +31,7 @@ namespace Ignite.Features
                 .PerRequest<BackgroundTaskViewModel>()
                 .PerRequest<BindingViewModel>()
                 .PerRequest<ConnectedAnimationsViewModel>()
+                .PerRequest<AnimationsTargetViewModel>()
                 .PerRequest<ControlsViewModel>()
                 .PerRequest<DetectionViewModel>()
                 .PerRequest<EffectsViewModel>()

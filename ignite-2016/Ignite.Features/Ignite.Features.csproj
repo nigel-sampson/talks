@@ -98,6 +98,7 @@
     <Compile Include="Behaviors\AccessKeyTooltipBehavior.cs" />
     <Compile Include="Inking\CalligraphicPen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AnimationsTargetViewModel.cs" />
     <Compile Include="ViewModels\BackgroundTaskViewModel.cs" />
     <Compile Include="ViewModels\BindingViewModel.cs" />
     <Compile Include="ViewModels\ColourViewModel.cs" />
@@ -113,11 +114,17 @@
     <Compile Include="ViewModels\MediaViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\XboxViewModel.cs" />
+    <Compile Include="Views\AnimationsTargetView.xaml.cs">
+      <DependentUpon>AnimationsTargetView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BackgroundTaskView.xaml.cs">
       <DependentUpon>BackgroundTaskView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BindingView.xaml.cs">
       <DependentUpon>BindingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConnectedAnimationsView.xaml.cs">
+      <DependentUpon>ConnectedAnimationsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ControlsView.xaml.cs">
       <DependentUpon>ControlsView.xaml</DependentUpon>
@@ -170,11 +177,19 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\AnimationsTargetView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BackgroundTaskView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BindingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConnectedAnimationsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

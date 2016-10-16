@@ -23,7 +23,7 @@ namespace Ignite.Features.ViewModels
                 new FeatureViewModel("Binding & Tooling", "Compiled bindings & tooling updates", typeof(BindingViewModel)),
                 new FeatureViewModel("Inking", "Ink Canvas & Toolbar", typeof(InkingViewModel)),
                 new FeatureViewModel("Implict Animations", "Animatng layout changes implicitly", typeof(ImplicitAnimationsViewModel)),
-                new FeatureViewModel("Connected Animations", "Batch a group of related animations", typeof(DetectionViewModel)),
+                new FeatureViewModel("Connected Animations", "Batch a group of related animations", typeof(ConnectedAnimationsViewModel)),
                 new FeatureViewModel("Effects", "Composition effects, shading & lighting", typeof(EffectsViewModel)),
                 new FeatureViewModel("Xbox", "Xbox specific app features", typeof(XboxViewModel)),
                 new FeatureViewModel("HoloLens", "HoloLens specific app features", typeof(HoloLensViewModel))
