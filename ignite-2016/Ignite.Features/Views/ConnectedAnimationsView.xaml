@@ -7,8 +7,26 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Image x:Name="Wallpaper" Width="200" Source="/Assets/wallpaper.jpg"/>
-        <Button Content="Navigate" Click="OnNavigate"/>
-    </StackPanel>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Connected Animations" Style="{ThemeResource HeaderTextBlockStyle}"/>
+
+        <Border Tapped="OnNavigate" Grid.Row="1" Margin="0,24,0,0" VerticalAlignment="Top">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image x:Name="Wallpaper" Width="240" Source="/Assets/wallpaper.jpg"/>
+
+                <TextBlock x:Name="Title" Text="Some Interesting Title" Grid.Column="1" Style="{ThemeResource SubheaderTextBlockStyle}"
+                           Margin="24,0,0,0"/>
+            </Grid>
+        </Border>
+    </Grid>
 </Page>

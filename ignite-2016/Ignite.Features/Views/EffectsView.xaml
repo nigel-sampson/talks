@@ -7,12 +7,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Image x:Name="TargetImage" Width="600">
-            <Image.Source>
-                <BitmapImage UriSource="/Assets/wallpaper.jpg" ImageOpened="OnImageOpened"/>
-            </Image.Source>
-        </Image>
-        <Slider ValueChanged="OnBlurValueChanged" Minimum="0" Maximum="100"/>
-    </StackPanel>
+    <ScrollViewer Style="{ThemeResource VerticalScrollViewerStyle}">
+        <StackPanel>
+            <TextBlock Text="Effects" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            <Slider ValueChanged="OnBlurValueChanged" Minimum="0" Maximum="100"
+                    Margin="0,0,0,12"/>
+            <Image x:Name="TargetImage">
+                <Image.Source>
+                    <BitmapImage UriSource="/Assets/wallpaper.jpg" ImageOpened="OnImageOpened"/>
+                </Image.Source>
+            </Image>
+        </StackPanel>
+    </ScrollViewer>
 </Page>

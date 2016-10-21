@@ -7,8 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="Open" Content="Open Link" />
-    </Grid>
+    <ScrollViewer Style="{ThemeResource VerticalScrollViewerStyle}">
+        <StackPanel>
+            <TextBlock Text="Web to App Links" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            <Button x:Name="OpenCompiledExperience" Content="Open compiledexperience.com" />
+            <Button x:Name="OpenGoogle" Content="Open google.com" Margin="0,12,0,0" />
+        </StackPanel>
+    </ScrollViewer>
 </Page>
 

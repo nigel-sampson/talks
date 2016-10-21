@@ -24,10 +24,22 @@ namespace Ignite.Features.Views
 
             offsetAnimation.Target = nameof(Visual.Offset);
             offsetAnimation.InsertExpressionKeyFrame(1.0f, "this.FinalValue");
-            offsetAnimation.Duration = TimeSpan.FromMilliseconds(400);
+            offsetAnimation.Duration = TimeSpan.FromMilliseconds(800);
+
+            var opacityAnimation = compositor.CreateScalarKeyFrameAnimation();
+
+            opacityAnimation.Target = nameof(Visual.Opacity);
+            opacityAnimation.InsertKeyFrame(0.2f, 0.5f);
+            opacityAnimation.InsertKeyFrame(0.8f, 0.5f);
+            opacityAnimation.InsertExpressionKeyFrame(1.0f, "this.FinalValue");
+            opacityAnimation.Duration = TimeSpan.FromMilliseconds(800);
+
+            var group = compositor.CreateAnimationGroup();
+            group.Add(offsetAnimation);
+            group.Add(opacityAnimation);
 
             animations = compositor.CreateImplicitAnimationCollection();
-            animations[nameof(Visual.Offset)] = offsetAnimation;
+            animations[nameof(Visual.Offset)] = group;
         }
 
         private void OnContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)

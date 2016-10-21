@@ -18,7 +18,8 @@ namespace Ignite.Features.Views
         {
             var service = ConnectedAnimationService.GetForCurrentView();
 
-            service.PrepareToAnimate("Anim", Wallpaper);
+            service.PrepareToAnimate("Wallpaper", Wallpaper);
+            service.PrepareToAnimate("Title", Title);
 
             ViewModel.GoToTarget();
         }

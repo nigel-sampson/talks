@@ -5,4 +5,12 @@
     xmlns:cm="using:Caliburn.Micro"
     RequestedTheme="Dark">
 
+    <cm:CaliburnApplication.Resources>
+        <Style x:Key="VerticalScrollViewerStyle" TargetType="ScrollViewer">
+            <Setter Property="HorizontalScrollMode" Value="Disabled" />
+            <Setter Property="VerticalScrollMode" Value="Enabled" />
+            <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+        </Style>
+    </cm:CaliburnApplication.Resources>
 </cm:CaliburnApplication>

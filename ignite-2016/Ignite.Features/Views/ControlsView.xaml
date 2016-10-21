@@ -12,7 +12,11 @@
     <Page.BottomAppBar>
         <CommandBar DefaultLabelPosition="Right">
             <CommandBar.PrimaryCommands>
-                <AppBarButton x:Name="Open" AccessKey="O" Icon="OpenFile" Label="Open File" />
+                <AppBarButton Click="OnOpen" AccessKey="O" Icon="OpenFile" Label="Open File">
+                    <i:Interaction.Behaviors>
+                        <b:AccessKeyTooltipBehavior />
+                    </i:Interaction.Behaviors>
+                </AppBarButton>
                 <AppBarButton AccessKey="P" Icon="Preview" Label="Preview">
                     <i:Interaction.Behaviors>
                         <b:AccessKeyTooltipBehavior />
@@ -27,28 +31,35 @@
         </CommandBar>
     </Page.BottomAppBar>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
-            <ComboBox x:Name="Numbers" ItemsSource="{Binding Numbers}" Width="300"
-                      AccessKey="N" AccessKeyInvoked="OnNumbersShortcut">
-                <i:Interaction.Behaviors>
-                    <b:AccessKeyTooltipBehavior />
-                </i:Interaction.Behaviors>
-            </ComboBox>
-            <Button cm:Message.Attach="Add(Numbers)" Content="Add" Margin="10,0,0,0" />
-        </StackPanel>
-
-        <ListView Grid.Row="1" ItemsSource="{Binding SelectedNumbers}" BorderBrush="#FFCCCCCC" BorderThickness="2">
+        <TextBlock Text="Media" Style="{StaticResource HeaderTextBlockStyle}"/>
+        
+        <ComboBox x:Name="Numbers" ItemsSource="{Binding Numbers}" Width="300" Margin="0,0,0,24"
+                  AccessKey="N" AccessKeyInvoked="OnNumbersShortcut" Grid.Row="1">
+            <i:Interaction.Behaviors>
+                <b:AccessKeyTooltipBehavior />
+            </i:Interaction.Behaviors>
+        </ComboBox>
+        
+        <ListView Grid.Row="2" ItemsSource="{Binding SelectedNumbers}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <ItemsStackPanel ItemsUpdatingScrollMode="KeepLastItemInView" />
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="#03A9F4" Padding="6" Margin="0,6,6,6">
+                        <TextBlock Text="{Binding}" Style="{StaticResource BodyTextBlockStyle}"/>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </Page>

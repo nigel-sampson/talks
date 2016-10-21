@@ -7,16 +7,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock>
-            <Run Text="Anniversary Contract Present?" FontWeight="Bold" />
-            <Run Text="{Binding AnniversaryContact}" />
-            <LineBreak />
-            <LineBreak />
-            <Run Text="Hardware Buttons Present?" FontWeight="Bold" />
-            <Run Text="{Binding HardwareButtonsPresent}" />
-        </TextBlock>
-    </Grid>
+    <ScrollViewer Style="{ThemeResource VerticalScrollViewerStyle}">
+        <StackPanel>
+            <TextBlock Text="Feature Detection" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            <TextBlock Margin="0,12,0,0">
+                <Run Text="Anniversary Contract Present?" FontWeight="Bold" />
+                <Run Text="{Binding AnniversaryContact}" />
+                <LineBreak />
+                <LineBreak />
+                <Run Text="Hardware Buttons Present?" FontWeight="Bold" />
+                <Run Text="{Binding HardwareButtonsPresent}" />
+            </TextBlock>
+        </StackPanel>
+    </ScrollViewer>
 </Page>
 
 

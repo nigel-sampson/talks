@@ -9,12 +9,13 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="240" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         
         <ListView ItemsSource="{Binding Features}" SelectionMode="None" IsItemClickEnabled="True"
-                  cm:Message.Attach="[Event ItemClick] = [FeatureSelected($clickedItem)]">
+                  cm:Message.Attach="[Event ItemClick] = [FeatureSelected($clickedItem)]"
+                  Background="#FF1E1E1E">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="20,10">

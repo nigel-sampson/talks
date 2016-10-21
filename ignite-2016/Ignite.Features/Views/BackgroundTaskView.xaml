@@ -7,8 +7,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="{Binding Feedback}" Style="{ThemeResource TitleTextBlockStyle}" />
-    </Grid>
+    <ScrollViewer Style="{ThemeResource VerticalScrollViewerStyle}">
+        <StackPanel>
+            <TextBlock Text="Single Process Background Task" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            <ItemsControl ItemsSource="{Binding Messages}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" Style="{ThemeResource BodyTextBlockStyle}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </ScrollViewer>
 </Page>
 

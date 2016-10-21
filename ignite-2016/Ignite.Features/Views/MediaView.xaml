@@ -6,14 +6,29 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="600" HorizontalAlignment="Left">
-        <MediaPlayerElement x:Name="MediaElement" AreTransportControlsEnabled="True" Height="300"/>
-        <Image Width="600" Margin="0,10,0,0">
-            <Image.Source>
-                <BitmapImage AutoPlay="True" UriSource="/Assets/example.gif" />
-            </Image.Source>
-        </Image>
-    </StackPanel>
+    <ScrollViewer Style="{StaticResource VerticalScrollViewerStyle}">
+        <StackPanel>
+            <TextBlock Text="Media" Style="{StaticResource HeaderTextBlockStyle}"/>
+            <MediaPlayerElement x:Name="MediaElement" AreTransportControlsEnabled="True" Width="480" Height="360"
+                                HorizontalAlignment="Left"/>
+            
+            <Image Width="480" Margin="0,24,0,0" HorizontalAlignment="Left">
+                <Image.Source>
+                    <BitmapImage x:Name="Gif" UriSource="/Assets/example.gif" AutoPlay="False" />
+                </Image.Source>
+            </Image>
+            
+        </StackPanel>
+    </ScrollViewer>
+    
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="Play" Label="Play" Click="OnPlay"/>
+                <AppBarButton Icon="Stop" Label="Stop" Click="OnStop"/>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>
 
 

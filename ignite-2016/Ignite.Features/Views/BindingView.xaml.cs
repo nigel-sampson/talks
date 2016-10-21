@@ -12,6 +12,6 @@ namespace Ignite.Features.Views
 
         public BindingViewModel ViewModel => DataContext as BindingViewModel;
 
-        public string Format(int value) => value > 10 ? "High Score!" : null;
+        public string Format(int value) => value > 10 ? "High Score!" : "Low Score :(";
     }
 }

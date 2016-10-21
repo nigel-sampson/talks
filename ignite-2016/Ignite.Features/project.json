@@ -3,6 +3,7 @@
     "Caliburn.Micro": "3.0.1",
     "Humanizer": "2.1.0",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+    "System.Reactive": "3.0.0",
     "Win2D.uwp": "1.19.0"
   },
   "frameworks": {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Reactive.Linq;
 using Windows.UI.Popups;
 using Caliburn.Micro;
 using Humanizer;
@@ -8,6 +9,8 @@ namespace Ignite.Features.ViewModels
 {
     public class ControlsViewModel : Screen
     {
+        private IDisposable subscription;
+
         public ControlsViewModel()
         {
             Numbers = new BindableCollection<string>(
@@ -15,16 +18,22 @@ namespace Ignite.Features.ViewModels
             SelectedNumbers = new BindableCollection<string>();
         }
 
-        public async void Open()
+        protected override void OnActivate()
         {
-            var dialog = new MessageDialog("File opened.", "Opened");
-
-            await dialog.ShowAsync();
+            subscription = Observable.Interval(TimeSpan.FromSeconds(3))
+                .Subscribe(_ => SelectedNumbers.Add(Constants.GetLipsum()));
         }
 
-        public void Add(string number)
+        protected override void OnDeactivate(bool close)
         {
-            SelectedNumbers.Add(number);
+            subscription.Dispose();
+        }
+
+        public async void Open()
+        {
+            var dialog = new MessageDialog(Constants.Lipsum, "Opened");
+
+            await dialog.ShowAsync();
         }
 
         public BindableCollection<string> Numbers { get; } 

@@ -6,17 +6,33 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    
+    <Page.Resources>
+        <Style x:Key="ActionButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="64" />
+            <Setter Property="Height" Value="64" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="32" />
+        </Style>
+        <SolidColorBrush x:Key="ButtonBackground" Color="#03A9F4" />
+    </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <ScrollViewer Style="{ThemeResource VerticalScrollViewerStyle}">
         <StackPanel>
-            <TextBlock Text="{x:Bind ViewModel.Count, Mode=OneWay}" />
-            <Button Content="+" Click="{x:Bind ViewModel.Increment}" />
-            <Button Content="-" Click="{x:Bind ViewModel.Decrement}" />
-            <TextBlock
-                Text="{x:Bind Format(ViewModel.Count), Mode=OneWay}"
+            <TextBlock Text="Bindings &amp; Tooling" Style="{ThemeResource HeaderTextBlockStyle}"/>
+
+            <TextBlock Text="{x:Bind ViewModel.Count, Mode=OneWay}" Style="{ThemeResource SubheaderTextBlockStyle}" />
+
+            <StackPanel Orientation="Horizontal" Margin="0,12">
+                <Button Content="+" Click="{x:Bind ViewModel.Increment}" Style="{StaticResource ActionButtonStyle}" />
+                <Button Content="-" Click="{x:Bind ViewModel.Decrement}" Style="{StaticResource ActionButtonStyle}" Margin="24,0,0,0" />
+            </StackPanel>
+
+            <TextBlock Text="{x:Bind Format(ViewModel.Count), Mode=OneWay}" Style="{ThemeResource SubheaderTextBlockStyle}"
                 Visibility="{x:Bind ViewModel.HighScore, Mode=OneWay}" />
         </StackPanel>
-    </Grid>
+    </ScrollViewer>
 </Page>
 
 

@@ -2,13 +2,21 @@
 using System.Linq;
 using Windows.ApplicationModel.Background;
 using Caliburn.Micro;
+using Ignite.Features.Messages;
 
 namespace Ignite.Features.ViewModels
 {
-    public class BackgroundTaskViewModel : Screen
+    public class BackgroundTaskViewModel : Screen, IHandle<BackgroundTaskMessage>
     {
+        private readonly IEventAggregator eventAggregator;
         private const string TaskName = "Single Process Background Task";
-        private string feedback;
+
+        public BackgroundTaskViewModel(IEventAggregator eventAggregator)
+        {
+            this.eventAggregator = eventAggregator;
+
+            Messages = new BindableCollection<string>();
+        }
 
         protected override void OnInitialize()
         {
@@ -17,7 +25,7 @@ namespace Ignite.Features.ViewModels
 
             if (taskRegistered)
             {
-                Feedback = "Task already registered";
+                Messages.Add("Task already registered");
                 return;
             }
 
@@ -30,17 +38,24 @@ namespace Ignite.Features.ViewModels
 
             taskBuilder.Register();
 
-            Feedback = "Task Registered";
+            Messages.Add("Task Registered");
         }
 
-        public string Feedback
+        protected override void OnActivate()
         {
-            get { return feedback; }
-            set
-            {
-                feedback = value;
-                NotifyOfPropertyChange(() => Feedback);
-            }
+            eventAggregator.Subscribe(this);
         }
+
+        protected override void OnDeactivate(bool close)
+        {
+            eventAggregator.Unsubscribe(this);
+        }
+
+        public void Handle(BackgroundTaskMessage message)
+        {
+            Messages.Add("Task executed");
+        }
+
+        public BindableCollection<string> Messages { get; } 
     }
 }

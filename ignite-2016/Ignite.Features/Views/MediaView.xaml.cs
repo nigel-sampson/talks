@@ -1,6 +1,7 @@
 ﻿using System;
 using Windows.Media.Core;
 using Windows.Media.Playback;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Navigation;
 
 namespace Ignite.Features.Views
@@ -23,6 +24,16 @@ namespace Ignite.Features.Views
             MediaElement.SetMediaPlayer(mediaPlayer);
 
             mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///assets/big_buck_bunny.mp4"));
+        }
+
+        private void OnPlay(object sender, RoutedEventArgs e)
+        {
+            Gif.Play();
+        }
+
+        private void OnStop(object sender, RoutedEventArgs e)
+        {
+            Gif.Stop();
         }
     }
 }

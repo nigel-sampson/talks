@@ -8,15 +8,7 @@
     mc:Ignorable="d">
     
     <Page.Resources>
-        <i:CalligraphicPen x:Key="CalligraphicPen" />
-        <BrushCollection x:Key="CalligraphicPenPalette">
-            <SolidColorBrush>Black</SolidColorBrush>
-            <SolidColorBrush>Brown</SolidColorBrush>
-            <SolidColorBrush>Red</SolidColorBrush>
-            <SolidColorBrush Color="#FFFFCE00"/>
-            <SolidColorBrush Color="#FF26E600"/>
-            <SolidColorBrush Color="#FF004DE6"/>
-        </BrushCollection>
+       
     </Page.Resources>
     
     <Page.BottomAppBar>
@@ -31,14 +23,30 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <InkToolbar TargetInkCanvas="{x:Bind Canvas}" Grid.Row="0" InitialControls="None">
+        <TextBlock Text="Inking" Style="{StaticResource HeaderTextBlockStyle}"/>
+        <InkToolbar TargetInkCanvas="{x:Bind Canvas}" Grid.Row="1" InitialControls="None">
+            <InkToolbar.Resources>
+                <BrushCollection x:Key="CalligraphicPenPalette">
+                    <SolidColorBrush>Black</SolidColorBrush>
+                    <SolidColorBrush>Brown</SolidColorBrush>
+                    <SolidColorBrush>Red</SolidColorBrush>
+                    <SolidColorBrush Color="#FFFFCE00"/>
+                    <SolidColorBrush Color="#FF26E600"/>
+                    <SolidColorBrush Color="#FF004DE6"/>
+                </BrushCollection>
+                <i:CalligraphicPen x:Key="CalligraphicPen" />
+            </InkToolbar.Resources>
             <InkToolbarBallpointPenButton/>
             <InkToolbarPencilButton/>
             <InkToolbarCustomPenButton CustomPen="{StaticResource CalligraphicPen}"
-                                       Palette="{StaticResource CalligraphicPenPalette}" SelectedBrushIndex="0"
+                                       Palette="{StaticResource CalligraphicPenPalette}" SelectedBrushIndex="3"
                                        MinStrokeWidth="4" MaxStrokeWidth="10">
+                <InkToolbarCustomPenButton.ConfigurationContent>
+                    <InkToolbarPenConfigurationControl/>
+                </InkToolbarCustomPenButton.ConfigurationContent>
                 <SymbolIcon Symbol="{x:Bind CalligraphyPen}"/>
             </InkToolbarCustomPenButton>
             <InkToolbarEraserButton/>
@@ -48,7 +56,7 @@
             </InkToolbarCustomToggleButton>
         </InkToolbar>
         
-        <InkCanvas x:Name="Canvas" Grid.Row="1"  />
+        <InkCanvas x:Name="Canvas" Grid.Row="2"  />
         
     </Grid>
 </Page>

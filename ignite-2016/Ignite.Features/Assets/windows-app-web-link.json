@@ -1,0 +1,5 @@
+﻿[{
+  "packageFamilyName": "906e8c86-2bcc-409d-b56a-ce116e5d78e4",
+  "paths": [ "*" ],
+  "excludePaths" : [ "/blog/*" ]
+ }]

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using Windows.UI;
 using Windows.UI.Composition;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,7 +23,7 @@ namespace Ignite.Features.Views
         {
             compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
 
-            var effect = new GaussianBlurEffect
+            var blur = new GaussianBlurEffect
             {
                 Name = "Blur",
                 Source = new CompositionEffectSourceParameter("Backdrop"),
@@ -30,7 +31,19 @@ namespace Ignite.Features.Views
                 BorderMode = EffectBorderMode.Hard
             };
 
-            var effectFactory = compositor.CreateEffectFactory(effect, new[] {"Blur.BlurAmount"});
+            var blend = new BlendEffect
+            {
+                Name = "Blend",
+                Foreground = new ColorSourceEffect
+                {
+                    Color = Color.FromArgb(128, 30, 30, 220),
+                    Name = "ColorSource"
+                },
+                Background = blur,
+                Mode = BlendEffectMode.Overlay
+            };
+            
+            var effectFactory = compositor.CreateEffectFactory(blur, new[] {"Blur.BlurAmount"});
             brush = effectFactory.CreateBrush();
 
             var backdrop = compositor.CreateBackdropBrush();

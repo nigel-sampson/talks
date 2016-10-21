@@ -14,11 +14,15 @@ namespace Ignite.Features.Views
 
         private void OnImageOpened(object sender, RoutedEventArgs e)
         {
+            Wallpaper.Opacity = 1.0f;
+
             var service = ConnectedAnimationService.GetForCurrentView();
 
-            var anim = service.GetAnimation("Anim");
-            Wallpaper.Opacity = 1.0f;
-            anim?.TryStart(Wallpaper);
+            var titleAnim = service.GetAnimation("Title");
+            var imageAnim = service.GetAnimation("Wallpaper");
+
+            titleAnim?.TryStart(Title);
+            imageAnim?.TryStart(Wallpaper);
         }
     }
 }
