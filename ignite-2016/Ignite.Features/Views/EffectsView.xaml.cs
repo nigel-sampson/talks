@@ -43,7 +43,7 @@ namespace Ignite.Features.Views
                 Mode = BlendEffectMode.Overlay
             };
             
-            var effectFactory = compositor.CreateEffectFactory(blur, new[] {"Blur.BlurAmount"});
+            var effectFactory = compositor.CreateEffectFactory(blend, new[] {"Blur.BlurAmount"});
             brush = effectFactory.CreateBrush();
 
             var backdrop = compositor.CreateBackdropBrush();

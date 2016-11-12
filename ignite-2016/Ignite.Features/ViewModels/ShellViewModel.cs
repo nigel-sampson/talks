@@ -22,15 +22,15 @@ namespace Ignite.Features.ViewModels
             Features = new BindableCollection<FeatureViewModel>
             {
                 new FeatureViewModel("Feature Detection", "Detecting features & contracts", typeof(DetectionViewModel)),
+                new FeatureViewModel("Binding & Tooling", "Compiled bindings & tooling updates", typeof(BindingViewModel)),
                 new FeatureViewModel("Media", "Animated gifs & Media Player", typeof(MediaViewModel)),
                 new FeatureViewModel("Controls", "Command Bar, ComboBox", typeof(ControlsViewModel)),
                 new FeatureViewModel("Background Tasks", "Single process background tasks", typeof(BackgroundTaskViewModel)),
                 new FeatureViewModel("Web to app links", "Links to your website redirect to your app", typeof(LinksViewModel)),
-                new FeatureViewModel("Binding & Tooling", "Compiled bindings & tooling updates", typeof(BindingViewModel)),
                 new FeatureViewModel("Inking", "Ink Canvas & Toolbar", typeof(InkingViewModel)),
-                new FeatureViewModel("Connected Animations", "Batch a group of related animations", typeof(ConnectedAnimationsViewModel)),
                 new FeatureViewModel("Effects", "Composition effects, shading & lighting", typeof(EffectsViewModel)),
                 new FeatureViewModel("Implict Animations", "Animatng layout changes implicitly", typeof(ImplicitAnimationsViewModel)),
+                new FeatureViewModel("Connected Animations", "Batch a group of related animations", typeof(ConnectedAnimationsViewModel)),
                 new FeatureViewModel("Xbox", "Additionss to UWP to make Xbox One apps easier", typeof(XboxViewModel)),
                 new FeatureViewModel("HoloLens", "Building 2D apps on HoloLens", typeof(HoloLensViewModel))
             };

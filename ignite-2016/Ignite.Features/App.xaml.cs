@@ -43,14 +43,10 @@ namespace Ignite.Features
                 .PerRequest<ImplicitAnimationsViewModel>()
                 .PerRequest<InkingViewModel>()
                 .PerRequest<LinksViewModel>()
-                // XY helper, check box to toggle element sounds
                 .PerRequest<XboxViewModel>()
-                // ???
                 .PerRequest<HoloLensViewModel>()
                 .PerRequest<WebsiteViewModel>();
-            
-            // Get better gif
-            // Switch wallpaper
+          
 
             var appView = ApplicationView.GetForCurrentView();
             var coreApp = CoreApplication.GetCurrentView();
@@ -65,6 +61,8 @@ namespace Ignite.Features
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
+            Debug.WriteLine($"Activated with TileId: {args.TileId}");
+
             if (args.PreviousExecutionState == ApplicationExecutionState.Running)
                 return;
 

@@ -26,7 +26,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Rectangle Fill="Red" Tapped="OnTapped"/>
+        <Rectangle Fill="#03A9F4" Tapped="OnTapped" Margin="24"
+                   Grid.Column="1"/>
 
         <Button x:Name="One" Content="1" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"
                 XYFocusLeft="{x:Bind Three}" />

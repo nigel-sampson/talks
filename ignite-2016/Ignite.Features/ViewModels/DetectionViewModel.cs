@@ -9,11 +9,16 @@ namespace Ignite.Features.ViewModels
     {
         public DetectionViewModel()
         {
-            AnniversaryContact = ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 3);
-            HardwareButtonsPresent = ApiInformation.IsTypePresent(typeof (HardwareButtons).FullName);
+
+            AnniversaryContact = 
+                ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 3);
+
+            HardwareButtonsPresent = 
+                ApiInformation.IsTypePresent(typeof (HardwareButtons).FullName);
         }
 
         public bool AnniversaryContact { get; }
+
         public bool HardwareButtonsPresent { get; }
     }
 }
