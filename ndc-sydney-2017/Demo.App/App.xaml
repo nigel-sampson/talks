@@ -5,4 +5,13 @@
     xmlns:cm="using:Caliburn.Micro"
     RequestedTheme="Light">
 
+    <cm:CaliburnApplication.Resources>
+        <Style x:Key="CompositionContentControlStyle" TargetType="ContentControl">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+        </Style>
+    </cm:CaliburnApplication.Resources>
+
 </cm:CaliburnApplication>

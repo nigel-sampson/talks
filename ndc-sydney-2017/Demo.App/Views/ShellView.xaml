@@ -2,7 +2,7 @@
     x:Class="Demo.App.Views.ShellView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Demo.App.Views"
+    xmlns:cm="using:Caliburn.Micro"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -10,6 +10,96 @@
     d:DesignWidth="400">
 
     <Grid>
-        <TextBlock Text="Test"></TextBlock>
+        <SplitView x:Name="ShellContent" DisplayMode="Overlay" OpenPaneLength="240">
+            <SplitView.Pane>
+                <ContentControl cm:View.Model="{Binding Menu}" Style="{StaticResource CompositionContentControlStyle}" />
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Button Content="&#xE700;" FontFamily="{StaticResource SymbolThemeFontFamily}" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" Click="OnToggleMenu" />
+
+                    <CommandBar Grid.Row="0" Grid.Column="1">
+                        <CommandBar.PrimaryCommands>
+                            <AppBarButton Label="Switch" Icon="Refresh" cm:Message.Attach="Toggle" />
+                        </CommandBar.PrimaryCommands>
+                    </CommandBar>
+
+                    <ContentControl cm:View.Model="{Binding ActiveScreen}" Style="{StaticResource CompositionContentControlStyle}" Grid.Column="1" Grid.Row="1" />
+                    
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
     </Grid>
 </UserControl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

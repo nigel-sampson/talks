@@ -26,7 +26,7 @@ namespace Demo.Core.ViewModels
             Repositories.AddRange(result.Items.Select(r => new RepositoryViewModel(r)));
         }
 
-        public void RepoistorySelected(RepositoryViewModel repository)
+        public void SelectRepository(RepositoryViewModel repository)
         {
             var message = new RepositorySelectedMessage(repository.Owner, repository.Name);
 

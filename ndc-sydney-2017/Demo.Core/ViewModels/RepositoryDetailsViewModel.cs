@@ -15,9 +15,22 @@ namespace Demo.Core.ViewModels
             eventAggregator.Subscribe(this);
         }
 
-        public void Handle(RepositorySelectedMessage message)
+        public async void Handle(RepositorySelectedMessage message)
         {
-            
+            var repository = await gitHubClient.Repository.Get(message.Owner, message.Name);
+
+            Name = $"{repository.Owner.Login} / {repository.Name}";
+            Description = repository.Description;
+
+            var readme = await gitHubClient.Repository.Content.GetReadme(message.Owner, message.Name);
+
+            Readme = readme.Content;
         }
+        
+        public string Name { get; set; }
+
+        public string Description { get; set; }
+
+        public string Readme { get; set; }
     }
 }

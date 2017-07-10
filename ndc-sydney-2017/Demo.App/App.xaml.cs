@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Windows.ApplicationModel.Activation;
+using Windows.UI.Xaml.Controls;
 using Caliburn.Micro;
 using Demo.Core.ViewModels;
 using Octokit;
