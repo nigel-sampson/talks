@@ -5,15 +5,16 @@
     xmlns:local="using:Demo.App.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
     <ScrollViewer>
-        <StackPanel>
+        <StackPanel Margin="24,0,12,24">
             <TextBlock Text="{Binding Name}" Style="{ThemeResource HeaderTextBlockStyle}" />
             <TextBlock Text="{Binding Description}" Style="{ThemeResource SubheaderTextBlockStyle}" Margin="0,12" />
-            <TextBlock Text="{Binding Readme}" Style="{ThemeResource BodyTextBlockStyle}" />
+            <toolkit:MarkdownTextBlock Text="{Binding Readme}" LinkForeground="#FF92CAF4" />
         </StackPanel>
     </ScrollViewer>
 </UserControl>

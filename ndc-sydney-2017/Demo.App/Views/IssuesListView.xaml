@@ -19,23 +19,19 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ListView ItemsSource="{Binding Issues}" SelectedItem="{Binding SelectedIssue, Mode=TwoWay}">
+        <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding ActiveItem, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ContentControl cm:View.Model="{Binding}" cm:View.Context="{Binding ElementName=ViewSelector, Path=SelectedValue.Content}" Style="{StaticResource CompositionContentControlStyle}" />
+                    <ContentControl cm:View.Model="{Binding}" cm:View.Context="{Binding ElementName=ViewSelector, Path=SelectedItem.Context}" Style="{StaticResource CompositionContentControlStyle}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <ContentControl cm:View.Model="{Binding SelectedIssue}" cm:View.Context="DetailView" Style="{StaticResource CompositionContentControlStyle}" Grid.Row="0" Grid.Column="1" />
+        <ContentControl cm:View.Model="{Binding ActiveItem}" cm:View.Context="DetailView" Style="{StaticResource CompositionContentControlStyle}" Grid.Row="0" Grid.Column="1" />
         
         <AppBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-            <StackPanel>
-                <TextBlock Text="{Binding ElementName=ViewSelector, Path=SelectedValue}"></TextBlock>
-            <ComboBox x:Name="ViewSelector" HorizontalAlignment="Right">
-                <ComboBoxItem Content="MasterView" />
-                <ComboBoxItem Content="ReactionsView" />
-            </ComboBox>
+            <StackPanel Margin="12">
+                <ComboBox x:Name="ViewSelector" HorizontalAlignment="Right" DisplayMemberPath="Name" Width="120"/>
             </StackPanel>
         </AppBar>
     </Grid>

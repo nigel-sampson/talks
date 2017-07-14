@@ -5,7 +5,7 @@ using Octokit;
 
 namespace Demo.Core.ViewModels
 {
-    public class IssuesListViewModel : Screen, IHandle<RepositorySelectedMessage>
+    public class IssuesListViewModel : Conductor<IssueViewModel>.Collection.OneActive, IHandle<RepositorySelectedMessage>
     {
         private readonly IGitHubClient gitHubClient;
 
@@ -20,12 +20,8 @@ namespace Demo.Core.ViewModels
         {
             var issues = await gitHubClient.Issue.GetAllForRepository(message.Owner, message.Name);
 
-            Issues.Clear();
-            Issues.AddRange(issues.Select(i => new IssueViewModel(i)));
+            Items.Clear();
+            Items.AddRange(issues.Select(i => new IssueViewModel(gitHubClient, message.Owner, message.Name, i)));
         }
-
-        public BindableCollection<IssueViewModel> Issues { get; } = new BindableCollection<IssueViewModel>();
-
-        public IssueViewModel SelectedIssue { get; set; }
     }
 }

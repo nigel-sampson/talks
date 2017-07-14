@@ -9,7 +9,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <SplitView x:Name="ShellContent" DisplayMode="Overlay" OpenPaneLength="240">
             <SplitView.Pane>
                 <ContentControl cm:View.Model="{Binding Menu}" Style="{StaticResource CompositionContentControlStyle}" />
@@ -25,11 +25,13 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <Button Content="&#xE700;" FontFamily="{StaticResource SymbolThemeFontFamily}" Style="{StaticResource NavigationBackButtonNormalStyle}" VerticalAlignment="Top" Click="OnToggleMenu" />
-
                     <CommandBar Grid.Row="0" Grid.Column="1">
+                        <CommandBar.Content>
+                            <AppBarButton Icon="List" Click="OnToggleMenu" />
+                        </CommandBar.Content>
                         <CommandBar.PrimaryCommands>
-                            <AppBarButton Label="Switch" Icon="Refresh" cm:Message.Attach="Toggle" />
+                            <AppBarButton Label="Details" Icon="PreviewLink" cm:Message.Attach="ViewDetails" />
+                            <AppBarButton Label="Issues" Icon="AllApps" cm:Message.Attach="ViewIssues" />
                         </CommandBar.PrimaryCommands>
                     </CommandBar>
 

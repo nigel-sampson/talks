@@ -5,16 +5,36 @@
     xmlns:local="using:Demo.App.Views.Issue"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
     <ScrollViewer>
-        <StackPanel>
+        <StackPanel Margin="24">
             <TextBlock Text="{Binding Title}" Style="{StaticResource TitleTextBlockStyle}" />
-            <TextBlock Text="{Binding Author}" Style="{StaticResource SubtitleTextBlockStyle}" />
-            <TextBlock Text="{Binding Body}" Style="{StaticResource BodyTextBlockStyle}" />
+            <TextBlock Text="{Binding Author}" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,6" />
+            <controls:MarkdownTextBlock Text="{Binding Body}" LinkForeground="#FF92CAF4" />
+            <TextBlock Text="Comments" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,12" />
+            <ItemsControl ItemsSource="{Binding Comments}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Border Margin="0,24,0,6" Padding="12" Background="#FF2D2D30" BorderThickness="2" BorderBrush="#FF333333">
+                                <controls:MarkdownTextBlock Text="{Binding Body}" LinkForeground="#FF92CAF4" />
+                            </Border>
+                            <TextBlock Text="{Binding Author}" Style="{StaticResource CaptionTextBlockStyle}" TextAlignment="Right" Margin="0,0,0,24" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </StackPanel>
     </ScrollViewer>
 </UserControl>
+
+
+
+
+
+
 

@@ -21,6 +21,7 @@ namespace Demo.Core.ViewModels
             var result = await gitHubClient.Search.SearchRepo(new SearchRepositoriesRequest("mvvm")
             {
                 Language = Language.CSharp,
+                PerPage = 12
             });
 
             Repositories.AddRange(result.Items.Select(r => new RepositoryViewModel(r)));

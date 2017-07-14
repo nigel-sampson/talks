@@ -13,6 +13,9 @@ namespace Demo.Core.ViewModels
             details = new RepositoryDetailsViewModel(eventAggregator, gitHubClient);
             issues = new IssuesListViewModel(eventAggregator, gitHubClient);
 
+            details.ConductWith(this);
+            issues.ConductWith(this);
+
             Menu = new MenuViewModel(eventAggregator, gitHubClient);
             Menu.ConductWith(this);
 
@@ -23,12 +26,14 @@ namespace Demo.Core.ViewModels
 
         public Screen ActiveScreen { get; set; }
 
-        public void Toggle()
+        public void ViewDetails()
         {
-            if (ActiveScreen is RepositoryDetailsViewModel)
-                ActiveScreen = issues;
-            else
-                ActiveScreen = details;
+            ActiveScreen = details;
+        }
+
+        public void ViewIssues()
+        {
+            ActiveScreen = issues;
         }
     }
 }

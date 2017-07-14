@@ -9,8 +9,8 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <StackPanel>
-        <TextBlock Text="{Binding Title}" Style="{StaticResource TitleTextBlockStyle}" />
-        <TextBlock Text="{Binding Author}" Style="{StaticResource SubtitleTextBlockStyle}" />
+    <StackPanel Margin="24,12,12,12">
+        <TextBlock Text="{Binding Title}" Style="{StaticResource BodyTextBlockStyle}" />
+        <TextBlock Text="{Binding Author}" Style="{StaticResource CaptionTextBlockStyle}" />
     </StackPanel>
 </UserControl>

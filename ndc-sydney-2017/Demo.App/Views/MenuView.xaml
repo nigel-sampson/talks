@@ -15,13 +15,16 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
+        <TextBlock Text="NDC" Style="{StaticResource HeaderTextBlockStyle}" FontWeight="Black" Margin="24,6,24,12" />
 
         <ListView ItemsSource="{Binding Repositories}" Grid.Row="1" SelectionMode="None"
                   IsItemClickEnabled="True" cm:Message.Attach="[Event ItemClick] = [SelectRepository($clickedItem)]">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Name}"/>
+                    <StackPanel Margin="12">
+                        <TextBlock Text="{Binding Name}" Style="{StaticResource BodyTextBlockStyle}"/>
+                        <TextBlock Text="{Binding Owner}" Style="{StaticResource CaptionTextBlockStyle}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -29,3 +32,4 @@
 
     </Grid>
 </UserControl>
+

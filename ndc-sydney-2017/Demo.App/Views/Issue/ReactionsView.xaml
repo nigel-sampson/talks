@@ -9,9 +9,23 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <StackPanel>
-        <TextBlock Text="{Binding Title}" Style="{StaticResource TitleTextBlockStyle}" />
-        <TextBlock Text="{Binding Author}" Style="{StaticResource SubtitleTextBlockStyle}" />
-        <TextBlock Text="{Binding Hearts}" Style="{StaticResource SubtitleTextBlockStyle}" />
+    <StackPanel Margin="24,12,12,12">
+        <TextBlock Text="{Binding Title}" Style="{StaticResource BodyTextBlockStyle}" />
+        
+        <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
+            <TextBlock Text="{Binding ThumbsUp}" Style="{StaticResource BodyTextBlockStyle}" />
+            <TextBlock Style="{StaticResource ReactionTextBlockStyle}" Text="&#x1F44D;" />
+            <TextBlock Text="{Binding ThumbsDown}" Style="{StaticResource BodyTextBlockStyle}" />
+            <TextBlock Style="{StaticResource ReactionTextBlockStyle}" Text="&#x1F44E;" />
+            <TextBlock Text="{Binding Laugh}" Style="{StaticResource BodyTextBlockStyle}" />
+            <TextBlock Style="{StaticResource ReactionTextBlockStyle}" Text="&#x1F603;" />
+            <TextBlock Text="{Binding Tada}" Style="{StaticResource BodyTextBlockStyle}" />
+            <TextBlock Style="{StaticResource ReactionTextBlockStyle}" Text="&#x1F389;" />
+            <TextBlock Text="{Binding Confused}" Style="{StaticResource BodyTextBlockStyle}" />
+            <TextBlock Style="{StaticResource ReactionTextBlockStyle}" Text="&#x1F615;" />
+            <TextBlock Text="{Binding Hearts}" Style="{StaticResource BodyTextBlockStyle}" />
+            <TextBlock Style="{StaticResource ReactionTextBlockStyle}" Text="&#x2764;" />
+        </StackPanel>
     </StackPanel>
 </UserControl>
+

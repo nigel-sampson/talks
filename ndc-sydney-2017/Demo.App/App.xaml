@@ -3,15 +3,34 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cm="using:Caliburn.Micro"
-    RequestedTheme="Light">
+    RequestedTheme="Dark">
 
     <cm:CaliburnApplication.Resources>
-        <Style x:Key="CompositionContentControlStyle" TargetType="ContentControl">
-            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
-            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="VerticalAlignment" Value="Stretch"/>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush" Color="#FF1E1E1E"/>
+                    <SolidColorBrush x:Key="CommandBarBackground" Color="#FF252526"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+
+            <Style x:Key="CompositionContentControlStyle" TargetType="ContentControl">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                <Setter Property="VerticalAlignment" Value="Stretch"/>
+            </Style>
+            
+            <Style x:Key="ReactionTextBlockStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Segoe UI Emoji" />
+                <Setter Property="Margin" Value="6,0" />
+            </Style>
+
+        </ResourceDictionary>
+
     </cm:CaliburnApplication.Resources>
 
 </cm:CaliburnApplication>
+
+
+
