@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Windows.ApplicationModel.Activation;
-using Windows.UI.Xaml.Controls;
 using Caliburn.Micro;
+using Demo.App.Services;
 using Demo.Core.Messages;
+using Demo.Core.Services;
 using Demo.Core.ViewModels;
 using Octokit;
 
@@ -27,7 +28,8 @@ namespace Demo.App
             container = new WinRTContainer();
             container.RegisterWinRTServices();
 
-            container.Instance<IGitHubClient>(new GitHubClient(new ProductHeaderValue("DemoApp")));
+            container.Singleton<ISettingsService, StorageSettingsService>();
+            container.Instance(CreateClient());
             container.PerRequest<ShellViewModel>();
         }
 
@@ -76,6 +78,17 @@ namespace Demo.App
         protected override void BuildUp(object instance)
         {
             container.BuildUp(instance);
+        }
+
+        private IGitHubClient CreateClient()
+        {
+            var settings = container.GetInstance<ISettingsService>();
+            var credentials = settings.GetCredentials();
+
+            return new GitHubClient(new ProductHeaderValue("DemoApp"))
+            {
+                Credentials = credentials
+            };
         }
     }
 }
