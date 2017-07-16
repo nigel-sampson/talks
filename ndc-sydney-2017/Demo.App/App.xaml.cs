@@ -29,8 +29,15 @@ namespace Demo.App
             container.RegisterWinRTServices();
 
             container.Singleton<ISettingsService, StorageSettingsService>();
+            container.Singleton<IRepositoryService, RepositoryService>();
+
             container.Instance(CreateClient());
-            container.PerRequest<ShellViewModel>();
+
+            container
+                .ViewModel<ShellViewModel>()
+                .ViewModel<MenuViewModel>()
+                .ViewModel<RepositoryDetailsViewModel>()
+                .ViewModel<IssuesListViewModel>();
         }
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)

@@ -96,6 +96,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ContainerExtensions.cs" />
     <Compile Include="Services\StorageSettingsService.cs" />
     <Compile Include="Views\IssuesListView.xaml.cs">
       <DependentUpon>IssuesListView.xaml</DependentUpon>

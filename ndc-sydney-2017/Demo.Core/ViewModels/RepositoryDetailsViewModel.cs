@@ -1,28 +1,29 @@
 ﻿using Caliburn.Micro;
 using Demo.Core.Messages;
+using Demo.Core.Services;
 using Octokit;
 
 namespace Demo.Core.ViewModels
 {
     public class RepositoryDetailsViewModel : Screen, IHandle<RepositorySelectedMessage>
     {
-        private readonly IGitHubClient gitHubClient;
+        private readonly IRepositoryService repositories;
 
-        public RepositoryDetailsViewModel(IEventAggregator eventAggregator, IGitHubClient gitHubClient)
+        public RepositoryDetailsViewModel(IEventAggregator eventAggregator, IRepositoryService repositories)
         {
-            this.gitHubClient = gitHubClient;
+            this.repositories = repositories;
 
             eventAggregator.Subscribe(this);
         }
 
         public async void Handle(RepositorySelectedMessage message)
         {
-            var repository = await gitHubClient.Repository.Get(message.Owner, message.Name);
+            var repository = await repositories.Get(message.Owner, message.Name);
 
             Name = $"{repository.Owner.Login} / {repository.Name}";
             Description = repository.Description;
 
-            var readme = await gitHubClient.Repository.Content.GetReadme(message.Owner, message.Name);
+            var readme = await repositories.GetReadme(message.Owner, message.Name);
 
             Readme = readme.Content;
         }

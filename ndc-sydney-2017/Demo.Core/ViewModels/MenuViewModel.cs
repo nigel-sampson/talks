@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Caliburn.Micro;
 using Demo.Core.Messages;
+using Demo.Core.Services;
 using Octokit;
 
 namespace Demo.Core.ViewModels
@@ -8,23 +9,19 @@ namespace Demo.Core.ViewModels
     public class MenuViewModel : Screen
     {
         private readonly IEventAggregator eventAggregator;
-        private readonly IGitHubClient gitHubClient;
+        private readonly IRepositoryService repositories;
 
-        public MenuViewModel(IEventAggregator eventAggregator, IGitHubClient gitHubClient)
+        public MenuViewModel(IEventAggregator eventAggregator, IRepositoryService repositories)
         {
             this.eventAggregator = eventAggregator;
-            this.gitHubClient = gitHubClient;
+            this.repositories = repositories;
         }
 
         protected override async void OnInitialize()
         {
-            var result = await gitHubClient.Search.SearchRepo(new SearchRepositoriesRequest("mvvm")
-            {
-                Language = Language.CSharp,
-                PerPage = 12
-            });
+            var results = await repositories.Search("mvvm");
 
-            Repositories.AddRange(result.Items.Select(r => new RepositoryViewModel(r)));
+            Repositories.AddRange(results.Select(r => new RepositoryViewModel(r)));
         }
 
         public void SelectRepository(RepositoryViewModel repository)

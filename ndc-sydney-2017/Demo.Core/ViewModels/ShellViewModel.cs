@@ -1,24 +1,26 @@
-﻿using Caliburn.Micro;
-using Demo.Core.Services;
-using Octokit;
+﻿using System;
+using Caliburn.Micro;
 
 namespace Demo.Core.ViewModels
 {
     public class ShellViewModel : Screen
     {
-        private readonly ISettingsService settings;
         private readonly RepositoryDetailsViewModel details;
         private readonly IssuesListViewModel issues;
+        private readonly SettingsViewModel settings;
         private Screen activeScreen;
 
-        public ShellViewModel(IEventAggregator eventAggregator, IGitHubClient gitHubClient, ISettingsService settings)
+        public ShellViewModel(
+            Func<MenuViewModel> menuFactory,
+            Func<RepositoryDetailsViewModel> detailsFactory,
+            Func<IssuesListViewModel> issuesFactory,
+            Func<SettingsViewModel> settingsFactory)
         {
-            this.settings = settings;
+            details = detailsFactory();
+            issues = issuesFactory();
+            settings = settingsFactory();
 
-            details = new RepositoryDetailsViewModel(eventAggregator, gitHubClient);
-            issues = new IssuesListViewModel(eventAggregator, gitHubClient);
-
-            Menu = new MenuViewModel(eventAggregator, gitHubClient);
+            Menu = menuFactory();
             Menu.ConductWith(this);
 
             ActiveScreen = details;
@@ -49,7 +51,7 @@ namespace Demo.Core.ViewModels
 
         public void ViewSettings()
         {
-            ActiveScreen = new SettingsViewModel(settings);
+            ActiveScreen = settings;
         }
     }
 }
