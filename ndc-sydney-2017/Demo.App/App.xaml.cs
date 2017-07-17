@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using Windows.ApplicationModel.Activation;
 using Caliburn.Micro;
 using Demo.App.Services;
+using Demo.App.Services.Offline;
 using Demo.Core.Messages;
 using Demo.Core.Services;
 using Demo.Core.ViewModels;
@@ -29,7 +30,7 @@ namespace Demo.App
             container.RegisterWinRTServices();
 
             container.Singleton<ISettingsService, StorageSettingsService>();
-            container.Singleton<IRepositoryService, RepositoryService>();
+            container.Singleton<IRepositoryService, OfflineRepositoryService>();
             container.Singleton<IIssuesService, IssuesService>();
 
             container.Instance(CreateClient());
