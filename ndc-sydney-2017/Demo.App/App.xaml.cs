@@ -30,6 +30,7 @@ namespace Demo.App
 
             container.Singleton<ISettingsService, StorageSettingsService>();
             container.Singleton<IRepositoryService, RepositoryService>();
+            container.Singleton<IIssuesService, IssuesService>();
 
             container.Instance(CreateClient());
 

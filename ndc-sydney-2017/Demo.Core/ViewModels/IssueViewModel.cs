@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Caliburn.Micro;
 using Octokit;
 
@@ -7,19 +9,11 @@ namespace Demo.Core.ViewModels
 {
     public class IssueViewModel : Screen
     {
-        private readonly IGitHubClient gitHubClient;
-        private readonly string owner;
-        private readonly string name;
-        private readonly int number;
+        private readonly Func<Task<IReadOnlyList<IssueComment>>> getComments;
 
-
-        public IssueViewModel(IGitHubClient gitHubClient, string owner, string name, Issue issue)
+        public IssueViewModel(Issue issue, Func<Task<IReadOnlyList<IssueComment>>> getComments)
         {
-            this.gitHubClient = gitHubClient;
-            this.owner = owner;
-            this.name = name;
-
-            number = issue.Number;
+            this.getComments = getComments;
             Title = issue.Title;
             Author = issue.User.Login;
             Body = issue.Body;
@@ -34,7 +28,7 @@ namespace Demo.Core.ViewModels
 
         protected override async void OnInitialize()
         {
-            var comments = await gitHubClient.Issue.Comment.GetAllForIssue(owner, name, number);
+            var comments = await getComments();
 
             Comments.AddRange(comments.Select(c => new CommentViewModel(c)));
         }
