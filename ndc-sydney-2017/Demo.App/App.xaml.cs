@@ -30,7 +30,7 @@ namespace Demo.App
             container.RegisterWinRTServices();
 
             container.Singleton<ISettingsService, StorageSettingsService>();
-            container.Singleton<IRepositoryService, OfflineRepositoryService>();
+            container.Singleton<IRepositoryService, RepositoryService>();
             container.Singleton<IIssuesService, IssuesService>();
 
             container.Instance(CreateClient());

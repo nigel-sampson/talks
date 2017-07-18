@@ -136,6 +136,8 @@
     <Content Include="Resources\search.json" />
     <Content Include="Resources\caliburn-micro.json" />
     <Content Include="Resources\caliburn-micro-readme.json" />
+    <Content Include="Resources\caliburn-micro-issues.json" />
+    <Content Include="Resources\caliburn-micro-comments.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\Default.rd.xml" />

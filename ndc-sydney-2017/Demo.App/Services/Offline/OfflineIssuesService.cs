@@ -6,16 +6,16 @@ using Octokit;
 
 namespace Demo.App.Services.Offline
 {
-    public class OfflineIssuesService : IIssuesService
+    public class OfflineIssuesService : OfflineServiceBase, IIssuesService
     {
         public Task<IReadOnlyList<Issue>> Get(string owner, string name)
         {
-            throw new NotImplementedException();
+            return Deserialize<IReadOnlyList<Issue>>("caliburn-micro-issues");
         }
 
         public Task<IReadOnlyList<IssueComment>> GetComments(string owner, string name, int number)
         {
-            throw new NotImplementedException();
+            return Deserialize<IReadOnlyList<IssueComment>>("caliburn-micro-comments");
         }
     }
 }
