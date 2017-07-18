@@ -67,9 +67,6 @@ namespace Demo.App
 
                 if (success)
                 {
-                    var eventAggregator = container.GetInstance<IEventAggregator>();
-
-                    eventAggregator.PublishOnCurrentThread(new RepositorySelectedMessage(owner, name));
                 }
             }
         }

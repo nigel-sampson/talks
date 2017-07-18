@@ -22,7 +22,7 @@
         <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding ActiveItem, Mode=TwoWay}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ContentControl cm:View.Model="{Binding}" cm:View.Context="{Binding ElementName=ViewSelector, Path=SelectedItem.Context}" Style="{StaticResource CompositionContentControlStyle}" />
+                    <ContentControl cm:View.Model="{Binding}" cm:View.Context="MasterView" Style="{StaticResource CompositionContentControlStyle}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

@@ -38,20 +38,5 @@ namespace Demo.Core.ViewModels
                 ScreenExtensions.TryActivate(activeScreen);
             }
         }
-
-        public void ViewDetails()
-        {
-            ActiveScreen = details;
-        }
-
-        public void ViewIssues()
-        {
-            ActiveScreen = issues;
-        }
-
-        public void ViewSettings()
-        {
-            ActiveScreen = settings;
-        }
     }
 }

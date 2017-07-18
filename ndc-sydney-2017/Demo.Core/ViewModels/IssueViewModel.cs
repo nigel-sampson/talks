@@ -26,13 +26,6 @@ namespace Demo.Core.ViewModels
             Hearts = issue.Reactions.Heart;
         }
 
-        protected override async void OnInitialize()
-        {
-            var comments = await getComments();
-
-            Comments.AddRange(comments.Select(c => new CommentViewModel(c)));
-        }
-
         public string Title { get; }
         public string Author { get; }
         public string Body { get; }
