@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Windows.ApplicationModel.Activation;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Caliburn.Micro;
 using Demo.App.Services;
 using Demo.App.Services.Offline;
@@ -23,6 +25,8 @@ namespace Demo.App
 
         protected override void Configure()
         {
+            ConfigureTitleBar();
+
             ViewModelLocator.AddNamespaceMapping("Demo.App.Views", "Demo.Core.ViewModels");
             ViewLocator.AddNamespaceMapping("Demo.Core.ViewModels", "Demo.App.Views");
 
@@ -40,6 +44,13 @@ namespace Demo.App
                 .ViewModel<MenuViewModel>()
                 .ViewModel<RepositoryDetailsViewModel>()
                 .ViewModel<IssuesListViewModel>();
+        }
+
+        private static void ConfigureTitleBar()
+        {
+            var appView = ApplicationView.GetForCurrentView();
+            appView.TitleBar.BackgroundColor = Color.FromArgb(255, 0, 122, 204);
+            appView.TitleBar.ButtonBackgroundColor = Color.FromArgb(255, 30, 30, 30);
         }
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)
