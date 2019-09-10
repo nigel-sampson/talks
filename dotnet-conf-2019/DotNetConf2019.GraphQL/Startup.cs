@@ -18,11 +18,13 @@ namespace DotNetConf2019.GraphQL
                 .AddEntityFrameworkNpgsql()
                 .AddDbContext<BlogDbContext>();
 
-            services.AddGraphQL(sp =>
+            services
+                .AddDataLoaderRegistry()
+                .AddGraphQL(sp =>
                 {
                     return SchemaBuilder.New()
                         .AddQueryType<QueryType>()
-                        .AddType<InstantType>()
+                        .AddType<OffsetDateTimeType>()
                         .Create();
                 });
         }

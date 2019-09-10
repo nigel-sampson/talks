@@ -6,9 +6,9 @@ using System;
 
 namespace DotNetConf2019.GraphQL.Schema
 {
-    public class InstantType : ScalarType
+    public class OffsetDateTimeType : ScalarType
     {
-        public InstantType() : base(nameof(Instant))
+        public OffsetDateTimeType() : base(nameof(OffsetDateTime))
         {
         }
 
@@ -20,17 +20,18 @@ namespace DotNetConf2019.GraphQL.Schema
         public override object ParseLiteral(IValueNode literal)
         {
             var asString = ((StringValueNode)literal).Value;
-            var instant = InstantPattern.ExtendedIso.Parse(asString).Value;
+            var instant = OffsetDateTimePattern.ExtendedIso.Parse(asString).Value;
 
             return instant;
         }
 
         public override IValueNode ParseValue(object value)
         {
-            if (value == null) return new NullValueNode(null);
+            if (value == null)
+                return new NullValueNode(null);
 
-            var instant = (Instant)value;
-            return new StringValueNode(InstantPattern.ExtendedIso.Format(instant));
+            var instant = (OffsetDateTime)value;
+            return new StringValueNode(OffsetDateTimePattern.ExtendedIso.Format(instant));
         }
 
         public override object Serialize(object value)
@@ -40,9 +41,9 @@ namespace DotNetConf2019.GraphQL.Schema
                 return null;
             }
 
-            if (value is Instant instant)
+            if (value is OffsetDateTime offsetDateTime)
             {
-                return InstantPattern.ExtendedIso.Format(instant);
+                return OffsetDateTimePattern.ExtendedIso.Format(offsetDateTime);
             }
 
             throw new ArgumentException("The specified value cannot be serialized by the StringType.");
@@ -58,7 +59,7 @@ namespace DotNetConf2019.GraphQL.Schema
 
             if (serialized is string s)
             {
-                value = InstantPattern.ExtendedIso.Parse(s).Value;
+                value = OffsetDateTimePattern.ExtendedIso.Parse(s).Value;
                 return true;
             }
 
@@ -66,6 +67,6 @@ namespace DotNetConf2019.GraphQL.Schema
             return false;
         }
 
-        public override Type ClrType => typeof(Instant);
+        public override Type ClrType => typeof(OffsetDateTime);
     }
 }

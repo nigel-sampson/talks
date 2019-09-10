@@ -10,6 +10,6 @@ namespace DotNetConf2019.GraphQL.Data
 
         public int PostId { get; set; }
 
-        public Instant SubmittedOn { get; set; }
+        public OffsetDateTime SubmittedOn { get; set; }
     }
 }

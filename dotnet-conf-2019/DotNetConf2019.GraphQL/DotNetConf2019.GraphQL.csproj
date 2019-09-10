@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Bogus" Version="28.0.3" />
     <PackageReference Include="HotChocolate.AspNetCore" Version="10.0.1" />
     <PackageReference Include="Markdig" Version="0.17.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />

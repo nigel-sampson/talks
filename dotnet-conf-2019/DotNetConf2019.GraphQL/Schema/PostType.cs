@@ -45,7 +45,7 @@ namespace DotNetConf2019.GraphQL.Schema
 
         public async Task<Image> ResolveImage([Parent] Post post, [Service] BlogDbContext dbContext, ImageSize size)
         {
-            return await dbContext.Images.SingleOrDefaultAsync(i => i.Size == size && i.PostId == post.Id);
+            return await dbContext.Images.FirstOrDefaultAsync(i => i.Size == size && i.PostId == post.Id);
         }
 
         public async Task<Author> ResolveAuthor(IResolverContext context, [Parent] Post post, [Service] BlogDbContext dbContext)

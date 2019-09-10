@@ -12,6 +12,6 @@ namespace DotNetConf2019.GraphQL.Data
 
         public string Markdown { get; set; }
 
-        public Instant PublishedOn { get; set; }
+        public OffsetDateTime PublishedOn { get; set; }
     }
 }
