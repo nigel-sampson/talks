@@ -1,0 +1,55 @@
+﻿using DotNetConf2019.GraphQL.Data;
+using DotNetConf2019.GraphQL.Schema;
+using HotChocolate;
+using HotChocolate.AspNetCore;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+
+namespace DotNetConf2019.GraphQL
+{
+    public class Startup
+    {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services
+                .AddEntityFrameworkNpgsql()
+                .AddDbContext<BlogDbContext>();
+
+            services.AddGraphQL(sp =>
+                {
+                    return SchemaBuilder.New()
+                        .AddQueryType<QueryType>()
+                        .AddType<InstantType>()
+                        .Create();
+                });
+        }
+
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                MigrateDatabase(app.ApplicationServices);
+
+                app.UseDeveloperExceptionPage();
+            }
+
+            app
+                .UseGraphQLHttpPost(new HttpPostMiddlewareOptions { Path = "/graphql" })
+                .UseGraphQLHttpGetSchema(new HttpGetSchemaMiddlewareOptions { Path = "/graphql/schema" });
+        }
+
+        private void MigrateDatabase(IServiceProvider services)
+        {
+            var scopeFactory = services.GetRequiredService<IServiceScopeFactory>();
+
+            using(var scope = scopeFactory.CreateScope())
+            using (var context = scope.ServiceProvider.GetRequiredService<BlogDbContext>())
+            {
+                context.Database.Migrate();
+            }
+        }
+    }
+}
