@@ -17,13 +17,13 @@ namespace DotNetConf2019.GraphQL.Schema
             base.Configure(descriptor);
 
             descriptor.Field(p => p.Id)
-                .Type<NonNullType<IdType>>();
+                .Type<IdType>(nullable: false);
 
             descriptor.Field(p => p.AuthorId)
                 .Ignore();
 
             descriptor.Field(p => p.Title)
-                .Type<NonNullType<StringType>>();
+                .Type<StringType>(nullable: false);
 
             descriptor.Field("html")
                 .Type<StringType>()
@@ -31,15 +31,15 @@ namespace DotNetConf2019.GraphQL.Schema
 
             descriptor.Field<PostType>(p => ResolveAuthor(default, default, default))
                 .Name("author")
-                .Type<NonNullType<AuthorType>>();
+                .Type<AuthorType>(nullable: false);
 
             descriptor.Field<PostType>(p => ResolveComments(default, default))
                 .Name("comments")
-                .Type<NonNullType<ListType<NonNullType<CommentType>>>>();
+                .ListType<CommentType>();
 
             descriptor.Field<PostType>(p => ResolveImage(default, default, default))
                 .Name("image")
-                .Argument("size", a => a.Type<NonNullType<ImageSizeType>>().DefaultValue(ImageSize.Small))
+                .Argument("size", a => a.Type<ImageSizeType>(nullable: false).DefaultValue(ImageSize.Small))
                 .Type<ImageType>();
         }
 
