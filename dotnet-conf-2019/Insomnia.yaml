@@ -1,0 +1,146 @@
+_type: export
+__export_format: 4
+__export_date: 2019-09-10T10:49:13.446Z
+__export_source: insomnia.desktop.app:v6.6.2
+resources:
+  - _id: req_ce9a863d07334f558f69adcf75050f5f
+    authentication: {}
+    body: {}
+    created: 1568082711693
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1568082711693
+    method: GET
+    modified: 1568082718502
+    name: SDL
+    parameters: []
+    parentId: wrk_171647b95cdc4d00a49b45671eed32ee
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ baseUrl  }}/graphql/schema"
+    _type: request
+  - _id: wrk_171647b95cdc4d00a49b45671eed32ee
+    created: 1568082646110
+    description: ""
+    modified: 1568082646110
+    name: .NET Conf
+    parentId: null
+    _type: workspace
+  - _id: req_883a8f0ba3fb4813b72de653104e6a05
+    authentication: {}
+    body:
+      mimeType: application/graphql
+      text: '{"query":"query {\n  posts
+        {\n    id\n    title\n    publishedOn\n    image
+        {\n      url\n    }\n    author {\n      name\n    }\n  }\n}"}'
+    created: 1568084983789
+    description: ""
+    headers:
+      - id: pair_7686358f17844c0e91ec8d4529f825dc
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1568082711643
+    method: POST
+    modified: 1568112422066
+    name: Front Page
+    parameters: []
+    parentId: wrk_171647b95cdc4d00a49b45671eed32ee
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ baseUrl  }}/graphql"
+    _type: request
+  - _id: req_b50a142da0ed48ffb9ddba173287f82a
+    authentication: {}
+    body:
+      mimeType: application/graphql
+      text: '{"query":"query($postId: ID!) {\n  post(id: $postId)
+        {\n    title\n    author
+        {\n      name\n    }\n    publishedOn\n    image(size: LARGE)
+        {\n      url\n    }\n    html\n    comments
+        {\n      submittedOn\n      text\n    }\n  }\n}","variables":{"postId":"1"}}'
+    created: 1568085070338
+    description: ""
+    headers:
+      - id: pair_7686358f17844c0e91ec8d4529f825dc
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1568082711593
+    method: POST
+    modified: 1568085225688
+    name: View Post
+    parameters: []
+    parentId: wrk_171647b95cdc4d00a49b45671eed32ee
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ baseUrl  }}/graphql"
+    _type: request
+  - _id: req_5ca53ba4ed5343418aff1b48ed985f84
+    authentication: {}
+    body:
+      mimeType: application/graphql
+      text: '{"query":"query {\n  __schema {\n    types {\n      name\n      fields
+        {\n        name\n      }\n    }\n  }\n}","variables":{"postId":"1"}}'
+    created: 1568085245983
+    description: ""
+    headers:
+      - id: pair_7686358f17844c0e91ec8d4529f825dc
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1568082711543
+    method: POST
+    modified: 1568085278079
+    name: Introspection
+    parameters: []
+    parentId: wrk_171647b95cdc4d00a49b45671eed32ee
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ baseUrl  }}/graphql"
+    _type: request
+  - _id: env_7f53895a1e75e732f4cd27635c497863ca06f914
+    color: null
+    created: 1568082646131
+    data: {}
+    dataPropertyOrder: null
+    isPrivate: false
+    metaSortKey: 1568082646131
+    modified: 1568082646131
+    name: Base Environment
+    parentId: wrk_171647b95cdc4d00a49b45671eed32ee
+    _type: environment
+  - _id: jar_7f53895a1e75e732f4cd27635c497863ca06f914
+    cookies: []
+    created: 1568082646140
+    modified: 1568082646140
+    name: Default Jar
+    parentId: wrk_171647b95cdc4d00a49b45671eed32ee
+    _type: cookie_jar
+  - _id: env_2d194f9fee9c471bbe95cb107c351cab
+    color: "#0080ff"
+    created: 1568082666662
+    data:
+      baseUrl: https://localhost:5001
+    dataPropertyOrder:
+      "&":
+        - baseUrl
+    isPrivate: false
+    metaSortKey: 1568082666662
+    modified: 1568082699728
+    name: Development
+    parentId: env_7f53895a1e75e732f4cd27635c497863ca06f914
+    _type: environment
