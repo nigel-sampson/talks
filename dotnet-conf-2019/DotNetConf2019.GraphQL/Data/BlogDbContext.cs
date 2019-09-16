@@ -17,6 +17,9 @@ namespace DotNetConf2019.GraphQL.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder
+                .ForNpgsqlUseIdentityColumns();
+
             Randomizer.Seed = new Random(13);
 
             var authorIds = 1;

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using NodaTime;
 using System;
 
 namespace DotNetConf2019.GraphQL
@@ -14,6 +15,8 @@ namespace DotNetConf2019.GraphQL
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IClock>(SystemClock.Instance);
+
             services
                 .AddEntityFrameworkNpgsql()
                 .AddDbContext<BlogDbContext>();
@@ -24,6 +27,7 @@ namespace DotNetConf2019.GraphQL
                 {
                     return SchemaBuilder.New()
                         .AddQueryType<QueryType>()
+                        .AddMutationType<MutationType>()
                         .AddType<OffsetDateTimeType>()
                         .Create();
                 });
