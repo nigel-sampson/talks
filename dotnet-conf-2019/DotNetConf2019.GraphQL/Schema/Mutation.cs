@@ -27,14 +27,7 @@ namespace DotNetConf2019.GraphQL.Schema
 
             dbContext.Posts.Add(post);
 
-            try
-            {
-                await dbContext.SaveChangesAsync();
-            }
-            catch(Exception ex)
-            {
-
-            }
+            await dbContext.SaveChangesAsync();
             
 
             return post;
