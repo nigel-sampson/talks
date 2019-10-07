@@ -1,0 +1,74 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Flights.Views.FlightSearchView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:caliburn="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:viewModels="clr-namespace:Flights.ViewModels"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True" 
+    d:DataContext="{d:DesignInstance viewModels:FlightSearchViewModel}">
+    
+    <phone:PhoneApplicationPage.Resources>
+        <Thickness x:Key="LabelMargin">12,0,12,-12</Thickness>
+        
+        <Style x:Key="CityListPickerStyle" TargetType="toolkit:ListPicker">
+            <Setter Property="DisplayMemberPath" Value="Name"/>
+            <Setter Property="FullModeItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" 
+                                   Margin="0,6"
+                                   FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                   FontSize="{StaticResource PhoneFontSizeExtraLarge}"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="METRO FLIGHTS" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="search" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <TextBlock Text="Departs" Style="{StaticResource PhoneTextNormalStyle}" Margin="{StaticResource LabelMargin}" />
+                <toolkit:ListPicker ItemsSource="{Binding Departs}" SelectedItem="{Binding SelectedDeparture, Mode=TwoWay}" FullModeHeader="DEPARTS" Style="{StaticResource CityListPickerStyle}" />
+                <TextBlock Text="Arrives" Style="{StaticResource PhoneTextNormalStyle}" Margin="{StaticResource LabelMargin}" />
+                <toolkit:ListPicker ItemsSource="{Binding Arrives}" SelectedItem="{Binding SelectedArrival, Mode=TwoWay}" FullModeHeader="ARRIVES" Style="{StaticResource CityListPickerStyle}" />
+            </StackPanel>
+            <ListBox x:Name="Flights" Grid.Row="1" ItemTemplate="{StaticResource FlightListTemplate}"/>
+        </Grid>
+    </Grid>
+    
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBar.Buttons>
+                <caliburn:AppBarButton Text="search" Message="Search" IconUri="/Resources/Images/AppBar/feature.search.png"/>
+                <caliburn:AppBarButton Text="voice" Message="UseVoice" IconUri="/Resources/Images/AppBar/appbar.microphone.png"/>
+            </shell:ApplicationBar.Buttons>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

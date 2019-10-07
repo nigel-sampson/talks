@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<grammar version="1.0" xml:lang="en-GB" root="search" tag-format="semantics/1.0" 
+         xmlns="http://www.w3.org/2001/06/grammar" 
+         xmlns:sapi="http://schemas.microsoft.com/Speech/2002/06/SRGSExtensions">
+  
+  <rule id="search" scope="public">
+    Show
+    <item repeat="0-1">me</item>
+    flights
+    <one-of>
+      <item>
+        <ruleref uri="#fromto" />  
+      </item>
+      <item>
+        <ruleref uri="#tofrom" />  
+      </item>
+    </one-of>
+  </rule>
+  
+  <rule id="fromto" scope="public">
+    from
+    <ruleref uri="#city" />
+    <tag>out.departs = rules.latest();</tag>
+    to
+    <ruleref uri="#city" />
+    <tag>out.arrives = rules.latest();</tag>
+  </rule>
+  
+  <rule id="tofrom" scope="public">
+    to
+    <ruleref uri="#city" />
+    <tag>out.arrives = rules.latest();</tag>
+    from
+    <ruleref uri="#city" />
+    <tag>out.departs = rules.latest();</tag>
+  </rule>
+  
+  <rule id="city" scope="public">
+    <one-of>
+      <item>Auckland</item>
+      <item>Hamilton</item>
+      <item>Tauranga</item>
+      <item>Wellington</item>
+      <item>Nelson</item>
+      <item>Christchurch</item>
+      <item>Dunedin</item>
+    </one-of>
+  </rule>
+
+  <!--<rule id="number" scope="public">
+    <one-of>
+      <item>zero<tag>out.number = 0;</tag></item>
+      <item>one<tag>out.number = 1;</tag></item>
+      <item>two<tag>out.number = 2;</tag></item>
+      <item>three<tag>out.number = 3;</tag></item>
+      <item>four<tag>out.number = 4;</tag></item>
+      <item>five<tag>out.number = 5;</tag></item>
+      <item>six<tag>out.number = 6;</tag></item>
+      <item>seven<tag>out.number = 7;</tag></item>
+      <item>eight<tag>out.number = 8;</tag></item>
+      <item>nine<tag>out.number = 9;</tag></item>
+    </one-of>
+  </rule>-->
+
+</grammar>

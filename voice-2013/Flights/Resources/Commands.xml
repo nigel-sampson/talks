@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.0">
+  <CommandSet Name="en-GB" xml:lang="en-GB">
+    <CommandPrefix>Flights</CommandPrefix>
+    <Example>show my flights</Example>
+
+    <Command Name="MyFlights">
+      <Example>show my flights</Example>
+      <ListenFor>[and] show my flights</ListenFor>
+      <Feedback>Checking your itinerary</Feedback>
+      <Navigate Target="Views/BookingsView.xaml"/>
+    </Command>
+
+    <Command Name="Search">
+      <Example>show me flights from Auckland to Wellington</Example>
+      <ListenFor>[and] show [me] flights from {DepartsCity} to {ArrivesCity}</ListenFor>
+      <Feedback>Searching for flights</Feedback>
+      <Navigate Target="Views/FlightSearchView.xaml"/>
+    </Command>
+
+    <Command Name="Status">
+      <Example>show me the status of Metro 4</Example>
+      <ListenFor>[and] show [me] the status of [flight] {Booking}</ListenFor>
+      <Feedback>Showing flight status</Feedback>
+      <Navigate Target="Views/BookingsView.xaml"/>
+    </Command>
+
+    <Command Name="StatusUnknown">
+      <Example>show me the status of Metro 4</Example>
+      <ListenFor>[and] show [me] the status of [flight] {*}</ListenFor>
+      <Feedback>Unknown flight, displaying bookings</Feedback>
+      <Navigate Target="Views/BookingsView.xaml"/>
+    </Command>
+
+    <PhraseList Label="DepartsCity">
+      <Item>Auckland</Item>
+      <Item>Hamilton</Item>
+      <Item>Tauranga</Item>
+      <Item>Wellington</Item>
+      <Item>Nelson</Item>
+      <Item>Christchurch</Item>
+      <Item>Dunedin</Item>
+    </PhraseList>
+
+    <PhraseList Label="ArrivesCity">
+      <Item>Auckland</Item>
+      <Item>Hamilton</Item>
+      <Item>Tauranga</Item>
+      <Item>Wellington</Item>
+      <Item>Nelson</Item>
+      <Item>Christchurch</Item>
+      <Item>Dunedin</Item>
+    </PhraseList>
+
+    <PhraseList Label="Booking">
+      
+    </PhraseList>
+
+  </CommandSet>
+</VoiceCommands>
