@@ -1,0 +1,50 @@
+﻿[
+	{
+		name: "Italian",
+		products:
+		[
+			{ name: "Pizza", colour: "#FF3C557D" },
+			{ name: "Cabonara", colour: "#FF5779AE" },
+			{ name: "Spaghetti", colour: "#FF2B3E5B" },
+			{ name: "Ravioli", colour: "#FF44618E" },
+			{ name: "Afforgato", colour: "#FF233249" },
+			{ name: "Tiramisu", colour: "#FF4D6C9F" }
+		]
+	},
+	{
+		name: "Mexican",
+		products:
+		[
+			{ name: "Burrito", colour: "#FF87C8C8" },
+			{ name: "Fajita", colour: "#FFBBE0E0" },
+			{ name: "Taco", colour: "#FF64B8B8" },
+			{ name: "Nachos", colour: "#FF98D0D0" },
+			{ name: "Enchilada", colour: "#FF53B0B0" },
+			{ name: "Quesadillas", colour: "#FFAAD8D8" }
+		]
+	},
+	{
+		name: "Chinese",
+		products:
+		[
+			{ name: "Sweet and Sour Pork", colour: "#FFE6E1D7" },
+			{ name: "Spring Roll", colour: "#FFFFFFFF" },
+			{ name: "Wanton", colour: "#FFD2C9B8" },
+			{ name: "BBQ Pork", colour: "#FFF0EDE7" },
+			{ name: "Hot and Sour Soup", colour: "#FFC9BEA8" },
+			{ name: "Chow Mein", colour: "#FFFAF9F6" }
+		]
+	},
+	{
+		name: "Indian",
+		products:
+		[
+			{ name: "Butter Chicken", colour: "#FFF05A14" },
+			{ name: "Tikka Masala", colour: "#FFF58C5C" },
+			{ name: "Garlic Naan", colour: "#FFC4470D" },
+			{ name: "Chicken Korma", colour: "#FFF26B2C" },
+			{ name: "Lamb Madras", colour: "#FFAC3E0B" },
+			{ name: "Beef Vindaloo", colour: "#FFF37C44" }
+		]
+	}
+]

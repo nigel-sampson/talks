@@ -1,0 +1,23 @@
+﻿<SettingsFlyout
+    x:Class="TechEd.Views.OptionsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TechEd.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    IconSource="/Resources/Images/mm_30x30.jpg"
+    Title="OptionsView"
+    d:DesignWidth="346"
+    HorizontalContentAlignment="Stretch">
+
+    <StackPanel>
+
+        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="Initial Search" Margin="0,0,0,10" />
+        <TextBox x:Name="InitalSearchQuery" />
+
+        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="Search History" Margin="0,20,0,10" />
+        <Button Content="Clear" Click="OnClearHistory" Margin="-3,0,0,0" />
+
+    </StackPanel>
+</SettingsFlyout>

@@ -1,0 +1,26 @@
+﻿<Application
+    x:Class="TechEd.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TechEd"
+    RequestedTheme="Light">
+    
+    <Application.Resources>
+        <Color x:Key="MetroBlue">#FF3C557D</Color>
+        <Color x:Key="MetroTeal">#FF87C8C8</Color>
+        <Color x:Key="MetroGrey">#FFE6E1D7</Color>
+        <Color x:Key="MetroOrange">#FFF05A14</Color>
+
+        <SolidColorBrush x:Key="MetroBlueBrush" Color="{StaticResource MetroBlue}"/>
+        <SolidColorBrush x:Key="MetroTealBrush" Color="{StaticResource MetroTeal}"/>
+        <SolidColorBrush x:Key="MetroGreyBrush" Color="{StaticResource MetroGrey}"/>
+        <SolidColorBrush x:Key="MetroOrangeBrush" Color="{StaticResource MetroOrange}"/>
+
+        <SolidColorBrush x:Key="SearchBoxButtonBackgroundThemeBrush" Color="{StaticResource MetroOrange}" />
+        <SolidColorBrush x:Key="SearchBoxButtonForegroundThemeBrush" Color="White" />
+        <SolidColorBrush x:Key="SearchBoxButtonPointerOverBackgroundThemeBrush" Color="#FFF27439" />
+        <SolidColorBrush x:Key="ProgressBarIndeterminateForegroundThemeBrush" Color="{StaticResource MetroOrange}"/>
+        
+    </Application.Resources>
+
+</Application>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+  <Identity Name="fdc4ccea-f41a-49bf-8a2f-9c92d15d67da" Publisher="CN=Nigel" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>TechEd</DisplayName>
+    <PublisherDisplayName>Nigel</PublisherDisplayName>
+    <Logo>resources\images\mm_50x50.jpg</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="TechEd.App">
+      <m2:VisualElements DisplayName="TechEd" Square150x150Logo="resources\images\mm_150x150.jpg" Square30x30Logo="resources\images\mm_30x30.jpg" Description="TechEd" ForegroundText="light" BackgroundColor="#F05A14">
+        <m2:DefaultTile Square70x70Logo="resources\images\mm_70x70.jpg" DefaultSize="square150x150Logo" Square310x310Logo="resources\images\mm_310x310.jpg" Wide310x150Logo="resources\images\mm_310x150.jpg">
+          <m2:ShowNameOnTiles>
+            <m2:ShowOn Tile="square150x150Logo" />
+          </m2:ShowNameOnTiles>
+        </m2:DefaultTile>
+        <m2:SplashScreen Image="resources\images\mm_620x300.jpg" BackgroundColor="#FFFFFF" />
+      </m2:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

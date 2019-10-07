@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="Demo.Views.ThemeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Demo.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="GoBack" Style="{StaticResource BackButtonStyle}"/>
+            <TextBlock Text="Themed Controls" Style="{StaticResource PageHeaderTextStyle}" Grid.Column="1" />
+        </Grid>
+
+        <StackPanel Margin="120,0,0,0" Grid.Row="1" Orientation="Horizontal">
+            <StackPanel Width="300" Margin="0,0,80,0">
+                <ComboBox x:Name="NamesCombo" />
+                <ListBox x:Name="NamesList" Margin="0,20,0,0" />
+                <ToggleSwitch Margin="0,20,0,0" />
+                <Slider Value="50" />
+                <ProgressBar IsIndeterminate="True" />
+                <ProgressRing IsActive="True" Margin="0,20,0,0" Width="40" Height="40" />
+            </StackPanel>
+            <StackPanel Width="300" Margin="0,0,80,0">
+                <HyperlinkButton Content="Hyperlink" />
+                <GridView x:Name="NamesGrid">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="200" Height="50" Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+                                <TextBlock Text="{Binding}" VerticalAlignment="Center" RenderTransform="{x:Null}" Margin="10" />
+                            </Grid>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </StackPanel>
+        </StackPanel>
+
+        <Image Style="{StaticResource MarkerMetroLogo}" Grid.Row="1"/>
+
+    </Grid>
+</Page>

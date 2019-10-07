@@ -1,0 +1,77 @@
+﻿<Page
+    x:Class="Demo.Views.StoreView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:selectors="using:Demo.Selectors"
+    mc:Ignorable="d">
+    
+    <Page.Resources>
+        <CollectionViewSource x:Key="CategoriesViewSource" Source="{Binding Categories}" IsSourceGrouped="True" ItemsPath="Products" />
+        <selectors:StoreStyleSelector x:Key="StoreStyleSelector"
+                                      Standard="{StaticResource StandardStoreItemStyle}"
+                                      Large="{StaticResource LargeStoreItemStyle}"
+                                      Tall="{StaticResource TallStoreItemStyle}"
+                                      Wide="{StaticResource WideStoreItemStyle}"/>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="GoBack" Style="{StaticResource BackButtonStyle}"/>
+            <TextBlock Text="Store Style Grid" Style="{StaticResource PageHeaderTextStyle}" Grid.Column="1" />
+        </Grid>
+
+        <GridView ItemsSource="{Binding Source={StaticResource CategoriesViewSource}}" Padding="116,0,40,46" Margin="0,-3,0,0" SelectionMode="None" Grid.Row="1" IsSwipeEnabled="False"
+                  ItemContainerStyleSelector="{StaticResource StoreStyleSelector}">
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+            <GridView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.Panel>
+                        <ItemsPanelTemplate>
+                            <VariableSizedWrapGrid Margin="0,0,80,0" ItemWidth="250" ItemHeight="200" MaximumRowsOrColumns="3" />
+                        </ItemsPanelTemplate>
+                    </GroupStyle.Panel>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid Margin="1,0,0,6">
+                                <Button Style="{StaticResource TextPrimaryButtonStyle}" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Name}" Margin="3,-7,10,10" Style="{StaticResource GroupHeaderTextStyle}" />
+                                        <TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" Margin="0,-7,0,10" Style="{StaticResource GroupHeaderTextStyle}"/>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </GridView.GroupStyle>
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="{Binding Colour, Converter={StaticResource ColourToBrush}}">
+                        <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
+                            <TextBlock Text="{Binding Name}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Margin="15,0,15,10"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+
+        <Image Style="{StaticResource MarkerMetroLogo}" Grid.Row="1"/>
+
+    </Grid>
+</Page>

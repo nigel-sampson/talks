@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="TechEd.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TechEd.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+               
+        <ListView x:Name="SearchResultsList" Padding="40,100,40,40" Grid.Column="1" RequestedTheme="Light"
+                  SelectionMode="None" IsItemClickEnabled="True" ItemClick="OnResultTapped" IsTabStop="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <Image Source="{Binding LargeThumbnail}" Width="180" Margin="0,0,20,0" />
+                        
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="{Binding Title}" Style="{StaticResource TitleTextBlockStyle}" />
+                            <TextBlock Text="{Binding Authors}" Style="{StaticResource BodyTextBlockStyle}" />
+                            <TextBlock Text="{Binding PublishedDate}" Style="{StaticResource CaptionTextBlockStyle}" />
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Margin" Value="0,0,0,40"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <ProgressRing x:Name="SearchProgress" Grid.Column="1" Width="60" Height="60" />
+
+        <Border Background="#FF252525" RequestedTheme="Dark">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="40,70,0,0">
+                    <Image Source="/Resources/Images/mm_30x30.jpg" Margin="0,0,20,0"/>
+                    <TextBlock Text="Channel 9" Style="{StaticResource SubheaderTextBlockStyle}"/>
+                </StackPanel>
+
+                <SearchBox x:Name="VideoSearch" Margin="40,20,40,0" PlaceholderText="Search Channel 9"
+                           SuggestionsRequested="OnSuggestionsRequested"
+                           ResultSuggestionChosen="OnResultChosen"
+                           QuerySubmitted="OnQuerySubmitted"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

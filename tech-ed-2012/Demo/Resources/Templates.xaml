@@ -1,0 +1,38 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <DataTemplate x:Key="SimpleLanguageTemplate">
+        <Border Background="{StaticResource MetroBlueBrush}" Width="200" Height="200">
+            <TextBlock Text="{Binding Group.Name}" Style="{StaticResource SubheaderTextStyle}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}"
+                       VerticalAlignment="Bottom" Margin="20"/>
+        </Border>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ExtendedLanguageTemplate">
+        <Grid Background="{StaticResource MetroBlueBrush}" Width="200" Height="200">
+            <TextBlock Text="{Binding Group.Name}" Style="{StaticResource SubheaderTextStyle}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}"
+                       VerticalAlignment="Bottom" Margin="20"/>
+            <TextBlock Text="{Binding Group.Repositories.Count}" Style="{StaticResource SubheaderTextStyle}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}"
+                       HorizontalAlignment="Right" Opacity="0.5" Margin="20" RenderTransform="{x:Null}"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="AdvancedLanguageTemplate">
+        <Grid Width="100" Height="450">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            
+            <Rectangle Height="{Binding Group.Height}" Width="50" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                       Fill="{StaticResource MetroBlueBrush}"/>
+
+            <Border Grid.Row="1" BorderBrush="{StaticResource MetroBlueBrush}" BorderThickness="0,1,0,0" VerticalAlignment="Top">
+                <TextBlock Text="{Binding Group.Name}" Style="{StaticResource TitleTextStyle}" HorizontalAlignment="Center"/>
+            </Border>
+            
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>
