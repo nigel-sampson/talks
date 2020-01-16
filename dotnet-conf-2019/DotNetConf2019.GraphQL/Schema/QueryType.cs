@@ -8,9 +8,6 @@ namespace DotNetConf2019.GraphQL.Schema
         {
             base.Configure(descriptor);
 
-            descriptor.Field(q => q.GetPosts(default))
-                .Type<NonNullType<ListType<NonNullType<PostType>>>>();
-
             descriptor.Field(q => q.GetPost(default, default))
                .Argument("id", a => a.Type<NonNullType<IdType>>());
         }

@@ -9,7 +9,7 @@ namespace DotNetConf2019.GraphQL.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("server=localhost;port=5432;userid=postgres;pwd=password;database=dotnetconf", npgOptionsBuilder =>
+            optionsBuilder.UseNpgsql("server=localhost;port=5432;userid=postgres;pwd=postgres;database=blog", npgOptionsBuilder =>
             {
                 npgOptionsBuilder.UseNodaTime();
             });
@@ -17,6 +17,7 @@ namespace DotNetConf2019.GraphQL.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.HasDefaultSchema("public");
             modelBuilder
                 .ForNpgsqlUseIdentityColumns();
 

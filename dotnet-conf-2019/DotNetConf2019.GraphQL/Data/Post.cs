@@ -1,4 +1,6 @@
 ﻿using NodaTime;
+using HotChocolate.Types;
+using HotChocolate.Types.Relay;
 
 namespace DotNetConf2019.GraphQL.Data
 {

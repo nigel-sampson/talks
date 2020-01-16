@@ -4,11 +4,12 @@ using HotChocolate;
 using HotChocolate.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using NodaTime;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NodaTime;
 using HotChocolate.AspNetCore.Voyager;
+using DotNetConf2019.GraphQL.Data;
 using System;
 
 namespace DotNetConf2019.GraphQL
@@ -23,16 +24,32 @@ namespace DotNetConf2019.GraphQL
                 .AddEntityFrameworkNpgsql()
                 .AddDbContext<BlogDbContext>();
 
+            // services
+            //     .AddDataLoaderRegistry()
+            //     .AddGraphQL(sp => SchemaBuilder.New()
+            //         .AddServices(sp)
+            //         .AddQueryType(d => d.Name("Query"))
+            //         .AddMutationType(d => d.Name("Mutation"))
+            //         .AddSubscriptionType(d => d.Name("Subscription"))
+            //         .AddType<CharacterQueries>()
+            //         .AddType<ReviewQueries>()
+            //         .AddType<ReviewMutations>()
+            //         .AddType<ReviewSubscriptions>()
+            //         .AddType<Human>()
+            //         .AddType<Droid>()
+            //         .AddType<Starship>()
+            //         .Create());
+
             services
                 .AddDataLoaderRegistry()
                 .AddGraphQL(sp =>
-                {
-                    return SchemaBuilder.New()
+                     SchemaBuilder.New()
+                        .AddServices(sp)
                         .AddQueryType<QueryType>()
                         .AddMutationType<MutationType>()
                         .AddType<OffsetDateTimeType>()
-                        .Create();
-                });
+                        .AddType<Post>()
+                        .Create());
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -40,7 +57,6 @@ namespace DotNetConf2019.GraphQL
             if (env.IsDevelopment())
             {
                 MigrateDatabase(app.ApplicationServices);
-
                 app.UseDeveloperExceptionPage();
             }
 
