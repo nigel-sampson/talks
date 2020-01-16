@@ -45,7 +45,8 @@ namespace DotNetConf2019.GraphQL
 
             app
                 .UseGraphQLHttpPost(new HttpPostMiddlewareOptions { Path = "/graphql" })
-                .UseGraphQLHttpGetSchema(new HttpGetSchemaMiddlewareOptions { Path = "/graphql/schema" });
+                .UseGraphQLHttpGetSchema(new HttpGetSchemaMiddlewareOptions { Path = "/graphql/schema" })
+				.UsePlayground("/graphql");
         }
 
         private void MigrateDatabase(IServiceProvider services)

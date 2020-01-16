@@ -15,13 +15,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bogus" Version="28.0.3" />
+    <PackageReference Include="Bogus" Version="28.4.4" />
     <PackageReference Include="HotChocolate.AspNetCore" Version="10.3.5" />
     <PackageReference Include="HotChocolate.AspNetCore.Playground" Version="10.3.5" />
     <PackageReference Include="HotChocolate.AspNetCore.Voyager" Version="10.3.5" />
+    <PackageReference Include="HotChocolate.Subscriptions.InMemory" Version="10.3.5" />
     <PackageReference Include="HotChocolate.Types.Filters" Version="10.3.5" />
     <PackageReference Include="HotChocolate.Types.Sorting" Version="10.3.5" />
-    <PackageReference Include="Markdig" Version="0.17.1" />
+    <PackageReference Include="Markdig" Version="0.18.0" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NodaTime" Version="2.2.4" />
   </ItemGroup>
