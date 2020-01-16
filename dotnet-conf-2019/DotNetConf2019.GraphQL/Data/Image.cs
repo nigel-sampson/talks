@@ -4,10 +4,10 @@
     {
         public int Id { get; set; }
 
-        public ImageSize Size { get; set; }
+        public ImageSize Size { get; set; } = ImageSize.Small;
 
-        public string Url { get; set; }
+        public string Url { get; set; } = null!;
 
-        public int PostId { get; set; }
+        public int PostId { get; set; } = 0;
     }
 }
