@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NodaTime;
+using HotChocolate.AspNetCore.Voyager;
 using System;
 
 namespace DotNetConf2019.GraphQL
@@ -46,7 +47,8 @@ namespace DotNetConf2019.GraphQL
             app
                 .UseGraphQLHttpPost(new HttpPostMiddlewareOptions { Path = "/graphql" })
                 .UseGraphQLHttpGetSchema(new HttpGetSchemaMiddlewareOptions { Path = "/graphql/schema" })
-				.UsePlayground("/graphql");
+				.UsePlayground("/graphql")
+				.UseVoyager("/graphql");
         }
 
         private void MigrateDatabase(IServiceProvider services)
