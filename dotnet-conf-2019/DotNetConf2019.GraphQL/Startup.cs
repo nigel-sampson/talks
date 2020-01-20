@@ -17,11 +17,8 @@ namespace DotNetConf2019.GraphQL
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddSingleton<IClock>(SystemClock.Instance);
-
-            services.AddDbContext<BlogDbContext>();
-
             services
+                .AddDbContext<BlogDbContext>()
                 .AddDataLoaderRegistry()
                 .AddGraphQL(sp =>
                      SchemaBuilder.New()
@@ -37,7 +34,6 @@ namespace DotNetConf2019.GraphQL
         {
             if (env.IsDevelopment())
             {
-                //MigrateDatabase(app.ApplicationServices);
                 app.UseDeveloperExceptionPage();
             }
 

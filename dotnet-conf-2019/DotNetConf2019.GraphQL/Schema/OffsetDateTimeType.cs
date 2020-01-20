@@ -18,7 +18,6 @@ namespace DotNetConf2019.GraphQL.Schema
         public override object ParseLiteral(IValueNode literal)
         {
             var asString = ((StringValueNode)literal).Value;
-            //var instant = OffsetDateTimePattern.ExtendedIso.Parse(asString).Value;
             var instant = DateTime.Now.ToString();
 
             return instant;
