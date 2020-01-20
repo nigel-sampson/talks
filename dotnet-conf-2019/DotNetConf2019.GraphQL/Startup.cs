@@ -21,22 +21,6 @@ namespace DotNetConf2019.GraphQL
 
             services.AddDbContext<BlogDbContext>();
 
-            // services
-            //     .AddDataLoaderRegistry()
-            //     .AddGraphQL(sp => SchemaBuilder.New()
-            //         .AddServices(sp)
-            //         .AddQueryType(d => d.Name("Query"))
-            //         .AddMutationType(d => d.Name("Mutation"))
-            //         .AddSubscriptionType(d => d.Name("Subscription"))
-            //         .AddType<CharacterQueries>()
-            //         .AddType<ReviewQueries>()
-            //         .AddType<ReviewMutations>()
-            //         .AddType<ReviewSubscriptions>()
-            //         .AddType<Human>()
-            //         .AddType<Droid>()
-            //         .AddType<Starship>()
-            //         .Create());
-
             services
                 .AddDataLoaderRegistry()
                 .AddGraphQL(sp =>
