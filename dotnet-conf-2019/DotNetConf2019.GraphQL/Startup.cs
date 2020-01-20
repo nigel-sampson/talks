@@ -4,7 +4,6 @@ using HotChocolate;
 using HotChocolate.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using NodaTime;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -18,11 +17,9 @@ namespace DotNetConf2019.GraphQL
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IClock>(SystemClock.Instance);
+            //services.AddSingleton<IClock>(SystemClock.Instance);
 
-            services
-                .AddEntityFrameworkNpgsql()
-                .AddDbContext<BlogDbContext>();
+            services.AddDbContext<BlogDbContext>();
 
             // services
             //     .AddDataLoaderRegistry()
@@ -56,7 +53,7 @@ namespace DotNetConf2019.GraphQL
         {
             if (env.IsDevelopment())
             {
-                MigrateDatabase(app.ApplicationServices);
+                //MigrateDatabase(app.ApplicationServices);
                 app.UseDeveloperExceptionPage();
             }
 
@@ -67,15 +64,5 @@ namespace DotNetConf2019.GraphQL
 				.UseVoyager("/graphql");
         }
 
-        private void MigrateDatabase(IServiceProvider services)
-        {
-            var scopeFactory = services.GetRequiredService<IServiceScopeFactory>();
-
-            using(var scope = scopeFactory.CreateScope())
-            using (var context = scope.ServiceProvider.GetRequiredService<BlogDbContext>())
-            {
-                context.Database.Migrate();
-            }
-        }
     }
 }

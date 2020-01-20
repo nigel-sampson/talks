@@ -1,4 +1,4 @@
-﻿using NodaTime;
+﻿using System;
 
 namespace DotNetConf2019.GraphQL.Data
 {
@@ -10,6 +10,6 @@ namespace DotNetConf2019.GraphQL.Data
 
         public int PostId { get; set; } = 0;
 
-        public OffsetDateTime SubmittedOn { get; set; }
+        public DateTime SubmittedOn { get; set; }
     }
 }

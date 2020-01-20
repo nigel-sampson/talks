@@ -1,6 +1,5 @@
 ﻿using DotNetConf2019.GraphQL.Data;
 using HotChocolate;
-using NodaTime;
 using System;
 using System.Threading.Tasks;
 
@@ -8,12 +7,12 @@ namespace DotNetConf2019.GraphQL.Schema
 {
     public class Mutation
     {
-        private readonly IClock clock;
+        //private readonly IClock clock;
 
-        public Mutation(IClock clock)
-        {
-            this.clock = clock;
-        }
+        //public Mutation(IClock clock)
+        //{
+        //    this.clock = clock;
+        //}
 
         public async Task<Post> SubmitPost([Service] BlogDbContext dbContext, SubmitPostInput input)
         {
@@ -22,7 +21,7 @@ namespace DotNetConf2019.GraphQL.Schema
                 AuthorId = input.AuthorId,
                 Title = input.Title,
                 Markdown = input.Markdown,
-                PublishedOn = clock.GetCurrentInstant().WithOffset(Offset.Zero)
+                PublishedOn = DateTime.Now
             };
 
             dbContext.Posts.Add(post);

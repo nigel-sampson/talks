@@ -21,7 +21,7 @@ namespace DotNetConf2019.GraphQL.Schema
         public async Task<IReadOnlyList<Image>> GetImages([Service] BlogDbContext dbContext) =>
             await dbContext.Images.ToListAsync();
 
-        public Task<Post> GetPost([Service] BlogDbContext dbContext, int id) => 
-            dbContext.Posts.FindAsync(id);
+        public Task<Post> GetPost([Service] BlogDbContext dbContext, int id) =>
+            dbContext.Posts.FindAsync(id).AsTask();
     }
 }

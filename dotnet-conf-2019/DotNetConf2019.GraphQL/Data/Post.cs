@@ -1,6 +1,6 @@
-﻿using NodaTime;
-using HotChocolate.Types;
+﻿using HotChocolate.Types;
 using HotChocolate.Types.Relay;
+using System;
 
 namespace DotNetConf2019.GraphQL.Data
 {
@@ -15,6 +15,6 @@ namespace DotNetConf2019.GraphQL.Data
 
         public string Markdown { get; set; } = "";
 
-        public OffsetDateTime PublishedOn { get; set; }
+        public DateTime PublishedOn { get; set; }
     }
 }
