@@ -10,6 +10,11 @@ namespace DotNetConf2019.GraphQL.Schema
 {
     public class Query
     {
+        public Query()
+        {
+
+        }
+
         public async Task<IReadOnlyList<Post>> GetPosts([Service] BlogDbContext dbContext)
         {
             return await dbContext.Posts
